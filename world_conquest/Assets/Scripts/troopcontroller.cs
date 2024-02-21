@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TroopController : MonoBehaviour
 {
     // Start is called before the first frame update
-
+  
     //displayTroops
     //modifyTroops
     void Start()
@@ -18,7 +18,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         
     }
-    /**modifytroops
+    /**removetroops
         //subtracts troops(number)
     **/
 
