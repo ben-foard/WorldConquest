@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
-using TMPro;
+
 
 public class Player : MonoBehaviour
 {
-    public TextMeshProUGUI playerNameText;
     private string playerName;
     private Territory currentTerritory;
     private int troopCount = 5;
-    
     public Player(string name, Territory ter)
     {
         this.playerName = name;
@@ -28,12 +25,14 @@ public class Player : MonoBehaviour
         troopCount += amount;
     }
 
-    
 
-    public void attackTerritory(Territory ter)
+
+    public void attackTerritory()
     {
-        ter.removeTroops(1);
-        
+        if(playerName == "player2")
+        {
+            currentTerritory.removeTroops(1);
+        }
     }
 
     public void Fortify()
@@ -46,7 +45,7 @@ public class Player : MonoBehaviour
     }
     public string getPlayerName()
     {
-        return this.playerName;
+        return null;
     }
     /**fortify()
         //for this sprint this phase will just print fortified 
