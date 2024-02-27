@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private Player p1;
     private Player p2;
     private ButtonManager buttonManager;
+    
     enum gamePhases {
         Deploy,
         Attack,

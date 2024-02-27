@@ -32,7 +32,7 @@ public class PlayerTest : MonoBehaviour
        }
        public bool attackTerritory()
        {
-            
+          
             if(t1.GetTerritoryTroopCount() == 5 && t2.GetTerritoryTroopCount() == 4)
             {
                 return true;
