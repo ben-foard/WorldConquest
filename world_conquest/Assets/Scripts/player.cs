@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameText;
     private string playerName;
     private Territory currentTerritory;
-    private int troopCount = 5;
+    private int troopCount = 40;
+    private int troopsToDeploy;
     private List<Territory> ownedTerritories;
+
     public Player(string name, Territory ter)
     {
         this.playerName = name;
@@ -28,14 +30,15 @@ public class Player : MonoBehaviour
         troopCount += amount;
     }
 
-    
-
     public void attackTerritory(Territory ter)
     {
         ter.RemoveTroops(1);
         
     }
-
+    public int getTroopsToDeploy()
+    {
+        return this.troopsToDeploy;
+    }
     public void Fortify()
     {
         return;

@@ -17,16 +17,16 @@ public class GameManager : MonoBehaviour
     private Player p2;
     private ButtonManager buttonManager;
     private int troopsToDeploy = 5;
+    private gamePhases currentGamePhase = gamePhases.Start;
 
     enum gamePhases {
+        Start,
         Deploy,
         Attack,
         Fortify,
         EndGame
     }
     
-    private gamePhases currentGamePhase = gamePhases.Deploy;
-
     void Awake() 
     {
         p1 = new Player("player1", t1);
@@ -54,6 +54,16 @@ public class GameManager : MonoBehaviour
     }
     private void AdvancePhase()
     { 
+        if(currentGamePhase == gamePhases.Start)
+        {
+            while(true)
+            {
+                foreach(Player p in CurrentPlayers)
+                {
+                    DeployTroops();
+                }
+            }
+        }
         if(CheckWin())
         {
             currentGamePhase = gamePhases.EndGame;
@@ -74,7 +84,8 @@ public class GameManager : MonoBehaviour
             UpdateUI();
             switch (currentGamePhase)
             {
-                case gamePhases.Deploy:               
+                case gamePhases.Deploy:
+                                   
                     break;
                 case gamePhases.Attack: 
                     slider.gameObject.SetActive(false);              
@@ -115,7 +126,7 @@ public class GameManager : MonoBehaviour
     {  
         
         foreach(Territory t in CurrentPlayers[PlayerIndex].getAllTerritories()){
-            //t.GetonClick.AddListener(ShowNeighbouringCountries);
+            t.GetTerritoryButton().AddListener(ShowNeighbouringCountries);
         }
         CurrentPlayers[PlayerIndex].attackTerritory(t2);
         AdvancePhase();
@@ -124,7 +135,10 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    public void DeployTroops()
+    {
 
+    }
     // public void PerformDeploy()
     // {
     //     while()
