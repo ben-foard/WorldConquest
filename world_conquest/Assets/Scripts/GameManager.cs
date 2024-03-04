@@ -7,14 +7,17 @@ public class GameManager : MonoBehaviour
 {   
     public Territory t1;
     public Territory t2;
+    private Slider slider;
+    [SerializeField] private List<Territory> allTerritories;
     //Will be a list in the future
-    public TextMeshProUGUI currentPlayerText;
+    [SerializeField] private TextMeshProUGUI currentPlayerText;
     private int PlayerIndex = 0;
-    private List<Player> CurrentPlayers = new List<Player>();
+    [SerializeField] private List<Player> CurrentPlayers = new List<Player>();
     private Player p1;
     private Player p2;
     private ButtonManager buttonManager;
-    
+    private int troopsToDeploy = 5;
+
     enum gamePhases {
         Deploy,
         Attack,
@@ -26,8 +29,6 @@ public class GameManager : MonoBehaviour
 
     void Awake() 
     {
-        t1.setTroops();
-        t2.setTroops();
         p1 = new Player("player1", t1);
         p2 = new Player("player2", t2);
         CurrentPlayers.Add(p1);
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {           
+        slider = FindObjectOfType<Slider>();
         buttonManager = FindObjectOfType<ButtonManager>();
         StartGame();
     }
@@ -74,7 +76,8 @@ public class GameManager : MonoBehaviour
             {
                 case gamePhases.Deploy:               
                     break;
-                case gamePhases.Attack:                
+                case gamePhases.Attack: 
+                    slider.gameObject.SetActive(false);              
                     break;
                 case gamePhases.Fortify:             
                     break;
@@ -104,16 +107,28 @@ public class GameManager : MonoBehaviour
     }
     void UpdateUI()
     {
-        buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Deploy, currentGamePhase == gamePhases.Attack, 
-        currentGamePhase == gamePhases.Fortify, currentGamePhase != gamePhases.EndGame);
+        buttonManager.InteractableUpdater(currentGamePhase != gamePhases.EndGame);
 
         currentPlayerText.text = "Current Turn: " + CurrentPlayers[PlayerIndex].getPlayerName();
     }    
     public void PerformAttack()
     {  
+        
+        foreach(Territory t in CurrentPlayers[PlayerIndex].getAllTerritories()){
+            //t.GetonClick.AddListener(ShowNeighbouringCountries);
+        }
         CurrentPlayers[PlayerIndex].attackTerritory(t2);
         AdvancePhase();
     }
+    public void ShowNeighbouringCountries()
+    {
+
+    }
+
+    // public void PerformDeploy()
+    // {
+    //     while()
+    // }
 }
     /**gameloop():
         // check win

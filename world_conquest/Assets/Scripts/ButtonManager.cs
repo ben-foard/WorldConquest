@@ -6,15 +6,13 @@ using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
-    public Button deployButton; 
-    public Button attackButton; 
-    public Button fortifyButton; 
-    public Button continueButton;
+    [SerializeField] public Button continueButton;
+    [SerializeField] private List<Button> territoryButtons;
     private GameManager gameManager;
+    
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        attackButton.onClick.AddListener(gameManager.PerformAttack);
     }
 
     void Update()
@@ -23,13 +21,11 @@ public class ButtonManager : MonoBehaviour
     }
 
 
-    public void InteractableUpdater(bool deploy, bool attack, bool fortify, bool EndGame)
-    {
-        deployButton.interactable = deploy;
-        attackButton.interactable = attack;
-        fortifyButton.interactable = fortify;
+    public void InteractableUpdater(bool EndGame)
+    {      
         continueButton.interactable = EndGame;
     }
+    
     //public void
 }
 

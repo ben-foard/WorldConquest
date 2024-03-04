@@ -8,11 +8,11 @@ public class Territory : MonoBehaviour
 {
  //Name
     //Sections = 1 
-    public TextMeshProUGUI troopText;
-    public Button territoryButton; 
-    private int troopCount = 5;
-    public string territoryName;
-
+    [SerializeField] private TextMeshProUGUI troopText;
+    [SerializeField] private Button territoryButton; 
+    private int troopCount = 0;
+    [SerializeField] private string territoryName;
+    [SerializeField] private List<Territory> neighbours;
     void Awake()
     {
                
@@ -37,12 +37,12 @@ public class Territory : MonoBehaviour
             troopText.text = troopCount.ToString();
         }
     }
-    public void setTroops(int amount = 5)
+    public void SetTroops(int amount = 5)
     {
         this.troopCount = amount;
     }
 
-    public void removeTroops(int amount)
+    public void RemoveTroops(int amount)
     {
         troopCount -= amount;
     }
@@ -51,6 +51,10 @@ public class Territory : MonoBehaviour
     {
         this.territoryName = name;
     }
+    //public Button GetTerritoryButton()
+    //{
+    //    return this.territoryButton;
+   //}
     
     /**setTroops()
         this.troopsPerland = random assigned.

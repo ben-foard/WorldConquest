@@ -6,11 +6,11 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public TextMeshProUGUI playerNameText;
+    [SerializeField] private TextMeshProUGUI playerNameText;
     private string playerName;
     private Territory currentTerritory;
     private int troopCount = 5;
-    
+    private List<Territory> ownedTerritories;
     public Player(string name, Territory ter)
     {
         this.playerName = name;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     public void attackTerritory(Territory ter)
     {
-        ter.removeTroops(1);
+        ter.RemoveTroops(1);
         
     }
 
@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
     public string getPlayerName()
     {
         return this.playerName;
+    }
+    public List<Territory> getAllTerritories()
+    {
+        return this.ownedTerritories;
     }
     /**fortify()
         //for this sprint this phase will just print fortified 
