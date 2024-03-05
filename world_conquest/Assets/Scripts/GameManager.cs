@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
     void UpdateUI()
     {
         slider.SetSliderActive(false);
+        if (currentGamePhase == gamePhases.Deploy) { slider.SetSliderActive(true); }
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
         foreach(Territory t in allTerritories){
             t.RevertHighlight();
