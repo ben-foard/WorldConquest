@@ -16,10 +16,9 @@ public class PlayerTest : MonoBehaviour
         {
             t1 = new Territory();
             t2 = new Territory();
-            t1.SetTerritoryName("territory1");
-            t2.SetTerritoryName("territory2");
-            p1 = new Player("player1", t1);
-            p2 = new Player("player2", t2);
+            
+            p1 = new Player("player1");
+            p2 = new Player("player2");
         }
        public bool addTroops() 
        {

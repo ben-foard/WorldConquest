@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using System;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerNameText;
     private string playerName;
-    private Territory currentTerritory;
-    private int troopCount = 40;
-    private int troopsToDeploy;
+    private int troopCount = 0;
+    private int troopsToDeploy = 4;
     private List<Territory> ownedTerritories;
 
-    public Player(string name, Territory ter)
+    public Player(string name)
     {
         this.playerName = name;
-        this.currentTerritory = ter;
+        this.ownedTerritories = new List<Territory>();
     }
 
     // Start is called before the first frame update
@@ -30,14 +31,18 @@ public class Player : MonoBehaviour
         troopCount += amount;
     }
 
-    public void attackTerritory(Territory ter)
+    public void AttackTerritory(Territory ter)
     {
         ter.RemoveTroops(1);
         
     }
-    public int getTroopsToDeploy()
+    public int GetTroopsToDeploy()
     {
         return this.troopsToDeploy;
+    }
+    public void AlterTroopsToDeploy(int amount)
+    {
+        this.troopsToDeploy += amount;
     }
     public void Fortify()
     {
@@ -47,13 +52,21 @@ public class Player : MonoBehaviour
     {
         return troopCount;
     }
-    public string getPlayerName()
+    public string GetPlayerName()
     {
         return this.playerName;
     }
-    public List<Territory> getAllTerritories()
+    public List<Territory> GetAllTerritories()
     {
         return this.ownedTerritories;
+    }
+    public void AddTerritory(Territory t)
+    {
+        this.ownedTerritories.Add(t);
+    }
+    public void RemoveTerritory(Territory t)
+    {
+        this.ownedTerritories.Remove(t);
     }
     /**fortify()
         //for this sprint this phase will just print fortified 

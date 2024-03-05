@@ -8,11 +8,10 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] public Button continueButton;
     [SerializeField] private List<Button> territoryButtons;
-    private GameManager gameManager;
     
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        
     }
 
     void Update()

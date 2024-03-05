@@ -11,7 +11,7 @@ public class Territory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI troopText;
     [SerializeField] private Button territoryButton; 
     private int troopCount = 0;
-    [SerializeField] private string territoryName;
+    [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
 
     void Awake() 
@@ -20,19 +20,12 @@ public class Territory : MonoBehaviour
     }
 
     void OnTerritoryButtonClick() {
-        Debug.Log("test");
-        // Assuming GameManager can be accessed to check the current phase and switch players
-        //if (GameManager.Instance.CurrentGamePhase == GameManager.gamePhases.Start || GameManager.Instance.CurrentGamePhase == GameManager.gamePhases.Deploy) {
-            // Logic to determine the number of troops to deploy, e.g., based on a UI element or a fixed number for this phase
-            int troopsToDeploy = 5; // Example fixed number, replace with dynamic logic as needed
+        
+        if (GameManager.Instance.GetCurrentPhase() == "Start" || GameManager.Instance.GetCurrentPhase() == "Deploy") {
+           
+            GameManager.Instance.DeployTroops(this);
+        }
 
-            // Deploy troops and update the UI
-            SetTroops(troopCount + troopsToDeploy);
-            UpdateTroopCountUI();
-
-            // Notify GameManager to switch to the next player
-            //GameManager.Instance.SwitchToNextPlayer();
-        //}
     }
 
     void Start()
@@ -55,19 +48,14 @@ public class Territory : MonoBehaviour
             troopText.text = troopCount.ToString();
         }
     }
-    public void SetTroops(int amount)
+    public void AddTroops(int amount)
     {
-        this.troopCount = amount;
+        this.troopCount += amount;
     }
 
     public void RemoveTroops(int amount)
     {
         troopCount -= amount;
-    }
-
-    public void SetTerritoryName(string name)
-    {
-        this.territoryName = name;
     }
     public Button GetTerritoryButton()
     {
