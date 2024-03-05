@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
-
 public class Territory : MonoBehaviour
 {
- //Name
-    //Sections = 1 
+
     [SerializeField] private TextMeshProUGUI troopText;
+    [SerializeField] private Image territoryBackground;
     [SerializeField] private Button territoryButton; 
+    private Color32 territoryColour;
     private int troopCount = 0;
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
 
     void Awake() 
     {
+        territoryColour = territoryBackground.color;
         territoryButton.onClick.AddListener(OnTerritoryButtonClick);
     }
 
@@ -24,6 +25,10 @@ public class Territory : MonoBehaviour
         if (GameManager.Instance.GetCurrentPhase() == "Start" || GameManager.Instance.GetCurrentPhase() == "Deploy") {
            
             GameManager.Instance.DeployTroops(this);
+        }
+        else if(GameManager.Instance.GetCurrentPhase() == "Attack"){
+            
+            GameManager.Instance.DisplayNeighbours(this);
         }
 
     }
@@ -61,10 +66,24 @@ public class Territory : MonoBehaviour
     {
         return this.territoryButton;
     }
-    public void OnTerritoryClick()
+    public List<Territory> GetNeighbours()
     {
-        
+        return this.neighbours;
     }
+    public void HighlightTerritory()
+    {
+        territoryBackground.color = new Color32(0, 255, 0, 255);
+    }
+    public void RevertHighlight()
+    {
+        territoryBackground.color = this.territoryColour;
+    }
+    public void SetColour(Color32 c)
+    {
+        this.territoryColour = c;
+        territoryBackground.color = c;
+    }
+
     /**setTroops()
         this.troopsPerland = random assigned.
     **/
