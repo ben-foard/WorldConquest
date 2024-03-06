@@ -131,15 +131,17 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        slider.SetSliderActive(false);
-        if (currentGamePhase == gamePhases.Deploy) { slider.SetSliderActive(true); }
+        slider.SetSliderActive(currentGamePhase == gamePhases.Deploy);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
+
         foreach(Territory t in allTerritories){
             t.RevertHighlight();
         }
+
         if(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Start){
             TroopsToDeployText.text = "Troops to deploy: " + CurrentPlayers[PlayerIndex].GetTroopsToDeploy().ToString();
         } else {TroopsToDeployText.text = "";}
+
         currentPhaseText.text = currentGamePhase.ToString();
         currentPlayerText.text = "Current Turn: " + CurrentPlayers[PlayerIndex].GetPlayerName();
     }    
@@ -149,7 +151,6 @@ public class GameManager : MonoBehaviour
         foreach(Territory t in CurrentPlayers[PlayerIndex].GetAllTerritories()){
             t.GetTerritoryButton().onClick.AddListener(ShowNeighbouringCountries);
         }
-        //CurrentPlayers[PlayerIndex].attackTerritory(attackedTerritory);
         AdvancePhase();
     }
 
@@ -164,15 +165,19 @@ public class GameManager : MonoBehaviour
         if(current.GetAllTerritories().Contains(currentTerritory) && !CheckDeployedAllTroops(current)){
 
             int amount = slider.GetAmount();
+
             if(currentGamePhase == gamePhases.Start){
                 amount = 1;
             }      
+            
             currentTerritory.AddTroops(amount);      
             current.AddTroops(amount);
             current.AlterTroopsToDeploy(-amount); 
+
             if(currentGamePhase == gamePhases.Start){
                 PlayerIndex = (PlayerIndex + 1) % CurrentPlayers.Count;
             }
+
             if(CheckDeployedAllTroops(current))
             {
                 if (currentGamePhase == gamePhases.Start)
@@ -185,7 +190,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (currentGamePhase != gamePhases.Start)
                 {
-                    AdvancePhase(); // Advance phase if it's not the Start phase and current player has deployed all troops
+                    AdvancePhase(); 
                 }
             }
         }
