@@ -14,7 +14,7 @@ public class Territory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
     private Player territoryOwner;
-
+    
     void Awake() 
     {
         territoryColour = territoryBackground.color;
@@ -29,17 +29,22 @@ public class Territory : MonoBehaviour
             GameManager.Instance.DeployTroops(this);
         }
         else if(GameManager.Instance.GetCurrentPhase() == "Attack"){
-            
-            GameManager.Instance.DisplayNeighbours(this);
+
+            if(GameManager.Instance.GetPreviousSelectedTerritory() != null){
+                
+                Territory attackingTerritory = GameManager.Instance.GetPreviousSelectedTerritory();
+                if(attackingTerritory.GetNeighbours().Contains(this) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
+                    GameManager.Instance.PerformAttack(this);
+                }     
+                else{
+                    GameManager.Instance.DisplayNeighbours(this);
+                }
+                return;
+            }
+            GameManager.Instance.DisplayNeighbours(this);            
         }
-        
-
     }
 
-    void Start()
-    {
-       
-    }
     void Update()
     {
         UpdateTroopCountUI();

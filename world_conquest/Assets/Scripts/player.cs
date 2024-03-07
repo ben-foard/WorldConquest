@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     {
         if(attackingValue > defendingValue){
             this.AddTroops(1);
+            territoryDefending.GetOwner().RemoveTroops(1);
             if(territoryDefending.GetTerritoryTroopCount() == 1){
                 territoryDefending.ChangeOwner(this);
             }
@@ -52,9 +53,7 @@ public class Player : MonoBehaviour
         else{
             this.RemoveTroops(1);
             territoryAttacking.RemoveTroops(1);
-            
         }
-        territoryAttacking.RemoveTroops(1);
         
     }
     public int GetTroopsToDeploy()

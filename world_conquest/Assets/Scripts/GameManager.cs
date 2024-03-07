@@ -6,23 +6,26 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using System.Linq;
+using System.Security.Cryptography;
 public class GameManager : MonoBehaviour
 {   
     public static GameManager Instance {get; private set;}
  
-    private SliderScript slider;
+   
     [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
-    //Will be a list in the future
     [SerializeField] private TextMeshProUGUI currentPlayerText;
-    private int PlayerIndex = 0;
     [SerializeField] private List<Player> CurrentPlayers = new List<Player>();
     [SerializeField] private TextMeshProUGUI TroopsToDeployText;
-    private int playerCount = 2;
-    private ButtonManager buttonManager;
+        
     private gamePhases currentGamePhase = gamePhases.Start;
     private List<Color32> playerColours = new List<Color32> { new Color32(229,19,19,255), new Color32(255,225,9,255),  new Color32(0,21,255,255), new Color32(6,171,30,255), new Color32(100,6,171,255), new Color32(171,6,154,255)};
-    
+    private int PlayerIndex = 0;
+    private Dice gameDice = new Dice();
+    private SliderScript slider;
+    private ButtonManager buttonManager;
+    private Territory previousSelectedTerritory;
+
     enum gamePhases {
         Start,
         Deploy,
@@ -38,15 +41,16 @@ public class GameManager : MonoBehaviour
         Player p2 = new Player("player2");
         p1.SetPlayerColour(playerColours[0]);
         p2.SetPlayerColour(playerColours[1]);
-        Debug.Log("test");
         for(int i = 0; i<allTerritories.Count;i++)
         {
             if(i%2==0)
             {
                 p1.AddTerritory(allTerritories[i]);
+                allTerritories[i].SetOwner(p1);
                 continue;
             }
             p2.AddTerritory(allTerritories[i]);
+            allTerritories[i].SetOwner(p2);
         }    
         CurrentPlayers.Add(p1);
         CurrentPlayers.Add(p2);
@@ -59,11 +63,6 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-    void Update()
-    {
-
-    }
-    
     private void StartGame()
     {
         UpdateUI();
@@ -111,21 +110,16 @@ public class GameManager : MonoBehaviour
 
     private bool CheckWin()
     {
-        foreach(Player p in CurrentPlayers)
-        {
-            if(p.GetTroopTotal() == 0)
-            {
-                CurrentPlayers.Remove(p);
-            }
-        }
-        if(CurrentPlayers.Count==1){
-            return true;
-        }
-        return false;
+        Debug.Log(CurrentPlayers[0].GetAllTerritories().Count());
+        Debug.Log(CurrentPlayers[1].GetAllTerritories().Count());
+        CurrentPlayers.RemoveAll(p => p.GetAllTerritories().Count() == 0);
+        
+        return CurrentPlayers.Count == 1;
     }
 
     private void EndGame()
     {
+        PlayerIndex = 0;
         UpdateUI();
         currentPlayerText.text = "Winner: " + CurrentPlayers[0].GetPlayerName().ToString();   
     }
@@ -147,16 +141,15 @@ public class GameManager : MonoBehaviour
         currentPlayerText.text = "Current Turn: " + CurrentPlayers[PlayerIndex].GetPlayerName();
     }    
 
-    public void PerformAttack()
+    public void PerformAttack(Territory defendingCountry)
     {  
-        foreach(Territory t in CurrentPlayers[PlayerIndex].GetAllTerritories()){
-            t.GetTerritoryButton().onClick.AddListener(ShowNeighbouringCountries);
+        if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
+            int attackValue = gameDice.getDiceValue(1);
+            int defendValue = gameDice.getDiceValue(1);
+            CurrentPlayers[PlayerIndex].AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
         }
-        AdvancePhase();
-    }
-
-    public void ShowNeighbouringCountries()
-    {
+        UpdateUI();
+        previousSelectedTerritory = null;
 
     }
     
@@ -214,13 +207,24 @@ public class GameManager : MonoBehaviour
     {
         UpdateUI();
         if(CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(selectedTerritory)){
+            previousSelectedTerritory = selectedTerritory;
             foreach(Territory t in selectedTerritory.GetNeighbours())
             {
                 if(!CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(t)){
                     t.HighlightTerritory();
                 }
             }
+            
+        }
+        else{
+           previousSelectedTerritory = null; 
         }
         
+    }
+    public Territory GetPreviousSelectedTerritory(){
+        return this.previousSelectedTerritory;
+    }
+    public void SetPreviousSelectedTerritory(Territory t){
+        this.previousSelectedTerritory = t;
     }
 }
