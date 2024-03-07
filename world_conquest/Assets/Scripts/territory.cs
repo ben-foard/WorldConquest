@@ -13,6 +13,7 @@ public class Territory : MonoBehaviour
     private int troopCount = 0;
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
+    private Player territoryOwner;
 
     void Awake() 
     {
@@ -21,6 +22,7 @@ public class Territory : MonoBehaviour
     }
 
     void OnTerritoryButtonClick() {
+
         
         if (GameManager.Instance.GetCurrentPhase() == "Start" || GameManager.Instance.GetCurrentPhase() == "Deploy") {
            
@@ -30,6 +32,7 @@ public class Territory : MonoBehaviour
             
             GameManager.Instance.DisplayNeighbours(this);
         }
+        
 
     }
 
@@ -83,7 +86,22 @@ public class Territory : MonoBehaviour
         this.territoryColour = c;
         territoryBackground.color = c;
     }
-
+    public void SetOwner(Player p)
+    {
+        this.territoryOwner = p;
+    }
+    public Player GetOwner()
+    {
+        return this.territoryOwner;
+    }
+    public void ChangeOwner(Player p)
+    {
+        this.territoryOwner.RemoveTerritory(this);
+        this.territoryOwner = p;
+        this.territoryColour = p.GetPlayerColour();
+        SetColour(this.territoryColour);
+        p.AddTerritory(this);
+    }
     /**setTroops()
         this.troopsPerland = random assigned.
     **/

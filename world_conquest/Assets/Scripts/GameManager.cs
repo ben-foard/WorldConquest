@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviour
     private int PlayerIndex = 0;
     [SerializeField] private List<Player> CurrentPlayers = new List<Player>();
     [SerializeField] private TextMeshProUGUI TroopsToDeployText;
-    private Player p1;
-    private Player p2;
+    private int playerCount = 2;
     private ButtonManager buttonManager;
     private gamePhases currentGamePhase = gamePhases.Start;
-
+    private List<Color32> playerColours = new List<Color32> { new Color32(229,19,19,255), new Color32(255,225,9,255),  new Color32(0,21,255,255), new Color32(6,171,30,255), new Color32(100,6,171,255), new Color32(171,6,154,255)};
+    
     enum gamePhases {
         Start,
         Deploy,
@@ -34,8 +34,11 @@ public class GameManager : MonoBehaviour
     void Awake() 
     {
         Instance = this;
-        p1 = new Player("player1");
-        p2 = new Player("player2");
+        Player p1 = new Player("player1");
+        Player p2 = new Player("player2");
+        p1.SetPlayerColour(playerColours[0]);
+        p2.SetPlayerColour(playerColours[1]);
+        Debug.Log("test");
         for(int i = 0; i<allTerritories.Count;i++)
         {
             if(i%2==0)
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
                 continue;
             }
             p2.AddTerritory(allTerritories[i]);
-        }
+        }    
         CurrentPlayers.Add(p1);
         CurrentPlayers.Add(p2);
     }
@@ -79,13 +82,11 @@ public class GameManager : MonoBehaviour
     }
     private void GameLoop()
     { 
-
         if(CheckWin())
         {
             currentGamePhase = gamePhases.EndGame;
             EndGame();    
         }
-
         else
         {
             switch (currentGamePhase)

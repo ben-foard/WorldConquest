@@ -18,7 +18,6 @@ public class Dice : MonoBehaviour
     }
 
     public int getDiceValue(int amount){
-        
         return Random.Range(1,7);
     }
 }

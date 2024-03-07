@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private int troopCount = 0;
     private int troopsToDeploy = 4;
     private List<Territory> ownedTerritories;
+    private Color32 playerColour;
 
     public Player(string name)
     {
@@ -30,10 +31,30 @@ public class Player : MonoBehaviour
     {
         troopCount += amount;
     }
-
-    public void AttackTerritory(Territory ter)
+    public void RemoveTroops(int amount)
     {
-        ter.RemoveTroops(1);
+        troopCount -= amount;
+    }
+
+    public void AttackTerritory(Territory territoryAttacking, Territory territoryDefending, int attackingValue, int defendingValue)
+    {
+        if(attackingValue > defendingValue){
+            this.AddTroops(1);
+            if(territoryDefending.GetTerritoryTroopCount() == 1){
+                territoryDefending.ChangeOwner(this);
+            }
+            else{
+                territoryDefending.RemoveTroops(1);
+                territoryAttacking.AddTroops(1);
+            }
+       
+        }
+        else{
+            this.RemoveTroops(1);
+            territoryAttacking.RemoveTroops(1);
+            
+        }
+        territoryAttacking.RemoveTroops(1);
         
     }
     public int GetTroopsToDeploy()
@@ -63,10 +84,19 @@ public class Player : MonoBehaviour
     public void AddTerritory(Territory t)
     {
         this.ownedTerritories.Add(t);
+        t.SetColour(this.playerColour);
     }
     public void RemoveTerritory(Territory t)
     {
         this.ownedTerritories.Remove(t);
+    }
+    public void SetPlayerColour(Color32 c)
+    {
+        this.playerColour = c;
+    }
+    public Color32 GetPlayerColour()
+    {
+        return this.playerColour;
     }
     /**fortify()
         //for this sprint this phase will just print fortified 
