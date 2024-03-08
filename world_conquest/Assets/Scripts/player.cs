@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameText;
     private string playerName;
     private int troopCount = 0;
-    private int troopsToDeploy = 4;
+    private int troopsToDeploy = 10;
     private List<Territory> ownedTerritories;
     private Color32 playerColour;
 
@@ -20,12 +20,6 @@ public class Player : MonoBehaviour
         this.playerName = name;
         this.ownedTerritories = new List<Territory>();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    } 
 
     public void AddTroops(int amount)
     {
@@ -97,15 +91,5 @@ public class Player : MonoBehaviour
     {
         return this.playerColour;
     }
-    /**fortify()
-        //for this sprint this phase will just print fortified 
-    **/
 
-    /**gettroopsTotal()
-        //skips for the moment
-    **/
-
-    /**getPlayerNamel()
-        //skips for the moment
-    **/
 }

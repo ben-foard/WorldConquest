@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentPlayerText;
     [SerializeField] private List<Player> CurrentPlayers = new List<Player>();
     [SerializeField] private TextMeshProUGUI TroopsToDeployText;
-        
+    [SerializeField] private TextMeshProUGUI AttackDiceText;
+    [SerializeField] private TextMeshProUGUI DefendDiceText;
+
     private gamePhases currentGamePhase = gamePhases.Start;
     private List<Color32> playerColours = new List<Color32> { new Color32(229,19,19,255), new Color32(255,225,9,255),  new Color32(0,21,255,255), new Color32(6,171,30,255), new Color32(100,6,171,255), new Color32(171,6,154,255)};
     private int PlayerIndex = 0;
@@ -126,12 +128,12 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        slider.SetSliderActive(currentGamePhase == gamePhases.Deploy);
+        AttackDiceText.text = "";
+        DefendDiceText.text = "";
+        slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
-
-        foreach(Territory t in allTerritories){
-            t.RevertHighlight();
-        }
+        
+        RevertHighlight();
 
         if(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Start){
             TroopsToDeployText.text = "Troops to deploy: " + CurrentPlayers[PlayerIndex].GetTroopsToDeploy().ToString();
@@ -145,10 +147,12 @@ public class GameManager : MonoBehaviour
     {  
         if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
             int attackValue = gameDice.getDiceValue(1);
+            AttackDiceText.text = "Rolled: " + attackValue;
             int defendValue = gameDice.getDiceValue(1);
+            DefendDiceText.text = "Rolled: " + defendValue;
             CurrentPlayers[PlayerIndex].AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
         }
-        UpdateUI();
+        RevertHighlight();
         previousSelectedTerritory = null;
 
     }
@@ -226,5 +230,10 @@ public class GameManager : MonoBehaviour
     }
     public void SetPreviousSelectedTerritory(Territory t){
         this.previousSelectedTerritory = t;
+    }
+    public void RevertHighlight(){
+        foreach(Territory t in allTerritories){
+            t.RevertHighlight();
+        }
     }
 }

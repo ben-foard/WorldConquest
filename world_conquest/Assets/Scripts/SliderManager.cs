@@ -10,6 +10,7 @@ public class SliderScript : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI sliderText;
     [SerializeField] private Slider slider;
+    
     void Start()
     {
         slider.onValueChanged.AddListener((v) => {
@@ -18,11 +19,6 @@ public class SliderScript : MonoBehaviour
         });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
     public int GetAmount(){
         return Mathf.RoundToInt(slider.value);
     }

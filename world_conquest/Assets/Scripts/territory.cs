@@ -9,10 +9,10 @@ public class Territory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI troopText;
     [SerializeField] private Image territoryBackground;
     [SerializeField] private Button territoryButton; 
-    private Color32 territoryColour;
-    private int troopCount = 0;
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
+    private Color32 territoryColour;
+    private int troopCount = 0;
     private Player territoryOwner;
     
     void Awake() 
@@ -107,17 +107,5 @@ public class Territory : MonoBehaviour
         SetColour(this.territoryColour);
         p.AddTerritory(this);
     }
-    /**setTroops()
-        this.troopsPerland = random assigned.
-    **/
-
-    /**getTroops()
-    **/
-
-    /**getName()
-
-    **/
-
-    // Update is called once per frame
 
 }
