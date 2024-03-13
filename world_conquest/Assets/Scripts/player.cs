@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameText;
     private string playerName;
     private int troopCount = 0;
-    private int troopsToDeploy = 10;
+    private int troopsToDeploy = 5;
     private List<Territory> ownedTerritories;
     private Color32 playerColour;
 
@@ -50,18 +50,23 @@ public class Player : MonoBehaviour
         }
         
     }
+
+    //Method handles territory fortifying 
+    public void Fortify(Territory fromTerritory, Territory toTerritory, int numOfTroops){
+                fromTerritory.RemoveTroops(numOfTroops);
+                toTerritory.AddTroops(numOfTroops);
+    }
+
     public int GetTroopsToDeploy()
     {
         return this.troopsToDeploy;
     }
+
     public void AlterTroopsToDeploy(int amount)
     {
         this.troopsToDeploy += amount;
     }
-    public void Fortify()
-    {
-        return;
-    }
+
     public int GetTroopTotal()
     {
         return troopCount;
@@ -74,6 +79,15 @@ public class Player : MonoBehaviour
     {
         return this.ownedTerritories;
     }
+
+    //Method checks territory ownership
+    public bool checkTerritories(Territory territory){
+        if(this.ownedTerritories.Contains(territory)){
+            return true;
+        }
+        return false;
+    }
+
     public void AddTerritory(Territory t)
     {
         this.ownedTerritories.Add(t);

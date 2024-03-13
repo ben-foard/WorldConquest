@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using System;
 public class Territory : MonoBehaviour
 {
 
@@ -22,26 +23,51 @@ public class Territory : MonoBehaviour
     }
 
     void OnTerritoryButtonClick() {
+        Territory currentTerritory = this;
+        Territory prevTerritory = GameManager.Instance.GetPreviousSelectedTerritory();
+        string phase = GameManager.Instance.GetCurrentPhase();
 
-        
-        if (GameManager.Instance.GetCurrentPhase() == "Start" || GameManager.Instance.GetCurrentPhase() == "Deploy") {
+        if (phase == "Start" || phase == "Deploy") {
            
-            GameManager.Instance.DeployTroops(this);
+            GameManager.Instance.DeployTroops(currentTerritory);
         }
-        else if(GameManager.Instance.GetCurrentPhase() == "Attack"){
+        else if(phase == "Attack"){
 
-            if(GameManager.Instance.GetPreviousSelectedTerritory() != null){
+            if(prevTerritory != null){
                 
-                Territory attackingTerritory = GameManager.Instance.GetPreviousSelectedTerritory();
-                if(attackingTerritory.GetNeighbours().Contains(this) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
-                    GameManager.Instance.PerformAttack(this);
+                Territory attackingTerritory = prevTerritory;
+                if(attackingTerritory.GetNeighbours().Contains(currentTerritory) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
+                    GameManager.Instance.PerformAttack(currentTerritory);
                 }     
                 else{
-                    GameManager.Instance.DisplayNeighbours(this);
+                    GameManager.Instance.DisplayNeighbours(currentTerritory);
                 }
                 return;
             }
-            GameManager.Instance.DisplayNeighbours(this);            
+            GameManager.Instance.DisplayNeighbours(currentTerritory);            
+        }
+        else if (phase == "Fortify"){
+            
+            if(prevTerritory != null) {
+                Territory fromTerritory = prevTerritory ;
+                Territory toTerritory = currentTerritory;
+                if(fromTerritory.GetNeighbours().Contains(toTerritory) && fromTerritory.GetOwner().checkTerritories(toTerritory)){
+                    GameManager.Instance.UpdateConfirmVisbility(true);
+                    GameManager.Instance.FortifyPositions(fromTerritory, toTerritory);
+                }
+                       
+            }
+            else {
+                if(this.AvailableTroops() == 0){
+                    GameManager.Instance.UpdateSliderVisibility(false);
+                    GameManager.Instance.SetPreviousSelectedTerritory(null);
+                    return;
+                }
+                GameManager.Instance.UpdateSliderVisibility(true);
+                GameManager.Instance.SetPreviousSelectedTerritory(this);
+                GameManager.Instance.UpdateSliderValues(this.AvailableTroops());
+            }
+            
         }
     }
 
@@ -70,6 +96,20 @@ public class Territory : MonoBehaviour
     {
         troopCount -= amount;
     }
+    
+    //Method returns total amount of troops
+    public int TotalTroops(){
+        return this.troopCount;
+    }
+
+    //Method returns available troops for fortification 
+    public int AvailableTroops(){
+        if(troopCount > 1){
+            return troopCount - 1;
+        }
+        return 0;
+    }
+
     public Button GetTerritoryButton()
     {
         return this.territoryButton;
