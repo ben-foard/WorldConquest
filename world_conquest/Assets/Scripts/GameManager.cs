@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
             //Execute actions based on current game phase
             switch (currentGamePhase)
             {
+                /*Nothing happens here at the moment*/
                 case gamePhases.Deploy:
                     CurrentPlayers[PlayerIndex].AlterTroopsToDeploy(3);                    
                     break;
@@ -139,7 +140,7 @@ public class GameManager : MonoBehaviour
     //Method to end the current players's turn 
     private void EndPlayerTurn()
     {
-        PlayerIndex = (PlayerIndex+1)%2;
+        PlayerIndex = (PlayerIndex+1)%CurrentPlayers.Count;
         currentGamePhase = gamePhases.Deploy;//2 will take the place of the amount of players in the future so that it only goes through the two indicies 
         UpdateUI();              
     }
@@ -299,7 +300,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Mehtod returns the first territory that was clicked
+    //Method returns the first territory that was clicked
     public Territory GetPreviousSelectedTerritory(){
         return this.previousSelectedTerritory;
     }

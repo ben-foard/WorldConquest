@@ -8,7 +8,6 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] public Button continueButton;
     [SerializeField] private Button confirmButton;
-    [SerializeField] private List<Button> territoryButtons;
 
     //Updates if you can interact with the button
     public void InteractableUpdater(bool EndGame)
