@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
     //Method for attacking a territory from this players current territory
     public void AttackTerritory(Territory territoryAttacking, Territory territoryDefending, int attackingValue, int defendingValue)
     {
-        //Checking whether the attacker has won the dice roll
         if(attackingValue > defendingValue){
 
             //Moves the troops from the defending to the attacking territory 
@@ -59,7 +58,6 @@ public class Player : MonoBehaviour
        
         }
 
-        //If the attacker loses the dice roll battle
         else{
         
             this.RemoveTroops(1);
@@ -70,7 +68,6 @@ public class Player : MonoBehaviour
 
     //Method handles territory fortifying 
     public void Fortify(Territory fromTerritory, Territory toTerritory, int numOfTroops){
-        //Moves the troop from the fromTerritory to the toTerritory
         fromTerritory.RemoveTroops(numOfTroops);
         toTerritory.AddTroops(numOfTroops);
     }

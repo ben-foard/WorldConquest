@@ -148,8 +148,6 @@ public class GameManager : MonoBehaviour
     private bool CheckWin()
     {
         //Currently this code removes any player who has 0 territories 
-        Debug.Log(CurrentPlayers[0].GetAllTerritories().Count());
-        Debug.Log(CurrentPlayers[1].GetAllTerritories().Count());
         CurrentPlayers.RemoveAll(p => p.GetAllTerritories().Count() == 0);
         
         return CurrentPlayers.Count == 1;
@@ -166,8 +164,11 @@ public class GameManager : MonoBehaviour
     // Method updates User Inteface elements
     void UpdateUI()
     {
+        //Hides the dice roll text
         AttackDiceText.text = "";
         DefendDiceText.text = "";
+
+        //Changes the visibilit of the button and slider
         slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
         
@@ -199,62 +200,57 @@ public class GameManager : MonoBehaviour
 
     }
     
-    // Method to deploy troops 
-    public void DeployTroops(Territory currentTerritory)
-    {
-        Player current = CurrentPlayers[PlayerIndex];
-        if(current.GetAllTerritories().Contains(currentTerritory) && !CheckDeployedAllTroops(current)){
+    //Method for deploying troops in deploy and starting phase 
+    public void DeployTroops(Territory selectedTerritory) {
+        Player currentPlayer = CurrentPlayers[PlayerIndex];
+
+        //Will run if the current player has the selected territory and hasnt deployed all troops
+        if (currentPlayer.GetAllTerritories().Contains(selectedTerritory) && !CheckDeployedAllTroops(currentPlayer)) {
 
             int amount = slider.GetAmount();
 
-            if(currentGamePhase == gamePhases.Start){
+            //Defaults amount to deploy to 1 if in the start phase
+            if (currentGamePhase == gamePhases.Start) {
                 amount = 1;
-            }      
+            }
             
-            currentTerritory.AddTroops(amount);      
-            current.AddTroops(amount);
-            current.AlterTroopsToDeploy(-amount); 
 
-            if(currentGamePhase == gamePhases.Start){
+            selectedTerritory.AddTroops(amount);
+            currentPlayer.AddTroops(amount);
+            currentPlayer.AlterTroopsToDeploy(-amount);
+
+
+            if (currentGamePhase == gamePhases.Start) {
+
+                //Goes to the next player in the sequence until it has deployed all the starting troops
                 PlayerIndex = (PlayerIndex + 1) % CurrentPlayers.Count;
-            }
-
-            if(CheckDeployedAllTroops(current))
-            {
-                if (currentGamePhase == gamePhases.Start)
-                {
-                    if(AllPlayersDeployed())
-                    {
-                        
-                        currentGamePhase = gamePhases.Attack; 
-                    }
+                if (AllPlayersDeployed()) {
+                    currentGamePhase = gamePhases.Attack;
                 }
-                else if (currentGamePhase != gamePhases.Start)
-                {
-                    AdvancePhase(); 
+            } else {
+                if (CheckDeployedAllTroops(currentPlayer)) {
+                    AdvancePhase();
                 }
             }
+            
+            UpdateUI();
+            previousSelectedTerritory = null;
         }
-        UpdateUI();
-        
-        previousSelectedTerritory = null;
     }
+
 
     //Method for fortifying territories
     public void FortifyPositions(Territory fromTerritory, Territory toTerritory){
 
        Player currentPlayer = CurrentPlayers[PlayerIndex];
- 
+
         int amountToMove = slider.GetAmount();
-        // if(fromTerritory.AvailableTroops() == 0) {
-        //     slider.SetSliderActive(false);
-        //     previousSelectedTerritory = null;
-        //     return;
-        // }
         slider.UpdateRange(fromTerritory.AvailableTroops());
         currentPlayer.Fortify(fromTerritory, toTerritory, amountToMove);
                 
         UpdateUI();
+
+        //Defaults this to 3 for the deploy stage, will change in the future
         UpdateSliderValues(3);
         AdvancePhase();
        
@@ -287,6 +283,8 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         if(CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(selectedTerritory)){
             previousSelectedTerritory = selectedTerritory;
+
+            //Displays all the neighbours of the current territory
             foreach(Territory t in selectedTerritory.GetNeighbours())
             {
                 if(!CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(t)){
@@ -301,25 +299,34 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Mehtod returns the first territory that was clicked
     public Territory GetPreviousSelectedTerritory(){
         return this.previousSelectedTerritory;
     }
 
+    //Method sets the field t to territory clicked first
     public void SetPreviousSelectedTerritory(Territory t){
         this.previousSelectedTerritory = t;
     }
 
+    //Method will remove highlight from territory
     public void RevertHighlight(){
         foreach(Territory t in allTerritories){
             t.RevertHighlight();
         }
     }
+
+    //Method updates slider range
     public void UpdateSliderValues(int amount){
         slider.UpdateRange(amount);
     }
+
+    //Method turns on/off confirm button visibilty
     public void UpdateConfirmVisbility(bool isVisible){
         buttonManager.UpdateConfirmVisibility(isVisible);
     }
+
+    //Method turns on/off slider 
     public void UpdateSliderVisibility(bool isVisible){
         slider.SetSliderActive(isVisible);
     }

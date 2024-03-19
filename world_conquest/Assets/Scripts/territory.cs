@@ -64,11 +64,9 @@ public class Territory : MonoBehaviour
             
                 //Will run fortify if the previous selected is not null, is a neighbour and is owned by the currently selected
                 if (prevTerritory != null && prevTerritory.GetNeighbours().Contains(currentTerritory) && prevTerritory.GetOwner().checkTerritories(currentTerritory)) {
-                    //Display the confirm button to the user
                     GameManager.Instance.UpdateConfirmVisbility(true);
                     GameManager.Instance.FortifyPositions(prevTerritory, currentTerritory);
                 } else {
-                    //if the amount of troops it has for fortification is 0
                     if (this.AvailableTroops() == 0) {
                         GameManager.Instance.UpdateSliderVisibility(false);
                         GameManager.Instance.SetPreviousSelectedTerritory(null);

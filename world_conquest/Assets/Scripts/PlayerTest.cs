@@ -10,7 +10,6 @@ public class PlayerTest : MonoBehaviour
     private Player p1;
     private Player p2;
 
-
        void Awake() 
         {
             t1 = new Territory();
