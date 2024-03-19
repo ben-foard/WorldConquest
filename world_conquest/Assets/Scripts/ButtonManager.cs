@@ -6,30 +6,25 @@ using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
-    public Button deployButton; 
-    public Button attackButton; 
-    public Button fortifyButton; 
-    public Button continueButton;
-    private GameManager gameManager;
-    void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-        attackButton.onClick.AddListener(gameManager.PerformAttack);
-    }
+    [SerializeField] public Button continueButton;
+    [SerializeField] private Button confirmButton;
+    [SerializeField] private List<Button> territoryButtons;
 
-    void Update()
-    {
-        
-    }
-
-
-    public void InteractableUpdater(bool deploy, bool attack, bool fortify, bool EndGame)
-    {
-        deployButton.interactable = deploy;
-        attackButton.interactable = attack;
-        fortifyButton.interactable = fortify;
+    //Updates if you can interact with the button
+    public void InteractableUpdater(bool EndGame)
+    {      
         continueButton.interactable = EndGame;
     }
-    //public void
+
+    //Update if the confirm button is visible to the user 
+    public void UpdateConfirmVisibility(bool isVisible){
+        confirmButton.gameObject.SetActive(false);
+    }
+
+    //Returns the confirm button that is on the game
+    public Button getConfirmButton(){
+        return this.confirmButton;
+    }
+
 }
 
