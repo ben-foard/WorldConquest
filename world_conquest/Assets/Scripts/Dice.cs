@@ -5,18 +5,7 @@ using UnityEngine;
 public class Dice : MonoBehaviour
 {
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Gets a random dice roll value between 1 and 6 
     public int getDiceValue(int amount){
         return Random.Range(1,7);
     }

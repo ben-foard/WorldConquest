@@ -10,7 +10,6 @@ public class PlayerTest : MonoBehaviour
     private Player p1;
     private Player p2;
 
-       
 
        void Awake() 
         {
@@ -39,33 +38,6 @@ public class PlayerTest : MonoBehaviour
             return false;
        }
 }
-
-
-
-
-
-//using NUnit.Framework;
-
-// namespace Test
-// {
-//     public class PlayerTest 
-//     {
-//        // [Test]
-//         public void  addTroopsTest()
-//         {
-//             player1.addTroops(5);
-//             Assert.AreEqual(3, player1.troopCount);
-//         }
-
-//        // [Test]
-//         public void  attackTerritoryTest()
-//         {
-//             territory1.attackTerritory();
-//             Assert.AreEqual(6, territory1.troopCount);
-//             Assert.AreEqual(4, territory2.troopCount);
-//         }
-//     }  
-// }
 
 
 

@@ -7,11 +7,13 @@ using System;
 using Unity.VisualScripting;
 using System.Linq;
 using System.Security.Cryptography;
+
 public class GameManager : MonoBehaviour
 {   
     //Singleton instance of GameManager
     public static GameManager Instance {get; private set;}
  
+   
     //Fields for inspector accessibilty using [SerializeFiedl]
     [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         Fortify,
         EndGame
     }
+    
 
     //Awake method called when the script is instance is being loaded 
     void Awake() 
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     }
     
     //start methiod called before the first frame update 
-    void Start()
+    void Start()        
     {     
         // Find and initialize slider and button manager       
         slider = FindObjectOfType<SliderScript>();
@@ -167,6 +170,7 @@ public class GameManager : MonoBehaviour
         DefendDiceText.text = "";
         slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
+        
         //buttonManager.UpdateConfirmVisibility(false);
         RevertHighlight();
 
@@ -232,6 +236,7 @@ public class GameManager : MonoBehaviour
             }
         }
         UpdateUI();
+        
         previousSelectedTerritory = null;
     }
 

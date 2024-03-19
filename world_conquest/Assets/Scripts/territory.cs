@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
 using System;
+
 public class Territory : MonoBehaviour
 {
-
+    //Fields serialized from the gameobjects from the UI
     [SerializeField] private TextMeshProUGUI troopText;
     [SerializeField] private Image territoryBackground;
     [SerializeField] private Button territoryButton; 
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
+
+    //The fields of the territory
     private Color32 territoryColour;
     private int troopCount = 0;
     private Player territoryOwner;
@@ -19,55 +22,66 @@ public class Territory : MonoBehaviour
     void Awake() 
     {
         territoryColour = territoryBackground.color;
+        //Adds a listener to the territory for when it is selected by the user 
         territoryButton.onClick.AddListener(OnTerritoryButtonClick);
     }
 
+    //Method is run when a territory is selected
     void OnTerritoryButtonClick() {
+
+        //Gets the two territories selected by the user 
         Territory currentTerritory = this;
         Territory prevTerritory = GameManager.Instance.GetPreviousSelectedTerritory();
+
+        //Gets the current game phase
         string phase = GameManager.Instance.GetCurrentPhase();
 
-        if (phase == "Start" || phase == "Deploy") {
-           
-            GameManager.Instance.DeployTroops(currentTerritory);
-        }
-        else if(phase == "Attack"){
+        switch(phase) {
+            case "Start":
+            case "Deploy":
+                GameManager.Instance.DeployTroops(currentTerritory);
+                break;
 
-            if(prevTerritory != null){
+            case "Attack":
+                //Will run if two territories have been selected by the user
+                if(prevTerritory != null){
                 
-                Territory attackingTerritory = prevTerritory;
-                if(attackingTerritory.GetNeighbours().Contains(currentTerritory) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
-                    GameManager.Instance.PerformAttack(currentTerritory);
-                }     
-                else{
-                    GameManager.Instance.DisplayNeighbours(currentTerritory);
-                }
-                return;
-            }
-            GameManager.Instance.DisplayNeighbours(currentTerritory);            
-        }
-        else if (phase == "Fortify"){
-            
-            if(prevTerritory != null) {
-                Territory fromTerritory = prevTerritory ;
-                Territory toTerritory = currentTerritory;
-                if(fromTerritory.GetNeighbours().Contains(toTerritory) && fromTerritory.GetOwner().checkTerritories(toTerritory)){
-                    GameManager.Instance.UpdateConfirmVisbility(true);
-                    GameManager.Instance.FortifyPositions(fromTerritory, toTerritory);
-                }
-                       
-            }
-            else {
-                if(this.AvailableTroops() == 0){
-                    GameManager.Instance.UpdateSliderVisibility(false);
-                    GameManager.Instance.SetPreviousSelectedTerritory(null);
+                    Territory attackingTerritory = prevTerritory;
+                    //If the two territories selected are both neighbours of eachother and the owner of attacker is not owner of the defender
+                    if(attackingTerritory.GetNeighbours().Contains(currentTerritory) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
+                        GameManager.Instance.PerformAttack(currentTerritory);                 
+                    }
+                    else{
+                        GameManager.Instance.DisplayNeighbours(currentTerritory);
+                    } 
                     return;
                 }
-                GameManager.Instance.UpdateSliderVisibility(true);
-                GameManager.Instance.SetPreviousSelectedTerritory(this);
-                GameManager.Instance.UpdateSliderValues(this.AvailableTroops());
-            }
+                //Display neighbours of the current selected as nothing has been selected to attack  
+                GameManager.Instance.DisplayNeighbours(currentTerritory);
+                break;
+                
+            case "Fortify":
             
+                //Will run fortify if the previous selected is not null, is a neighbour and is owned by the currently selected
+                if (prevTerritory != null && prevTerritory.GetNeighbours().Contains(currentTerritory) && prevTerritory.GetOwner().checkTerritories(currentTerritory)) {
+                    //Display the confirm button to the user
+                    GameManager.Instance.UpdateConfirmVisbility(true);
+                    GameManager.Instance.FortifyPositions(prevTerritory, currentTerritory);
+                } else {
+                    //if the amount of troops it has for fortification is 0
+                    if (this.AvailableTroops() == 0) {
+                        GameManager.Instance.UpdateSliderVisibility(false);
+                        GameManager.Instance.SetPreviousSelectedTerritory(null);
+                    } 
+
+                    //Displays the amount of troops it has to fortify to another territory
+                    else {
+                        GameManager.Instance.UpdateSliderVisibility(true);
+                        GameManager.Instance.SetPreviousSelectedTerritory(this);
+                        GameManager.Instance.UpdateSliderValues(this.AvailableTroops());
+                    }
+                }
+                break;
         }
     }
 
@@ -75,11 +89,14 @@ public class Territory : MonoBehaviour
     {
         UpdateTroopCountUI();
     }
+
+    //Returns amount of troops on the current territory
     public int GetTerritoryTroopCount()
     {
         return troopCount;
     }
 
+    //Updates the amount of troops displayed on the territory
     public void UpdateTroopCountUI()
     {
         if(troopText != null)
@@ -87,11 +104,14 @@ public class Territory : MonoBehaviour
             troopText.text = troopCount.ToString();
         }
     }
+
+    //Adds troops to the current territory count
     public void AddTroops(int amount)
     {
         this.troopCount += amount;
     }
 
+    //Removes troops from the current territory count
     public void RemoveTroops(int amount)
     {
         troopCount -= amount;
@@ -110,35 +130,50 @@ public class Territory : MonoBehaviour
         return 0;
     }
 
+    //Returns the button attacked to the territory
     public Button GetTerritoryButton()
     {
         return this.territoryButton;
     }
+
+    //Returns all the neighbours of this territory 
     public List<Territory> GetNeighbours()
     {
         return this.neighbours;
     }
+
+    //Highlights the colour of the territory (in green)
     public void HighlightTerritory()
     {
         territoryBackground.color = new Color32(0, 255, 0, 255);
     }
+
+    //Reverts the highlight back to its original colour
     public void RevertHighlight()
     {
         territoryBackground.color = this.territoryColour;
     }
+
+    //Sets the colour of the territory
     public void SetColour(Color32 c)
     {
         this.territoryColour = c;
         territoryBackground.color = c;
     }
+
+    //Sets the owner of the territory
     public void SetOwner(Player p)
     {
         this.territoryOwner = p;
     }
+
+    //Returns the owner of the current territory 
     public Player GetOwner()
     {
         return this.territoryOwner;
     }
+
+    //Alters the owner of the current territory to the Player p
     public void ChangeOwner(Player p)
     {
         this.territoryOwner.RemoveTerritory(this);
@@ -147,5 +182,4 @@ public class Territory : MonoBehaviour
         SetColour(this.territoryColour);
         p.AddTerritory(this);
     }
-
 }
