@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TroopsToDeployText;
     [SerializeField] private TextMeshProUGUI AttackDiceText;
     [SerializeField] private TextMeshProUGUI DefendDiceText;
-    
+    [SerializeField] private Canvas gameCanvas;
 
     //private variables for managing game state
     private gamePhases currentGamePhase = gamePhases.Start;

@@ -155,8 +155,8 @@ public class Territory : MonoBehaviour
     //Sets the colour of the territory
     public void SetColour(Color32 c)
     {
-        this.territoryColour = c;
-        territoryBackground.color = c;
+        //this.territoryColour = c;
+        //territoryBackground.color = c;
     }
 
     //Sets the owner of the territory
