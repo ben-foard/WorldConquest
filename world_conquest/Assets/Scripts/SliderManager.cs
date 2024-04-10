@@ -29,6 +29,12 @@ public class SliderScript : MonoBehaviour
     public void UpdateRange(int maxValue)
     {
         slider.maxValue = maxValue;
+        if(slider.maxValue == 1){
+            slider.interactable = false;
+        }
+        else{
+            slider.interactable = true;
+        }
     }
 
     //Updates whether the slider is displayed to the user 

@@ -18,13 +18,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
     [SerializeField] private TextMeshProUGUI currentPlayerText;
-    [SerializeField] private List<Player> CurrentPlayers = new List<Player>();
     [SerializeField] private TextMeshProUGUI TroopsToDeployText;
     [SerializeField] private TextMeshProUGUI AttackDiceText;
     [SerializeField] private TextMeshProUGUI DefendDiceText;
-    [SerializeField] private Canvas gameCanvas;
 
     //private variables for managing game state
+    private List<Player> CurrentPlayers = new List<Player>();
     private gamePhases currentGamePhase = gamePhases.Start;
     private List<Color32> playerColours = new List<Color32> { 
         new Color32(229,19,19,255),
@@ -39,7 +38,9 @@ public class GameManager : MonoBehaviour
     private SliderScript slider;
     private ButtonManager buttonManager;
     private Territory previousSelectedTerritory;
-
+    private Territory currentSelectedTerritory;
+    private int amountOfAttackDice;
+    private int amountOfDefendDice;
     //Enum defining different phases of the game
     enum gamePhases {
         Start,
@@ -61,17 +62,17 @@ public class GameManager : MonoBehaviour
         Player p2 = new Player("player2");
         p1.SetPlayerColour(playerColours[0]);
         p2.SetPlayerColour(playerColours[1]);
-        for(int i = 0; i<allTerritories.Count;i++)
+        /*for(int i = 0; i<allTerritories.Count;i++)
         {
             if(i%2==0)
             {
                 p1.AddTerritory(allTerritories[i]);
-                allTerritories[i].SetOwner(p1);
+                //allTerritories[i].SetOwner(p1);
                 continue;
             }
             p2.AddTerritory(allTerritories[i]);
-            allTerritories[i].SetOwner(p2);
-        }    
+            //allTerritories[i].SetOwner(p2);
+        }  */  
         CurrentPlayers.Add(p1);
         CurrentPlayers.Add(p2);
     }
@@ -92,14 +93,14 @@ public class GameManager : MonoBehaviour
     {
         //Update User inteface and add lister to continue button
         UpdateUI();
-        buttonManager.continueButton.onClick.AddListener(AdvancePhase);
+        buttonManager.getContinueButton().onClick.AddListener(AdvancePhase);
+        buttonManager.UpdateConfirmVisibility(false);
         buttonManager.UpdateConfirmVisibility(false);
     }
 
     // Method to advance turn to next phasee
     private void AdvancePhase()
     {
-
         // Advance turn to the next phase unless fortify is current phase
         if(currentGamePhase != gamePhases.Fortify){
             currentGamePhase = (gamePhases)(((int)currentGamePhase + 1) % System.Enum.GetValues(typeof(gamePhases)).Length);
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
             {
                 /*Nothing happens here at the moment*/
                 case gamePhases.Deploy:
-                    CurrentPlayers[PlayerIndex].AlterTroopsToDeploy(3);                    
+                    getCurrentPlayer().AlterTroopsToDeploy(3);                    
                     break;
                 case gamePhases.Attack:
                     break;
@@ -177,73 +178,96 @@ public class GameManager : MonoBehaviour
         RevertHighlight();
 
         if(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Start){
-            TroopsToDeployText.text = "Troops to deploy: " + CurrentPlayers[PlayerIndex].GetTroopsToDeploy().ToString();
-            slider.UpdateRange(CurrentPlayers[PlayerIndex].GetTroopsToDeploy());
+            TroopsToDeployText.text = "Troops to deploy: " + getCurrentPlayer().GetTroopsToDeploy().ToString();
+            slider.UpdateRange(getCurrentPlayer().GetTroopsToDeploy());
         } else {TroopsToDeployText.text = "";}
 
         currentPhaseText.text = currentGamePhase.ToString();
-        currentPlayerText.text = "Current Turn: " + CurrentPlayers[PlayerIndex].GetPlayerName();
+        currentPlayerText.text = "Current Turn: " + getCurrentPlayer().GetPlayerName();
     }    
 
     // Method for attacking
-    public void PerformAttack(Territory defendingCountry)
+    public void StartAttack(Territory defendingCountry)
     {  
         //checks whether attacker territory count has more troops than 1 before allowing attack
+        if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
+            currentSelectedTerritory =defendingCountry;
+            getAttackDiceAmount();
+        }
+
         if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
             int attackValue = gameDice.getDiceValue(1);
             AttackDiceText.text = "Rolled: " + attackValue;
             int defendValue = gameDice.getDiceValue(1);
             DefendDiceText.text = "Rolled: " + defendValue;
-            CurrentPlayers[PlayerIndex].AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
+            getCurrentPlayer().AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
         }
         RevertHighlight();
         previousSelectedTerritory = null;
 
     }
-    
+    public void PerformAttack()
+    {
+        amountOfDefendDice = slider.GetAmount();
+        buttonManager.getConfirmButton().onClick.RemoveAllListeners();
+        buttonManager.UpdateConfirmVisibility(false);
+
+        int attackValue = gameDice.getDiceValue(amountOfAttackDice);
+        AttackDiceText.text = "Rolled: " + attackValue;
+        int defendValue = gameDice.getDiceValue(amountOfDefendDice);
+        DefendDiceText.text = "Rolled: " + defendValue;
+
+        
+        RevertHighlight();
+        previousSelectedTerritory = null;
+    }
     //Method for deploying troops in deploy and starting phase 
     public void DeployTroops(Territory selectedTerritory) {
-        Player currentPlayer = CurrentPlayers[PlayerIndex];
+        Player currentPlayer = getCurrentPlayer();
 
         //Will run if the current player has the selected territory and hasnt deployed all troops
-        if (currentPlayer.GetAllTerritories().Contains(selectedTerritory) && !CheckDeployedAllTroops(currentPlayer)) {
+        int amount = slider.GetAmount();
 
-            int amount = slider.GetAmount();
+        selectedTerritory.AddTroops(amount);
+        currentPlayer.AddTroops(amount);
+        currentPlayer.AlterTroopsToDeploy(-amount);
 
-            //Defaults amount to deploy to 1 if in the start phase
-            if (currentGamePhase == gamePhases.Start) {
-                amount = 1;
-            }
-            
+        if (CheckDeployedAllTroops(currentPlayer)) {
+            AdvancePhase();
+        }          
 
-            selectedTerritory.AddTroops(amount);
-            currentPlayer.AddTroops(amount);
-            currentPlayer.AlterTroopsToDeploy(-amount);
-
-
-            if (currentGamePhase == gamePhases.Start) {
-
-                //Goes to the next player in the sequence until it has deployed all the starting troops
-                PlayerIndex = (PlayerIndex + 1) % CurrentPlayers.Count;
-                if (AllPlayersDeployed()) {
-                    currentGamePhase = gamePhases.Attack;
-                }
-            } else {
-                if (CheckDeployedAllTroops(currentPlayer)) {
-                    AdvancePhase();
-                }
-            }
-            
-            UpdateUI();
-            previousSelectedTerritory = null;
-        }
+        UpdateUI();
+        previousSelectedTerritory = null;
+        
     }
+    public void StartPhaseDeploy(Territory selectedTerritory){
+            
+        Player currentPlayer = getCurrentPlayer();
+        //Goes to the next player in the sequence until it has deployed all the starting troops
+        if(selectedTerritory.GetTerritoryTroopCount() == 0){
+            currentPlayer.AddTerritory(selectedTerritory);
+            selectedTerritory.SetOwner(currentPlayer);
+        }
+        
+        selectedTerritory.AddTroops(1);
+        currentPlayer.AddTroops(1);
+        currentPlayer.AlterTroopsToDeploy(-1);
 
+        PlayerIndex = (PlayerIndex + 1) % CurrentPlayers.Count;
+
+        if (AllPlayersDeployed()) {
+            currentGamePhase = gamePhases.Attack;
+        }
+
+        UpdateUI();
+        previousSelectedTerritory = null;
+            
+    }
 
     //Method for fortifying territories
     public void FortifyPositions(Territory fromTerritory, Territory toTerritory){
 
-       Player currentPlayer = CurrentPlayers[PlayerIndex];
+       Player currentPlayer = getCurrentPlayer();
 
         int amountToMove = slider.GetAmount();
         slider.UpdateRange(fromTerritory.AvailableTroops());
@@ -282,13 +306,13 @@ public class GameManager : MonoBehaviour
     public void DisplayNeighbours(Territory selectedTerritory)
     {
         UpdateUI();
-        if(CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(selectedTerritory)){
+        if(getCurrentPlayer().GetAllTerritories().Contains(selectedTerritory)){
             previousSelectedTerritory = selectedTerritory;
 
             //Displays all the neighbours of the current territory
             foreach(Territory t in selectedTerritory.GetNeighbours())
             {
-                if(!CurrentPlayers[PlayerIndex].GetAllTerritories().Contains(t)){
+                if(!getCurrentPlayer().GetAllTerritories().Contains(t)){
                     t.HighlightTerritory();
                 }
             }
@@ -330,5 +354,32 @@ public class GameManager : MonoBehaviour
     //Method turns on/off slider 
     public void UpdateSliderVisibility(bool isVisible){
         slider.SetSliderActive(isVisible);
+    }
+    public Player getCurrentPlayer(){
+        return CurrentPlayers[PlayerIndex];
+    }
+    public bool allTerritoriesOwned(){
+
+        foreach(Territory t in allTerritories){
+            if(t.GetTerritoryTroopCount() == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void getAttackDiceAmount(){
+        buttonManager.UpdateConfirmVisibility(true);
+        buttonManager.getConfirmButton().onClick.AddListener(getDefendDiceAmount);
+    }
+    public void getDefendDiceAmount(){
+        buttonManager.getConfirmButton().onClick.RemoveAllListeners();
+        amountOfAttackDice = slider.GetAmount();
+        if(amountOfAttackDice > 1 && currentSelectedTerritory.GetTerritoryTroopCount() > 2){
+            slider.UpdateRange(2);
+        }
+        else{
+            slider.UpdateRange(1);
+        }
+        buttonManager.getConfirmButton().onClick.AddListener(PerformAttack);    
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 public class Territory : MonoBehaviour
 {
     //Fields serialized from the gameobjects from the UI
     [SerializeField] private TextMeshProUGUI troopText;
-    [SerializeField] private Image territoryBackground;
     [SerializeField] private Button territoryButton; 
+    [SerializeField] private SpriteRenderer territoryButtonOutline;
     [SerializeField] private TextMeshProUGUI territoryName;
     [SerializeField] private List<Territory> neighbours;
 
@@ -21,7 +22,7 @@ public class Territory : MonoBehaviour
     
     void Awake() 
     {
-        territoryColour = territoryBackground.color;
+        territoryColour = territoryButtonOutline.color;
         //Adds a listener to the territory for when it is selected by the user 
         territoryButton.onClick.AddListener(OnTerritoryButtonClick);
     }
@@ -38,8 +39,14 @@ public class Territory : MonoBehaviour
 
         switch(phase) {
             case "Start":
+                if(currentTerritory.GetTerritoryTroopCount() != 1 || GameManager.Instance.allTerritoriesOwned()){
+                    GameManager.Instance.StartPhaseDeploy(currentTerritory);
+                }
+                break;
             case "Deploy":
-                GameManager.Instance.DeployTroops(currentTerritory);
+                if(currentTerritory.GetOwner() == GameManager.Instance.getCurrentPlayer() && GameManager.Instance.CheckDeployedAllTroops(GameManager.Instance.getCurrentPlayer())){
+                    GameManager.Instance.DeployTroops(currentTerritory);
+                } 
                 break;
 
             case "Attack":
@@ -49,7 +56,7 @@ public class Territory : MonoBehaviour
                     Territory attackingTerritory = prevTerritory;
                     //If the two territories selected are both neighbours of eachother and the owner of attacker is not owner of the defender
                     if(attackingTerritory.GetNeighbours().Contains(currentTerritory) && !attackingTerritory.GetOwner().GetAllTerritories().Contains(this)){
-                        GameManager.Instance.PerformAttack(currentTerritory);                 
+                        GameManager.Instance.StartAttack(currentTerritory);                 
                     }
                     else{
                         GameManager.Instance.DisplayNeighbours(currentTerritory);
@@ -143,20 +150,20 @@ public class Territory : MonoBehaviour
     //Highlights the colour of the territory (in green)
     public void HighlightTerritory()
     {
-        territoryBackground.color = new Color32(0, 255, 0, 255);
+        territoryButtonOutline.color = new Color32(0, 255, 0, 255);
     }
 
     //Reverts the highlight back to its original colour
     public void RevertHighlight()
     {
-        territoryBackground.color = this.territoryColour;
+        territoryButtonOutline.color = this.territoryColour;
     }
 
     //Sets the colour of the territory
     public void SetColour(Color32 c)
     {
-        //this.territoryColour = c;
-        //territoryBackground.color = c;
+        this.territoryColour = c;
+        territoryButtonOutline.color = c;
     }
 
     //Sets the owner of the territory

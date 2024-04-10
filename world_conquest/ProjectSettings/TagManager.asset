@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Territories
+    uniqueID: 1218451303
+    locked: 0
+  - name: Outline
+    uniqueID: 4050944321
+    locked: 0
+  - name: Buttons
+    uniqueID: 1891340097
+    locked: 0
+  - name: DiceChose
+    uniqueID: 550510837
+    locked: 0

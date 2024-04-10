@@ -6,7 +6,7 @@ using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] public Button continueButton;
+    [SerializeField] private Button continueButton;
     [SerializeField] private Button confirmButton;
 
     //Updates if you can interact with the button
@@ -23,6 +23,9 @@ public class ButtonManager : MonoBehaviour
     //Returns the confirm button that is on the game
     public Button getConfirmButton(){
         return this.confirmButton;
+    }
+    public Button getContinueButton(){
+        return this.continueButton;
     }
 
 }
