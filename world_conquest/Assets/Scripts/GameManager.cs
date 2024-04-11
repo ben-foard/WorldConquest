@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
     [SerializeField] private TextMeshProUGUI currentPlayerText;
-    [SerializeField] private TextMeshProUGUI TroopsToDeployText;
+    [SerializeField] private TextMeshProUGUI GameInfoText;
     [SerializeField] private TextMeshProUGUI AttackDiceText;
     [SerializeField] private TextMeshProUGUI DefendDiceText;
 
@@ -178,9 +178,9 @@ public class GameManager : MonoBehaviour
         RevertHighlight();
 
         if(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Start){
-            TroopsToDeployText.text = "Troops to deploy: " + getCurrentPlayer().GetTroopsToDeploy().ToString();
+            GameInfoText.text = "Troops to deploy: " + getCurrentPlayer().GetTroopsToDeploy().ToString();
             slider.UpdateRange(getCurrentPlayer().GetTroopsToDeploy());
-        } else {TroopsToDeployText.text = "";}
+        } else {GameInfoText.text = "";}
 
         currentPhaseText.text = currentGamePhase.ToString();
         currentPlayerText.text = "Current Turn: " + getCurrentPlayer().GetPlayerName();
@@ -192,13 +192,20 @@ public class GameManager : MonoBehaviour
         //checks whether attacker territory count has more troops than 1 before allowing attack
         if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
             currentSelectedTerritory =defendingCountry;
+            if(previousSelectedTerritory.GetTerritoryTroopCount() > 3){
+                slider.UpdateRange(3);
+            }
+            else{
+                slider.UpdateRange(previousSelectedTerritory.GetTerritoryTroopCount() - 1);
+            }
+            GameInfoText.text = previousSelectedTerritory.GetOwner().GetPlayerName() + " select the amount of dice to attack with: ";
             getAttackDiceAmount();
         }
-
+        
         if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
-            int attackValue = gameDice.getDiceValue(1);
+            int attackValue = gameDice.getDiceValue();
             AttackDiceText.text = "Rolled: " + attackValue;
-            int defendValue = gameDice.getDiceValue(1);
+            int defendValue = gameDice.getDiceValue();
             DefendDiceText.text = "Rolled: " + defendValue;
             getCurrentPlayer().AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
         }
@@ -208,13 +215,22 @@ public class GameManager : MonoBehaviour
     }
     public void PerformAttack()
     {
+        GameInfoText.text = "";
         amountOfDefendDice = slider.GetAmount();
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
         buttonManager.UpdateConfirmVisibility(false);
 
-        int attackValue = gameDice.getDiceValue(amountOfAttackDice);
+        int[] attackValues = new int[amountOfAttackDice - 1];
+        int[] defendValues = new int[amountOfDefendDice - 1];
+        for(int i = 0; i <amountOfAttackDice; i++){
+            attackValues[i] = gameDice.getDiceValue();
+            if(amountOfDefendDice > i){
+                defendValues[i] = gameDice.getDiceValue();
+            }
+        }
+        int attackValue = gameDice.getDiceValue();
         AttackDiceText.text = "Rolled: " + attackValue;
-        int defendValue = gameDice.getDiceValue(amountOfDefendDice);
+        int defendValue = gameDice.getDiceValue();
         DefendDiceText.text = "Rolled: " + defendValue;
 
         
@@ -372,6 +388,7 @@ public class GameManager : MonoBehaviour
         buttonManager.getConfirmButton().onClick.AddListener(getDefendDiceAmount);
     }
     public void getDefendDiceAmount(){
+        GameInfoText.text = currentSelectedTerritory.GetOwner().GetPlayerName() + " select the amount of dice to defend with: ";
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
         amountOfAttackDice = slider.GetAmount();
         if(amountOfAttackDice > 1 && currentSelectedTerritory.GetTerritoryTroopCount() > 2){
@@ -382,4 +399,6 @@ public class GameManager : MonoBehaviour
         }
         buttonManager.getConfirmButton().onClick.AddListener(PerformAttack);    
     }
+
+    
 }

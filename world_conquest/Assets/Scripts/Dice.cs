@@ -6,7 +6,8 @@ public class Dice : MonoBehaviour
 {
     
     //Gets a random dice roll value between 1 and 6 
-    public int getDiceValue(int amount){
+    public int getDiceValue(){
         return Random.Range(1,7);
     }
+    
 }
