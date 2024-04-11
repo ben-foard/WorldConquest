@@ -15,8 +15,8 @@ public class PlayerTest : MonoBehaviour
             t1 = new Territory();
             t2 = new Territory();
             
-            p1 = new Player("player1");
-            p2 = new Player("player2");
+           // p1 = new Player("player1", );
+           // p2 = new Player("player2");
         }
        public bool addTroops() 
        {

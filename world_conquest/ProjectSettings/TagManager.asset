@@ -51,6 +51,9 @@ TagManager:
   - name: Buttons
     uniqueID: 1891340097
     locked: 0
-  - name: DiceChose
+  - name: GameElements
     uniqueID: 550510837
+    locked: 0
+  - name: Overlay
+    uniqueID: 2107526153
     locked: 0

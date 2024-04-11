@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
     private string playerName;
     private int troopCount = 0;
     private int troopsToDeploy = 5;
-    private List<Territory> ownedTerritories;
+    private List<Territory> ownedTerritories = new List<Territory>();
     private Color32 playerColour;
 
-    public Player(string name)
+    public Player(string name, Color32 color)
     {
         this.playerName = name;
-        this.ownedTerritories = new List<Territory>();
+        this.playerColour = color;
     }
 
     //Adds a given amount of troops to the players troop count
@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
         }
 
         else{
-        
             this.RemoveTroops(1);
             territoryAttacking.RemoveTroops(1);
         }
@@ -133,6 +132,9 @@ public class Player : MonoBehaviour
     public Color32 GetPlayerColour()
     {
         return this.playerColour;
+    }
+    public void SetPlayerName(string name){
+        this.playerName = name;
     }
 
 }

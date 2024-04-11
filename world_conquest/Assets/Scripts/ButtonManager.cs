@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private Button continueButton;
     [SerializeField] private Button confirmButton;
-
+    [SerializeField] private Button rollButton;
     //Updates if you can interact with the button
     public void InteractableUpdater(bool EndGame)
     {      
@@ -17,15 +17,20 @@ public class ButtonManager : MonoBehaviour
 
     //Update if the confirm button is visible to the user 
     public void UpdateConfirmVisibility(bool isVisible){
-        confirmButton.gameObject.SetActive(false);
+        confirmButton.gameObject.SetActive(isVisible);
     }
-
+    public void UpdateRollVisibility(bool isVisible){
+        rollButton.gameObject.SetActive(isVisible);
+    }
     //Returns the confirm button that is on the game
     public Button getConfirmButton(){
         return this.confirmButton;
     }
     public Button getContinueButton(){
         return this.continueButton;
+    }
+    public Button getRollButton(){
+        return this.rollButton;
     }
 
 }

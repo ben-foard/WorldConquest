@@ -7,6 +7,7 @@ using System;
 using Unity.VisualScripting;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Data;
 
 public class GameManager : MonoBehaviour
 {   
@@ -21,7 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI GameInfoText;
     [SerializeField] private TextMeshProUGUI AttackDiceText;
     [SerializeField] private TextMeshProUGUI DefendDiceText;
-
+    [SerializeField] private Canvas diceRollCanvas;
+    [SerializeField] private List<TextMeshProUGUI> diceRollText = new List<TextMeshProUGUI>();
     //private variables for managing game state
     private List<Player> CurrentPlayers = new List<Player>();
     private gamePhases currentGamePhase = gamePhases.Start;
@@ -58,10 +60,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         //Create players, set colors and assign territories 
-        Player p1 = new Player("player1");
-        Player p2 = new Player("player2");
+        Player p1 = gameObject.AddComponent<Player>();
+        Player p2 = gameObject.AddComponent<Player>();
         p1.SetPlayerColour(playerColours[0]);
         p2.SetPlayerColour(playerColours[1]);
+        p1.SetPlayerName("Player 1");
+        p2.SetPlayerName("Player 2");
         /*for(int i = 0; i<allTerritories.Count;i++)
         {
             if(i%2==0)
@@ -77,14 +81,12 @@ public class GameManager : MonoBehaviour
         CurrentPlayers.Add(p2);
     }
     
-    //start methiod called before the first frame update 
+    //start method called before the first frame update 
     void Start()        
     {     
         // Find and initialize slider and button manager       
         slider = FindObjectOfType<SliderScript>();
         buttonManager = FindObjectOfType<ButtonManager>();
-
-        // StartGame
         StartGame();
     }
 
@@ -92,12 +94,37 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         //Update User inteface and add lister to continue button
-        UpdateUI();
         buttonManager.getContinueButton().onClick.AddListener(AdvancePhase);
         buttonManager.UpdateConfirmVisibility(false);
         buttonManager.UpdateConfirmVisibility(false);
-    }
+        InitialDiceRoll();
+        UpdateUI();
 
+    }
+    IEnumerator UpdateDiceRoll()
+    {
+        yield return new WaitForSeconds(3f);
+
+        diceRollCanvas.enabled = false;
+    }
+    private void InitialDiceRoll(){
+        Dictionary<Player, int> diceRolls = new Dictionary<Player, int>();
+        int diceValue;
+       
+        for(int i = 0; i < CurrentPlayers.Count; i++){
+            Debug.Log(CurrentPlayers[i]);
+            diceValue = gameDice.getDiceValue();
+            diceRolls.Add(CurrentPlayers[i],diceValue);
+            diceRollText[i].text = CurrentPlayers[i].GetPlayerName() + " rolled: " + diceValue;
+        }
+
+        CurrentPlayers.Clear();
+        foreach(KeyValuePair<Player, int> order in diceRolls.OrderBy(key => key.Value)){
+            CurrentPlayers.Add(order.Key);
+        }
+        Debug.Log("t");
+        diceRollCanvas.enabled= false;
+    }
     // Method to advance turn to next phasee
     private void AdvancePhase()
     {
@@ -191,49 +218,56 @@ public class GameManager : MonoBehaviour
     {  
         //checks whether attacker territory count has more troops than 1 before allowing attack
         if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
-            currentSelectedTerritory =defendingCountry;
+            
+            slider.SetSliderActive(true);
+            buttonManager.UpdateConfirmVisibility(true);
+
+            currentSelectedTerritory=defendingCountry;
             if(previousSelectedTerritory.GetTerritoryTroopCount() > 3){
                 slider.UpdateRange(3);
             }
             else{
                 slider.UpdateRange(previousSelectedTerritory.GetTerritoryTroopCount() - 1);
             }
+
             GameInfoText.text = previousSelectedTerritory.GetOwner().GetPlayerName() + " select the amount of dice to attack with: ";
             getAttackDiceAmount();
         }
-        
-        if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
-            int attackValue = gameDice.getDiceValue();
-            AttackDiceText.text = "Rolled: " + attackValue;
-            int defendValue = gameDice.getDiceValue();
-            DefendDiceText.text = "Rolled: " + defendValue;
-            getCurrentPlayer().AttackTerritory(previousSelectedTerritory, defendingCountry, attackValue, defendValue);
-        }
-        RevertHighlight();
-        previousSelectedTerritory = null;
 
     }
-    public void PerformAttack()
+    private void PerformAttack()
     {
         GameInfoText.text = "";
         amountOfDefendDice = slider.GetAmount();
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
         buttonManager.UpdateConfirmVisibility(false);
+        
+        int[] attackValues = new int[amountOfAttackDice];
+        int[] defendValues = new int[amountOfDefendDice];
 
-        int[] attackValues = new int[amountOfAttackDice - 1];
-        int[] defendValues = new int[amountOfDefendDice - 1];
+        AttackDiceText.text = "Attacker rolled: ";
+        DefendDiceText.text = "Defender rolled:  ";
+
         for(int i = 0; i <amountOfAttackDice; i++){
+
             attackValues[i] = gameDice.getDiceValue();
+            AttackDiceText.text += attackValues[i] + " ";
+
             if(amountOfDefendDice > i){
                 defendValues[i] = gameDice.getDiceValue();
+                DefendDiceText.text += defendValues[i] + " ";
             }
         }
-        int attackValue = gameDice.getDiceValue();
-        AttackDiceText.text = "Rolled: " + attackValue;
-        int defendValue = gameDice.getDiceValue();
-        DefendDiceText.text = "Rolled: " + defendValue;
 
-        
+        Array.Sort(attackValues, (x, y) => y.CompareTo(x));
+        Array.Sort(defendValues, (x, y) => y.CompareTo(x));
+
+        int numDiceToCompare = Mathf.Min(attackValues.Length, defendValues.Length);
+
+        for(int i = 0; i < numDiceToCompare;i++){
+            getCurrentPlayer().AttackTerritory(previousSelectedTerritory, currentSelectedTerritory, attackValues[i], defendValues[i]);
+        }
+
         RevertHighlight();
         previousSelectedTerritory = null;
     }
@@ -259,7 +293,7 @@ public class GameManager : MonoBehaviour
     public void StartPhaseDeploy(Territory selectedTerritory){
             
         Player currentPlayer = getCurrentPlayer();
-        //Goes to the next player in the sequence until it has deployed all the starting troops
+
         if(selectedTerritory.GetTerritoryTroopCount() == 0){
             currentPlayer.AddTerritory(selectedTerritory);
             selectedTerritory.SetOwner(currentPlayer);
@@ -383,22 +417,35 @@ public class GameManager : MonoBehaviour
         }
         return true;
     }
-    public void getAttackDiceAmount(){
+    private void getAttackDiceAmount(){
         buttonManager.UpdateConfirmVisibility(true);
         buttonManager.getConfirmButton().onClick.AddListener(getDefendDiceAmount);
     }
-    public void getDefendDiceAmount(){
+    private void getDefendDiceAmount(){
+        amountOfAttackDice = slider.GetAmount();
         GameInfoText.text = currentSelectedTerritory.GetOwner().GetPlayerName() + " select the amount of dice to defend with: ";
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
-        amountOfAttackDice = slider.GetAmount();
-        if(amountOfAttackDice > 1 && currentSelectedTerritory.GetTerritoryTroopCount() > 2){
-            slider.UpdateRange(2);
+
+        if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
+                slider.UpdateRange(2);
         }
         else{
-            slider.UpdateRange(1);
+                slider.UpdateRange(1);
         }
         buttonManager.getConfirmButton().onClick.AddListener(PerformAttack);    
     }
 
     
+}
+
+internal class Map<T1, T2> : HashMap<Player, int>
+{
+    internal void Add(Player p, int v)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+internal class HashMap<T1, T2>
+{
 }
