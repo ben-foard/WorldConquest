@@ -66,17 +66,7 @@ public class GameManager : MonoBehaviour
         p2.SetPlayerColour(playerColours[1]);
         p1.SetPlayerName("Player 1");
         p2.SetPlayerName("Player 2");
-        /*for(int i = 0; i<allTerritories.Count;i++)
-        {
-            if(i%2==0)
-            {
-                p1.AddTerritory(allTerritories[i]);
-                //allTerritories[i].SetOwner(p1);
-                continue;
-            }
-            p2.AddTerritory(allTerritories[i]);
-            //allTerritories[i].SetOwner(p2);
-        }  */  
+        
         CurrentPlayers.Add(p1);
         CurrentPlayers.Add(p2);
     }
@@ -101,30 +91,35 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
     }
-    IEnumerator UpdateDiceRoll()
-    {
-        yield return new WaitForSeconds(3f);
-
-        diceRollCanvas.enabled = false;
-    }
+ 
     private void InitialDiceRoll(){
         Dictionary<Player, int> diceRolls = new Dictionary<Player, int>();
         int diceValue;
-       
+        diceRollCanvas.enabled = true;
         for(int i = 0; i < CurrentPlayers.Count; i++){
             Debug.Log(CurrentPlayers[i]);
             diceValue = gameDice.getDiceValue();
             diceRolls.Add(CurrentPlayers[i],diceValue);
             diceRollText[i].text = CurrentPlayers[i].GetPlayerName() + " rolled: " + diceValue;
+            
         }
 
         CurrentPlayers.Clear();
+        diceRollText[6].text = "Game playing order:\n";
         foreach(KeyValuePair<Player, int> order in diceRolls.OrderBy(key => key.Value)){
             CurrentPlayers.Add(order.Key);
+            diceRollText[6].text += order.Key.GetPlayerName() +"\n";
         }
-        Debug.Log("t");
-        diceRollCanvas.enabled= false;
-    }
+
+       StartCoroutine(UpdateDiceRoll());
+        
+    }    
+    IEnumerator UpdateDiceRoll()
+    {
+        yield return new WaitForSeconds(3);
+
+        diceRollCanvas.enabled = false;
+    } 
     // Method to advance turn to next phasee
     private void AdvancePhase()
     {
