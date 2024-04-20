@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
 using TMPro;
 using System;
-using Unity.VisualScripting;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Data;
+using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {   
@@ -15,7 +13,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
  
    
-    //Fields for inspector accessibilty using [SerializeFiedl]
+    //Fields for inspector accessibilty using [SerializeField]
     [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
     [SerializeField] private TextMeshProUGUI currentPlayerText;
@@ -24,8 +22,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DefendDiceText;
     [SerializeField] private Canvas diceRollCanvas;
     [SerializeField] private List<TextMeshProUGUI> diceRollText = new List<TextMeshProUGUI>();
+    [SerializeField] private Deck missionCardPile;
+
     //private variables for managing game state
-    private List<Player> CurrentPlayers = new List<Player>();
+    private List<Player> CurrentPlayers = new List<Player>();    
+    private Deck mainDeck;
+    private int tradeValue = 0;
     private gamePhases currentGamePhase = gamePhases.Start;
     private List<Color32> playerColours = new List<Color32> { 
         new Color32(229,19,19,255),
@@ -35,8 +37,9 @@ public class GameManager : MonoBehaviour
         new Color32(100,6,171,255),
         new Color32(171,6,154,255)};
 
+    private Dictionary<string, List<Card>> playerCards = new Dictionary<string,List<Card>>();
     private int PlayerIndex = 0;
-    private Dice gameDice = new Dice();
+    private Dice gameDice;
     private SliderScript slider;
     private ButtonManager buttonManager;
     private Territory previousSelectedTerritory;
@@ -60,12 +63,16 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         //Create players, set colors and assign territories 
+        mainDeck = gameObject.AddComponent<Deck>();
+        gameDice = gameObject.AddComponent<Dice>();
         Player p1 = gameObject.AddComponent<Player>();
         Player p2 = gameObject.AddComponent<Player>();
         p1.SetPlayerColour(playerColours[0]);
         p2.SetPlayerColour(playerColours[1]);
         p1.SetPlayerName("Player 1");
         p2.SetPlayerName("Player 2");
+        playerCards.Add(p1.GetPlayerName(), new List<Card>());
+        playerCards.Add(p2.GetPlayerName(), new List<Card>());
         
         CurrentPlayers.Add(p1);
         CurrentPlayers.Add(p2);
@@ -77,6 +84,11 @@ public class GameManager : MonoBehaviour
         // Find and initialize slider and button manager       
         slider = FindObjectOfType<SliderScript>();
         buttonManager = FindObjectOfType<ButtonManager>();
+        mainDeck.PopulateDeck();
+        for(int i = 0; i < 5; i++){
+            Card card = mainDeck.DrawCard();
+            print(card.GetTerritoryName() + ": " + card.getArmyType());
+        }
         StartGame();
     }
 
@@ -97,7 +109,6 @@ public class GameManager : MonoBehaviour
         int diceValue;
         diceRollCanvas.enabled = true;
         for(int i = 0; i < CurrentPlayers.Count; i++){
-            Debug.Log(CurrentPlayers[i]);
             diceValue = gameDice.getDiceValue();
             diceRolls.Add(CurrentPlayers[i],diceValue);
             diceRollText[i].text = CurrentPlayers[i].GetPlayerName() + " rolled: " + diceValue;
@@ -120,6 +131,7 @@ public class GameManager : MonoBehaviour
 
         diceRollCanvas.enabled = false;
     } 
+
     // Method to advance turn to next phasee
     private void AdvancePhase()
     {
@@ -150,11 +162,27 @@ public class GameManager : MonoBehaviour
             {
                 /*Nothing happens here at the moment*/
                 case gamePhases.Deploy:
+                    string playerName = CurrentPlayers[PlayerIndex].GetPlayerName();
+                    bool containsSet = hasSet(playerName);
+                    
+                    if (containsSet && playerCards[playerName].Count <= 4) { 
+                        //TODO: give option to trade in cards 
+                    }
+                    //TODO: Check amount of (matching) sets player owns
+                    //Allowed if 3 matching cards
+                    //MUST if amount of cards => 5 must trade in atleast one set
+                    //TODO: keep track of sets been traded
+                    //TODO: occupied territory matching card sets get 2 extra armies
                     getCurrentPlayer().AlterTroopsToDeploy(3);                    
                     break;
                 case gamePhases.Attack:
                     break;
                 case gamePhases.Fortify:
+                    CurrentPlayers[PlayerIndex].GetPlayerDeck().AddCard(mainDeck.DrawCard());
+                    if (CurrentPlayers[PlayerIndex].GetPlayerDeck().getSize() >= 5) 
+                    { 
+                        
+                    }
                     break;
             }
             UpdateUI();
@@ -301,6 +329,12 @@ public class GameManager : MonoBehaviour
         PlayerIndex = (PlayerIndex + 1) % CurrentPlayers.Count;
 
         if (AllPlayersDeployed()) {
+            for(int i = 0; i < 12;i++){
+                missionCardPile.AddCard(mainDeck.DrawCard());
+            }
+            mainDeck.RemoveAllMissionCards();
+            mainDeck.shuffleCards();
+            //DONE: SHUFFLE DECK AND REMOVE MISSION CARDS
             currentGamePhase = gamePhases.Attack;
         }
 
@@ -322,6 +356,11 @@ public class GameManager : MonoBehaviour
 
         //Defaults this to 3 for the deploy stage, will change in the future
         UpdateSliderValues(3);
+        if(playerCards.ContainsKey(currentPlayer.GetPlayerName())){
+            playerCards[currentPlayer.GetPlayerName()].Add(mainDeck.DrawCard());
+        }
+        //DONEISH: REWARD CARD (AT LEAST ONE) 
+        //CARD PER TERRITORY??
         AdvancePhase();
        
        previousSelectedTerritory = null;
@@ -429,18 +468,77 @@ public class GameManager : MonoBehaviour
         }
         buttonManager.getConfirmButton().onClick.AddListener(PerformAttack);    
     }
+    //Here i will return a list of cards for the amount of territories captured
+   public List<Card> rewardCards(int capturedAmount, Deck mainDeck){
+      List<Card> rewardedCards = new List<Card>();
+      for(int i = 0; i < capturedAmount; i++){
+            Card drawnCard = mainDeck.DrawCard();
+            rewardedCards.Add(drawnCard);
+      }
+      return rewardedCards;
+   }
 
-    
-}
+   /**
+   * trade in simulation for in game play
+   **/
+   public int tradeInCards(int setsToExchange, List<Card> discardPile, List<Card> sets){
+      int tradesValue = getTrades(8);
+      int cardCount = setsToExchange * 3;
+      for(int i = 0; i < cardCount; i++) {
+         discardPile.Add(sets[i]);
+      }
 
-internal class Map<T1, T2> : HashMap<Player, int>
-{
-    internal void Add(Player p, int v)
-    {
-        throw new NotImplementedException();
+      //increase trade count in player 
+      
+      return tradesValue * setsToExchange;
+   }
+
+   //this will be in the player class either be get trade value
+   public int getTrades(int tradesDone){
+      return tradesDone;
+   }
+
+    public bool hasSet(string playerName) {
+        if (playerCards.ContainsKey(playerName)) {
+
+            List<Card> cards = new List<Card>();
+
+            int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
+            int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
+            int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+
+            return (infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1) ||
+                (cards.Count(card => card.getCardType() == "Wild Card") >= 1);
+        }
+        return false;
     }
-}
+    public List<Card> GetSetToTrade(string playerName)
+    {
 
-internal class HashMap<T1, T2>
-{
+        List<Card> setToTrade = new List<Card>();
+        if (playerCards.ContainsKey(playerName))
+        {
+
+            List<Card> cards = new List<Card>();
+
+            int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
+            int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
+            int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+
+            if (infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1)
+            {
+                setToTrade.AddRange(cards.Where(card => card.getArmyType() == "Infantry" ||
+                card.getArmyType() == "Calvary" || card.getArmyType() == "Artillery").Take(3));
+            }
+            else if (cards.Count(card => card.getCardType() == "Wild Card") >= 2)
+            {
+                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(3));
+            }
+        }
+        return setToTrade;
+    }
+
+    public Dictionary<string, List<Card>> getPlayerDecks() {
+        return playerCards;
+    }
 }

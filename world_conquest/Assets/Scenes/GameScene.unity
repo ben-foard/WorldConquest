@@ -10500,6 +10500,7 @@ MonoBehaviour:
   - {fileID: 506662892}
   - {fileID: 1247814141}
   - {fileID: 211090874}
+  missionCardPile: {fileID: 0}
 --- !u!4 &751464472
 Transform:
   m_ObjectHideFlags: 0
@@ -23316,6 +23317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 1701450844}
+  tradedInSets: {fileID: 0}
 --- !u!114 &1701450844
 MonoBehaviour:
   m_ObjectHideFlags: 0

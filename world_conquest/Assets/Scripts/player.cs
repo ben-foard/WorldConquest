@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 {
     //Field that is serialized from the current scene
     [SerializeField] private TextMeshProUGUI playerNameText;
+    [SerializeField] private TMP_Text tradedInSets;
+    
 
     //The properties of the player
     private string playerName;
@@ -17,12 +19,8 @@ public class Player : MonoBehaviour
     private int troopsToDeploy = 5;
     private List<Territory> ownedTerritories = new List<Territory>();
     private Color32 playerColour;
+    private Deck cards = new Deck();
 
-    public Player(string name, Color32 color)
-    {
-        this.playerName = name;
-        this.playerColour = color;
-    }
 
     //Adds a given amount of troops to the players troop count
     public void AddTroops(int amount)
@@ -37,7 +35,8 @@ public class Player : MonoBehaviour
     }
 
     //Method for attacking a territory from this players current territory
-    public void AttackTerritory(Territory territoryAttacking, Territory territoryDefending, int attackingValue, int defendingValue)
+    public void AttackTerritory(Territory territoryAttacking,
+        Territory territoryDefending, int attackingValue, int defendingValue)
     {
         if(attackingValue > defendingValue){
 
@@ -47,9 +46,18 @@ public class Player : MonoBehaviour
 
             //Changes the owner of the territory if the defending territory has only 1 troop left
             if(territoryDefending.GetTerritoryTroopCount() == 1){
+                //TODO: check if owner has any more territories, if 0 current player gets all their cards
+                //TODO: if cards > 6 must trade in to get to a card count of 4 or fewer
                 territoryDefending.ChangeOwner(this);
+                
+                if (territoryDefending.GetOwner().GetAllTerritories().Count == 0) {
+                    this.GetPlayerDeck().AddCards(territoryDefending.GetOwner().GetPlayerDeck().RemoveAllCards());
+                    if (this.GetPlayerDeck().getSize() >= 5) { 
+                    
+                    }
+                    
+                }
             }
-
             //Else will handle the removing of troops from the defending territory
             else{
                 territoryDefending.RemoveTroops(1);
@@ -136,5 +144,9 @@ public class Player : MonoBehaviour
     public void SetPlayerName(string name){
         this.playerName = name;
     }
+
+    public Deck GetPlayerDeck() {
+        return cards;
+    }  
 
 }
