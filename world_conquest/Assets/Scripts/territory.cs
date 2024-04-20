@@ -19,12 +19,13 @@ public class Territory : MonoBehaviour
     private Color32 territoryColour;
     private int troopCount = 0;
     private Player territoryOwner;
-    
+    public string continent;
     void Awake() 
     {
         territoryColour = territoryButtonOutline.color;
         //Adds a listener to the territory for when it is selected by the user 
         territoryButton.onClick.AddListener(OnTerritoryButtonClick);
+        troopText.text = "0";
     }
 
     //Method is run when a territory is selected
@@ -44,9 +45,17 @@ public class Territory : MonoBehaviour
                 }
                 break;
             case "Deploy":
-                if(currentTerritory.GetOwner() == GameManager.Instance.getCurrentPlayer() && GameManager.Instance.CheckDeployedAllTroops(GameManager.Instance.getCurrentPlayer())){
-                    GameManager.Instance.DeployTroops(currentTerritory);
+
+                if(currentTerritory.GetOwner() == GameManager.Instance.getCurrentPlayer() && !GameManager.Instance.CheckDeployedAllTroops(GameManager.Instance.getCurrentPlayer())){
+                    if(prevTerritory != null){
+                        prevTerritory.RevertHighlight();
+                    }
+                    this.HighlightTerritory();
+                    GameManager.Instance.SetCurrentSelectedTerritory(this);
+                    GameManager.Instance.UpdateConfirmVisbility(true);
                 } 
+                GameManager.Instance.SetPreviousSelectedTerritory(this);
+
                 break;
 
             case "Attack":
@@ -68,12 +77,19 @@ public class Territory : MonoBehaviour
                 break;
                 
             case "Fortify":
-            
+
                 //Will run fortify if the previous selected is not null, is a neighbour and is owned by the currently selected
                 if (prevTerritory != null && prevTerritory.GetNeighbours().Contains(currentTerritory) && prevTerritory.GetOwner().checkTerritories(currentTerritory)) {
                     GameManager.Instance.UpdateConfirmVisbility(true);
-                    GameManager.Instance.FortifyPositions(prevTerritory, currentTerritory);
+                    GameManager.Instance.SetCurrentSelectedTerritory(this);
+                    GameManager.Instance.SetPreviousSelectedTerritory(prevTerritory);
+                    prevTerritory.HighlightTerritory();
                 } else {
+                    GameManager.Instance.UpdateConfirmVisbility(false);
+                    if(prevTerritory != null){
+                        prevTerritory.RevertHighlight();
+                    }
+                    
                     if (this.AvailableTroops() == 0) {
                         GameManager.Instance.UpdateSliderVisibility(false);
                         GameManager.Instance.SetPreviousSelectedTerritory(null);
@@ -81,6 +97,7 @@ public class Territory : MonoBehaviour
 
                     //Displays the amount of troops it has to fortify to another territory
                     else {
+                        currentTerritory.HighlightTerritory();
                         GameManager.Instance.UpdateSliderVisibility(true);
                         GameManager.Instance.SetPreviousSelectedTerritory(this);
                         GameManager.Instance.UpdateSliderValues(this.AvailableTroops());

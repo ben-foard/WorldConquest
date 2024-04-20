@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TroopController : MonoBehaviour
 {
+
+    /*
+      THIS CLASS IS CURRENTLY OUT OF USE
+    */
     // Start is called before the first frame update
   
     //displayTroops
