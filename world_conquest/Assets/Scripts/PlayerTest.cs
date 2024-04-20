@@ -5,6 +5,10 @@ using UnityEngine.TestTools;
 
 public class PlayerTest : MonoBehaviour
 {       
+    /*
+        THIS CLASS IS CURRENTLY OUT OF USE
+    */
+    
     private Territory t1;
     private Territory t2;
     private Player p1;

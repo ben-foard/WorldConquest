@@ -9,7 +9,8 @@ using Unity.VisualScripting;
 public class Player : MonoBehaviour
 {
     //Field that is serialized from the current scene
-    [SerializeField] private TextMeshProUGUI playerNameText;
+    [SerializeField] private TMP_Text tradedInSets;
+    
 
     //The properties of the player
     private string playerName;
@@ -17,52 +18,20 @@ public class Player : MonoBehaviour
     private int troopsToDeploy = 5;
     private List<Territory> ownedTerritories = new List<Territory>();
     private Color32 playerColour;
-
-    public Player(string name, Color32 color)
-    {
-        this.playerName = name;
-        this.playerColour = color;
-    }
-
+    private Deck cards = new Deck();
+    private int tradeValue = 0;
+    private TextMeshProUGUI playerNameText;
     //Adds a given amount of troops to the players troop count
     public void AddTroops(int amount)
     {
         troopCount += amount;
+        
     }
 
     //Removes a given amount of troops from the players troop count 
     public void RemoveTroops(int amount)
     {
         troopCount -= amount;
-    }
-
-    //Method for attacking a territory from this players current territory
-    public void AttackTerritory(Territory territoryAttacking, Territory territoryDefending, int attackingValue, int defendingValue)
-    {
-        if(attackingValue > defendingValue){
-
-            //Moves the troops from the defending to the attacking territory 
-            this.AddTroops(1);           
-            territoryDefending.GetOwner().RemoveTroops(1);
-
-            //Changes the owner of the territory if the defending territory has only 1 troop left
-            if(territoryDefending.GetTerritoryTroopCount() == 1){
-                territoryDefending.ChangeOwner(this);
-            }
-
-            //Else will handle the removing of troops from the defending territory
-            else{
-                territoryDefending.RemoveTroops(1);
-                territoryAttacking.AddTroops(1);
-            }
-       
-        }
-
-        else{
-            this.RemoveTroops(1);
-            territoryAttacking.RemoveTroops(1);
-        }
-        
     }
 
     //Method handles territory fortifying 
@@ -126,6 +95,7 @@ public class Player : MonoBehaviour
     public void SetPlayerColour(Color32 c)
     {
         this.playerColour = c;
+        playerNameText.color = playerColour;
     }
 
     //Gets the current players colour
@@ -133,8 +103,19 @@ public class Player : MonoBehaviour
     {
         return this.playerColour;
     }
+
+    //Sets the players name to the input
     public void SetPlayerName(string name){
         this.playerName = name;
+        playerNameText.text = playerName;
     }
 
+    //Gets the deck that the player has
+    public Deck GetPlayerDeck() {
+        return cards;
+    }  
+
+    public void SetPlayerText(TextMeshProUGUI text){
+        playerNameText = text;
+    }
 }
