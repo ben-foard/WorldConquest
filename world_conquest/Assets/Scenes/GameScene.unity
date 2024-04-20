@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4133245}
   - component: {fileID: 4133244}
   m_Layer: 6
-  m_Name: Siam
+  m_Name: Territory1 (30)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ RectTransform:
   m_GameObject: {fileID: 4133242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1733833296}
@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4729, y: -3700}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -4932.252, y: -4452.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4133244
 MonoBehaviour:
@@ -179,10 +179,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 617386881}
   territoryName: {fileID: 1733833297}
   neighbours:
-  - {fileID: 1868690139}
-  - {fileID: 789982780}
-  - {fileID: 515848163}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4133245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,15 +194,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.87058824, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49d1351416217be458c6455e5c236f33, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -620,7 +618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7229, y: -6104}
+  m_AnchoredPosition: {x: -7677.252, y: -5984.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11805313
@@ -762,7 +760,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -876,7 +876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4648, y: -2155}
+  m_AnchoredPosition: {x: -4240.451, y: -3100.8633}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16068347
@@ -998,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3987, y: -6038}
+  m_AnchoredPosition: {x: -4932.252, y: -6316.783}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20948831
@@ -1120,8 +1120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 471, y: -970.31}
-  m_SizeDelta: {x: 305.74, y: 30.889}
+  m_AnchoredPosition: {x: 471, y: -938.14}
+  m_SizeDelta: {x: 305.74, y: 49.2741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25176559
 MonoBehaviour:
@@ -1324,7 +1324,7 @@ GameObject:
   - component: {fileID: 41652703}
   - component: {fileID: 41652702}
   m_Layer: 6
-  m_Name: Ural
+  m_Name: Territory1 (42)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1339,7 +1339,7 @@ RectTransform:
   m_GameObject: {fileID: 41652700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 614905857}
@@ -1347,8 +1347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6462.252, y: -1395}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -6462.252, y: -1685.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41652702
 MonoBehaviour:
@@ -1367,11 +1367,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1670721273}
   territoryName: {fileID: 614905858}
   neighbours:
-  - {fileID: 537638344}
-  - {fileID: 514172407}
-  - {fileID: 1868690139}
-  - {fileID: 1588327139}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &41652703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,15 +1382,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b363b39804ef76c4da542a49b97f736e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1423,7 +1420,7 @@ GameObject:
   - component: {fileID: 48796225}
   - component: {fileID: 48796224}
   m_Layer: 6
-  m_Name: Northern Europe
+  m_Name: Territory1 (16)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1435,7 @@ RectTransform:
   m_GameObject: {fileID: 48796222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 767218725}
@@ -1446,8 +1443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8914, y: -1988}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -9594.252, y: -3812.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48796224
 MonoBehaviour:
@@ -1466,12 +1463,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 964841728}
   territoryName: {fileID: 767218726}
   neighbours:
-  - {fileID: 1915060234}
-  - {fileID: 1148917600}
-  - {fileID: 215803103}
-  - {fileID: 537638344}
-  - {fileID: 854388129}
-  continent: Europe
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &48796225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,15 +1478,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 54b324363bd6c60478a707a3b712d6e8, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1547,7 +1540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6511, y: -2392}
+  m_AnchoredPosition: {x: -6232.4805, y: -3028.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92863602
@@ -1689,7 +1682,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1766,6 +1761,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95399322}
   m_CullTransparentMesh: 1
+--- !u!1 &103817522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103817523}
+  - component: {fileID: 103817524}
+  m_Layer: 5
+  m_Name: GameInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &103817523
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103817522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -39.45933}
+  m_LocalScale: {x: 2500, y: 150, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 830351280}
+  - {fileID: 1709574864}
+  - {fileID: 1701450842}
+  m_Father: {fileID: 1746150811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 23, y: 872.07}
+  m_SizeDelta: {x: 1.0122, y: 1.4831}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &103817524
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103817522}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &105065951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12198.252, y: -2288}
+  m_AnchoredPosition: {x: -12198.252, y: -3568.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105065953
@@ -1925,7 +2011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7341, y: -3426}
+  m_AnchoredPosition: {x: -6903.311, y: -4052.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120561326
@@ -2023,7 +2109,7 @@ GameObject:
   - component: {fileID: 144392196}
   - component: {fileID: 144392195}
   m_Layer: 6
-  m_Name: Central America
+  m_Name: Territory1 (10)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2038,7 +2124,7 @@ RectTransform:
   m_GameObject: {fileID: 144392193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1223952194}
@@ -2046,8 +2132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13367, y: -2843}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12990.252, y: -4276.8633}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144392195
 MonoBehaviour:
@@ -2066,10 +2152,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1818136373}
   territoryName: {fileID: 1223952195}
   neighbours:
-  - {fileID: 930344066}
-  - {fileID: 1017918158}
-  - {fileID: 1424132529}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &144392196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,15 +2167,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9fcdc0c1649fec4abefa2b809acf594, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2434,7 +2518,7 @@ GameObject:
   - component: {fileID: 197525751}
   - component: {fileID: 197525750}
   m_Layer: 6
-  m_Name: Alberta
+  m_Name: Territory1 (2)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2449,7 +2533,7 @@ RectTransform:
   m_GameObject: {fileID: 197525748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467594432}
@@ -2457,8 +2541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13146, y: -1382.1638}
-  m_SizeDelta: {x: 381.5, y: 182.3043}
+  m_AnchoredPosition: {x: -13785.252, y: -2392.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197525750
 MonoBehaviour:
@@ -2477,11 +2561,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 207665054}
   territoryName: {fileID: 467594433}
   neighbours:
-  - {fileID: 774805499}
-  - {fileID: 586571737}
-  - {fileID: 1649578454}
-  - {fileID: 930344066}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &197525751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,15 +2576,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.88428754, b: 0.08962262, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0c2e0d12960cce47a843f63ca0f3e79, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2690,7 +2771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -164.2, y: 235.7}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &207665054
@@ -2892,7 +2973,7 @@ GameObject:
   - component: {fileID: 215803104}
   - component: {fileID: 215803103}
   m_Layer: 6
-  m_Name: Southern Europe
+  m_Name: Territory1 (23)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2907,7 +2988,7 @@ RectTransform:
   m_GameObject: {fileID: 215803101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 268550245}
@@ -2915,8 +2996,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8562, y: -2752}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -8358.822, y: -3214.9834}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215803103
 MonoBehaviour:
@@ -2936,12 +3017,7 @@ MonoBehaviour:
   territoryName: {fileID: 268550246}
   neighbours:
   - {fileID: 1148917600}
-  - {fileID: 48796224}
-  - {fileID: 537638344}
-  - {fileID: 1439356091}
-  - {fileID: 1648993941}
-  - {fileID: 1438596683}
-  continent: Europe
+  - {fileID: 0}
 --- !u!114 &215803104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2955,15 +3031,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b8c638324333594bae039889e34bc06, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3171,7 +3247,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 21
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3285,7 +3363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13090, y: -855}
+  m_AnchoredPosition: {x: -13114.452, y: -1568.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268248678
@@ -3520,7 +3598,7 @@ GameObject:
   - component: {fileID: 289588886}
   - component: {fileID: 289588885}
   m_Layer: 6
-  m_Name: Kamchatka
+  m_Name: Territory1 (39)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3535,7 +3613,7 @@ RectTransform:
   m_GameObject: {fileID: 289588883}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1132468106}
@@ -3543,8 +3621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3826, y: -917}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -3116.0518, y: -1568.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289588885
 MonoBehaviour:
@@ -3563,11 +3641,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 8687776}
   territoryName: {fileID: 1132468107}
   neighbours:
-  - {fileID: 848044848}
-  - {fileID: 1702774997}
-  - {fileID: 1215830781}
-  - {fileID: 941441461}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &289588886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,15 +3656,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e62e358cd67f22942a48f0761874c286, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3643,7 +3718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5736, y: -1012}
+  m_AnchoredPosition: {x: -5457.252, y: -1568.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293059276
@@ -3902,7 +3977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8773, y: -2037}
+  m_AnchoredPosition: {x: -9594.252, y: -3812.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310258373
@@ -4044,7 +4119,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 18
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4154,7 +4231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 163, y: -236.1}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &333322312
@@ -4321,7 +4398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8414, y: -5991}
+  m_AnchoredPosition: {x: -8693.09, y: -6060.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &344868684
@@ -4734,7 +4811,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 40
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4824,7 +4903,7 @@ GameObject:
   - component: {fileID: 372393461}
   - component: {fileID: 372393460}
   m_Layer: 6
-  m_Name: Eastern Australia
+  m_Name: Territory1 (33)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4839,7 +4918,7 @@ RectTransform:
   m_GameObject: {fileID: 372393458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1960676822}
@@ -4847,8 +4926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2942, y: -5988}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -3883.752, y: -5857.3833}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &372393460
 MonoBehaviour:
@@ -4867,9 +4946,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1991889748}
   territoryName: {fileID: 1960676823}
   neighbours:
-  - {fileID: 1964176377}
-  - {fileID: 495839889}
-  continent: Oceania
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &372393461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4883,15 +4961,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5686275, g: 0.023529412, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bab816d087a19847b48b5d9bb39f900, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4921,7 +4999,7 @@ GameObject:
   - component: {fileID: 395773136}
   - component: {fileID: 395773135}
   m_Layer: 6
-  m_Name: Peru
+  m_Name: Territory1 (12)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4936,7 +5014,7 @@ RectTransform:
   m_GameObject: {fileID: 395773133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 970116599}
@@ -4944,8 +5022,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12492, y: -4661}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12990.252, y: -5608.8633}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395773135
 MonoBehaviour:
@@ -4964,10 +5042,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 431031062}
   territoryName: {fileID: 970116600}
   neighbours:
-  - {fileID: 1424132529}
-  - {fileID: 977442102}
-  - {fileID: 1094504665}
-  continent: South America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &395773136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4981,15 +5057,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b9b5318e35ead549ae4bb590cfe8750, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5046,8 +5122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2250, y: -308.7069}
-  m_SizeDelta: {x: 1, y: 1.0492}
+  m_AnchoredPosition: {x: -2255, y: -353.96}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &398952251
 SpriteRenderer:
@@ -5089,7 +5165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5206,7 +5282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12358, y: -1510}
+  m_AnchoredPosition: {x: -12723.252, y: -2452.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409933634
@@ -5348,7 +5424,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 29
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5619,7 +5697,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 23
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6331,7 +6411,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 41
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6421,7 +6503,7 @@ GameObject:
   - component: {fileID: 495839890}
   - component: {fileID: 495839889}
   m_Layer: 6
-  m_Name: Western Australia
+  m_Name: Territory1 (32)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6436,7 +6518,7 @@ RectTransform:
   m_GameObject: {fileID: 495839887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 420749707}
@@ -6444,8 +6526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4121, y: -6085}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -4932.252, y: -6316.783}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495839889
 MonoBehaviour:
@@ -6464,10 +6546,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1026412935}
   territoryName: {fileID: 420749708}
   neighbours:
-  - {fileID: 515848163}
-  - {fileID: 1964176377}
-  - {fileID: 372393460}
-  continent: Oceania
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &495839890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6481,15 +6561,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5686275, g: 0.023529412, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4b7eec685ffebf418eca7e7752d608e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6543,7 +6623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3538, y: -4650}
+  m_AnchoredPosition: {x: -3966.252, y: -4809.0234}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502125129
@@ -6685,7 +6765,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6796,8 +6878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1621, y: -845}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: -1412, y: -845}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506662892
 MonoBehaviour:
@@ -6846,8 +6928,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6909,7 +6991,7 @@ GameObject:
   - component: {fileID: 514172408}
   - component: {fileID: 514172407}
   m_Layer: 6
-  m_Name: Afganistan
+  m_Name: Territory1 (28)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6924,7 +7006,7 @@ RectTransform:
   m_GameObject: {fileID: 514172405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6040635}
@@ -6932,8 +7014,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6551, y: -2319}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -6232.4805, y: -3028.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514172407
 MonoBehaviour:
@@ -6952,12 +7034,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1336261635}
   territoryName: {fileID: 6040636}
   neighbours:
-  - {fileID: 1439356091}
-  - {fileID: 789982780}
-  - {fileID: 1868690139}
-  - {fileID: 41652702}
-  - {fileID: 537638344}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &514172408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6971,15 +7049,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.87058824, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e7dd7a0c5e81e1e49bfb48c9130bebe4, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7009,7 +7087,7 @@ GameObject:
   - component: {fileID: 515848164}
   - component: {fileID: 515848163}
   m_Layer: 6
-  m_Name: Indonesia
+  m_Name: Territory1 (31)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7024,7 +7102,7 @@ RectTransform:
   m_GameObject: {fileID: 515848161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1821667695}
@@ -7032,8 +7110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4603, y: -4875}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -5457.252, y: -5353.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &515848163
 MonoBehaviour:
@@ -7052,10 +7130,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1910251768}
   territoryName: {fileID: 1821667696}
   neighbours:
-  - {fileID: 4133244}
-  - {fileID: 1964176377}
-  - {fileID: 495839889}
-  continent: Oceania
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &515848164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7069,15 +7145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.56558186, g: 0.02055893, b: 0.6226415, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 52aa63a432ddc114d8f40ed0d1440ae1, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7155,7 +7231,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4220.806
+  orthographic size: 4228.6577
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7287,7 +7363,7 @@ GameObject:
   - component: {fileID: 537638345}
   - component: {fileID: 537638344}
   m_Layer: 6
-  m_Name: Ukraine
+  m_Name: Territory1 (26)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7302,7 +7378,7 @@ RectTransform:
   m_GameObject: {fileID: 537638342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 602395168}
@@ -7310,8 +7386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7564.363, y: -1763}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -7564.363, y: -2067.0635}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537638344
 MonoBehaviour:
@@ -7330,13 +7406,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 528075116}
   territoryName: {fileID: 602395169}
   neighbours:
-  - {fileID: 854388129}
-  - {fileID: 48796224}
-  - {fileID: 215803103}
-  - {fileID: 1439356091}
-  - {fileID: 514172407}
-  - {fileID: 41652702}
-  continent: Europe
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &537638345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7350,15 +7421,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c889e672c038cf64b9e0a5371ca29728, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7412,7 +7483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8349, y: -3705}
+  m_AnchoredPosition: {x: -8597.676, y: -4052.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &548547041
@@ -7554,7 +7625,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7765,7 +7838,7 @@ GameObject:
   - component: {fileID: 571928068}
   - component: {fileID: 571928067}
   m_Layer: 6
-  m_Name: Quebec
+  m_Name: Territory1 (6)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7780,7 +7853,7 @@ RectTransform:
   m_GameObject: {fileID: 571928065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1785772577}
@@ -7788,8 +7861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11559, y: -1596}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -11838.252, y: -2774.9834}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &571928067
 MonoBehaviour:
@@ -7808,10 +7881,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1015309487}
   territoryName: {fileID: 1785772578}
   neighbours:
-  - {fileID: 1649578454}
-  - {fileID: 1017918158}
-  - {fileID: 1494366106}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &571928068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7825,15 +7896,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e2363b54fc79b64bb76a56ab19dcbe8, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7951,7 +8022,7 @@ GameObject:
   - component: {fileID: 586571738}
   - component: {fileID: 586571737}
   m_Layer: 6
-  m_Name: Alaska
+  m_Name: Territory1 (3)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7966,7 +8037,7 @@ RectTransform:
   m_GameObject: {fileID: 586571735}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1553061465}
@@ -7974,8 +8045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14080.827, y: -991}
-  m_SizeDelta: {x: 385.6036, y: 237.652}
+  m_AnchoredPosition: {x: -14274.253, y: -1448.9431}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586571737
 MonoBehaviour:
@@ -7994,10 +8065,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 333322312}
   territoryName: {fileID: 1553061466}
   neighbours:
-  - {fileID: 774805499}
-  - {fileID: 197525750}
-  - {fileID: 289588885}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &586571738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8011,15 +8080,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c7b4a10c8b27ce43833832b5e4c4520, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8073,7 +8142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13988, y: -876}
+  m_AnchoredPosition: {x: -14274.253, y: -1448.9431}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587932757
@@ -8303,7 +8372,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 37
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8517,140 +8588,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602395167}
   m_CullTransparentMesh: 1
---- !u!1 &608535275
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 608535276}
-  - component: {fileID: 608535278}
-  - component: {fileID: 608535277}
-  m_Layer: 5
-  m_Name: Player5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &608535276
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608535275}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2082552582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0848, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &608535277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608535275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4279440357
-  m_fontColor: {r: 0.8980392, g: 0.07450981, b: 0.07450981, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &608535278
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608535275}
-  m_CullTransparentMesh: 1
 --- !u!1 &614905856
 GameObject:
   m_ObjectHideFlags: 0
@@ -8845,7 +8782,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 26
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9111,7 +9050,7 @@ GameObject:
   - component: {fileID: 626886819}
   - component: {fileID: 626886818}
   m_Layer: 6
-  m_Name: Madagascar
+  m_Name: Territory1 (20)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9126,7 +9065,7 @@ RectTransform:
   m_GameObject: {fileID: 626886816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1560070331}
@@ -9134,8 +9073,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7243, y: -6130}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -7677.252, y: -5984.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626886818
 MonoBehaviour:
@@ -9154,9 +9093,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 2056201263}
   territoryName: {fileID: 1560070332}
   neighbours:
-  - {fileID: 1742500242}
-  - {fileID: 1489253256}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &626886819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9170,15 +9108,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69803923, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66ddc42465e7cb04e911bb33ae0d4a6a, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9340,7 +9278,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9474,7 +9414,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9588,7 +9530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4723, y: -3716}
+  m_AnchoredPosition: {x: -4932.252, y: -4452.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680012083
@@ -9707,7 +9649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1968, y: 841.81}
+  m_AnchoredPosition: {x: 1903, y: 872.26}
   m_SizeDelta: {x: 1012.2267, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691619154
@@ -10001,7 +9943,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10115,7 +10059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13284, y: -2109}
+  m_AnchoredPosition: {x: -13394.052, y: -3345.0234}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726806365
@@ -10234,8 +10178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1731.5, y: 30.656}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: 1575.7, y: 0.0000038147}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733498001
 MonoBehaviour:
@@ -10284,8 +10228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10333,140 +10277,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733497999}
-  m_CullTransparentMesh: 1
---- !u!1 &734581879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 734581880}
-  - component: {fileID: 734581882}
-  - component: {fileID: 734581881}
-  m_Layer: 5
-  m_Name: Player2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &734581880
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734581879}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2082552582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.31, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &734581881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734581879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4279440357
-  m_fontColor: {r: 0.8980392, g: 0.07450981, b: 0.07450981, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &734581882
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734581879}
   m_CullTransparentMesh: 1
 --- !u!1 &741434511
 GameObject:
@@ -10525,7 +10335,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10688,13 +10500,7 @@ MonoBehaviour:
   - {fileID: 506662892}
   - {fileID: 1247814141}
   - {fileID: 211090874}
-  playerTextNames:
-  - {fileID: 830351281}
-  - {fileID: 734581881}
-  - {fileID: 1690448693}
-  - {fileID: 1393529884}
-  - {fileID: 608535277}
-  - {fileID: 1513275124}
+  missionCardPile: {fileID: 0}
 --- !u!4 &751464472
 Transform:
   m_ObjectHideFlags: 0
@@ -10997,7 +10803,7 @@ GameObject:
   - component: {fileID: 774805500}
   - component: {fileID: 774805499}
   m_Layer: 6
-  m_Name: Northern Territory
+  m_Name: Territory1 (1)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11012,7 +10818,7 @@ RectTransform:
   m_GameObject: {fileID: 774805497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 154354785}
@@ -11020,8 +10826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12971, y: -914}
-  m_SizeDelta: {x: 709.5068, y: 205.3477}
+  m_AnchoredPosition: {x: -13114.452, y: -1568.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774805499
 MonoBehaviour:
@@ -11040,11 +10846,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 430757432}
   territoryName: {fileID: 154354786}
   neighbours:
-  - {fileID: 197525750}
-  - {fileID: 586571737}
-  - {fileID: 1649578454}
-  - {fileID: 1494366106}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &774805500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11058,15 +10861,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f4a71e31004cb9499abe70efd5bc7d9, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11096,7 +10899,7 @@ GameObject:
   - component: {fileID: 789982781}
   - component: {fileID: 789982780}
   m_Layer: 6
-  m_Name: India
+  m_Name: Territory1 (29)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11111,7 +10914,7 @@ RectTransform:
   m_GameObject: {fileID: 789982778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1473925499}
@@ -11119,8 +10922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5792, y: -3480}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -5922.252, y: -4044.9033}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789982780
 MonoBehaviour:
@@ -11139,11 +10942,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 475527161}
   territoryName: {fileID: 1473925500}
   neighbours:
-  - {fileID: 1439356091}
-  - {fileID: 514172407}
-  - {fileID: 1868690139}
-  - {fileID: 4133244}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &789982781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11157,15 +10957,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.87058824, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8784b7dad9dd9c94497ceb899bba3afb, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11356,7 +11156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueButton: {fileID: 1645169077}
   confirmButton: {fileID: 561012236}
-  rollButton: {fileID: 1246404503}
+  rollButton: {fileID: 0}
 --- !u!4 &812709590
 Transform:
   m_ObjectHideFlags: 0
@@ -11385,7 +11185,7 @@ GameObject:
   - component: {fileID: 816566600}
   - component: {fileID: 816566599}
   m_Layer: 6
-  m_Name: Congo
+  m_Name: Territory1 (18)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11400,7 +11200,7 @@ RectTransform:
   m_GameObject: {fileID: 816566597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 880764588}
@@ -11408,8 +11208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8508, y: -5049}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -9319.422, y: -5353.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816566599
 MonoBehaviour:
@@ -11428,10 +11228,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 906590904}
   territoryName: {fileID: 880764589}
   neighbours:
-  - {fileID: 1648993941}
-  - {fileID: 1489253256}
-  - {fileID: 1742500242}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &816566600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11445,15 +11243,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69803923, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0675864e76508a1499252ee95e5bfd49, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11527,7 +11325,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 17
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11630,16 +11430,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830351279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
+  m_LocalPosition: {x: 0, y: 0, z: 39.45933}
+  m_LocalScale: {x: 0.0014285715, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2082552582}
+  m_Father: {fileID: 103817523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.44, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
+  m_AnchoredPosition: {x: -0.37643433, y: 0}
+  m_SizeDelta: {x: 164.3962, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &830351281
 MonoBehaviour:
@@ -11661,7 +11461,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Player 1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11688,8 +11490,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11724,7 +11526,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
+  m_margin: {x: 0, y: 4.5010815, z: 43.50225, w: 6.1385803}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11772,8 +11574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1621, y: 838}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: -1412, y: 838}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847889275
 MonoBehaviour:
@@ -11822,8 +11624,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11885,7 +11687,7 @@ GameObject:
   - component: {fileID: 848044849}
   - component: {fileID: 848044848}
   m_Layer: 6
-  m_Name: Japan
+  m_Name: Territory1 (38)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11900,7 +11702,7 @@ RectTransform:
   m_GameObject: {fileID: 848044846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 905776477}
@@ -11908,8 +11710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3431, y: -2060}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -2967.252, y: -2696.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848044848
 MonoBehaviour:
@@ -11928,9 +11730,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1252848881}
   territoryName: {fileID: 905776478}
   neighbours:
-  - {fileID: 1702774997}
-  - {fileID: 289588885}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &848044849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11944,15 +11745,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9180a613a7fc4014783f89256bdd937b, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12158,7 +11959,7 @@ GameObject:
   - component: {fileID: 854388130}
   - component: {fileID: 854388129}
   m_Layer: 6
-  m_Name: Scandinavia
+  m_Name: Territory1 (25)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12173,7 +11974,7 @@ RectTransform:
   m_GameObject: {fileID: 854388127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1328858171}
@@ -12181,8 +11982,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8779, y: -1279}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -8923.422, y: -1568.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854388129
 MonoBehaviour:
@@ -12201,11 +12002,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1018330431}
   territoryName: {fileID: 1328858172}
   neighbours:
-  - {fileID: 2009148168}
-  - {fileID: 1915060234}
-  - {fileID: 48796224}
-  - {fileID: 537638344}
-  continent: Europe
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &854388130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12219,15 +12017,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 524def2490cfd344fb0853db0ee91a78, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12525,7 +12323,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12773,8 +12573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1686, y: 838}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: 1486, y: 838}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876860998
 MonoBehaviour:
@@ -12823,8 +12623,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12930,7 +12730,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13201,7 +13003,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 19
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13516,7 +13320,7 @@ GameObject:
   - component: {fileID: 930344067}
   - component: {fileID: 930344066}
   m_Layer: 6
-  m_Name: Western US
+  m_Name: Territory1 (8)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13531,7 +13335,7 @@ RectTransform:
   m_GameObject: {fileID: 930344064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1788123469}
@@ -13539,8 +13343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13394.052, y: -2154}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -13394.052, y: -3345.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930344066
 MonoBehaviour:
@@ -13559,11 +13363,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 850848529}
   territoryName: {fileID: 1788123470}
   neighbours:
-  - {fileID: 197525750}
-  - {fileID: 1649578454}
-  - {fileID: 1017918158}
-  - {fileID: 144392195}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &930344067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13577,15 +13378,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ffc04d81c03288a448a2c3e172bbbfdb, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13752,7 +13553,7 @@ GameObject:
   - component: {fileID: 941441462}
   - component: {fileID: 941441461}
   m_Layer: 6
-  m_Name: Yakutsk
+  m_Name: Territory1 (40)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13767,7 +13568,7 @@ RectTransform:
   m_GameObject: {fileID: 941441459}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 966824093}
@@ -13775,8 +13576,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4892, y: -681}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -4240.451, y: -1448.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941441461
 MonoBehaviour:
@@ -13795,10 +13596,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 2010284149}
   territoryName: {fileID: 966824094}
   neighbours:
-  - {fileID: 1588327139}
-  - {fileID: 1215830781}
-  - {fileID: 289588885}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &941441462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13812,15 +13611,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ed4b8868a83e044bb2963b4aee03289, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14300,7 +14099,7 @@ GameObject:
   - component: {fileID: 977442103}
   - component: {fileID: 977442102}
   m_Layer: 6
-  m_Name: Brazil
+  m_Name: Territory1 (13)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14315,7 +14114,7 @@ RectTransform:
   m_GameObject: {fileID: 977442100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 28894296}
@@ -14323,8 +14122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11838.252, y: -4400}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -11838.252, y: -5784.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977442102
 MonoBehaviour:
@@ -14343,10 +14142,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 849326107}
   territoryName: {fileID: 28894297}
   neighbours:
-  - {fileID: 1424132529}
-  - {fileID: 395773135}
-  - {fileID: 1648993941}
-  continent: South America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &977442103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14360,15 +14157,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 912e6362c0e417c4ea59966887bd0da8, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14422,7 +14219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4739, y: -664}
+  m_AnchoredPosition: {x: -4240.451, y: -1448.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982590214
@@ -14564,7 +14361,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 33
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14742,7 +14541,7 @@ GameObject:
   - component: {fileID: 1017918159}
   - component: {fileID: 1017918158}
   m_Layer: 6
-  m_Name: Eastern US
+  m_Name: Territory1 (9)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14757,7 +14556,7 @@ RectTransform:
   m_GameObject: {fileID: 1017918156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1860562010}
@@ -14765,8 +14564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12198.252, y: -2244}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12198.252, y: -3568.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1017918158
 MonoBehaviour:
@@ -14785,11 +14584,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 588183003}
   territoryName: {fileID: 1860562011}
   neighbours:
-  - {fileID: 144392195}
-  - {fileID: 930344066}
-  - {fileID: 571928067}
-  - {fileID: 1649578454}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1017918159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14803,15 +14599,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f014f5f9e6d98ed4bac7cc906e34ff22, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14953,7 +14749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7720, y: -4477}
+  m_AnchoredPosition: {x: -8117.682, y: -4984.783}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018819154
@@ -15183,7 +14979,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 22
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15434,7 +15232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10530, y: -636}
+  m_AnchoredPosition: {x: -11082.252, y: -1685.0233}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069376133
@@ -15532,7 +15330,7 @@ GameObject:
   - component: {fileID: 1094504666}
   - component: {fileID: 1094504665}
   m_Layer: 6
-  m_Name: Argentina
+  m_Name: Territory1 (4)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15547,7 +15345,7 @@ RectTransform:
   m_GameObject: {fileID: 1094504663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932592577}
@@ -15555,8 +15353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12526, y: -5642}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12319.452, y: -6565.3037}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094504665
 MonoBehaviour:
@@ -15575,9 +15373,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1830526557}
   territoryName: {fileID: 932592578}
   neighbours:
-  - {fileID: 395773135}
-  - {fileID: 977442102}
-  continent: South America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1094504666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15591,15 +15388,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8284c21e3ee5fe488050519f93ed9ef, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15761,7 +15558,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 28
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16029,7 +15828,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 38
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16143,7 +15944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9501, y: -4134}
+  m_AnchoredPosition: {x: -10132.422, y: -4684.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124270940
@@ -16512,7 +16313,7 @@ GameObject:
   - component: {fileID: 1148917601}
   - component: {fileID: 1148917600}
   m_Layer: 6
-  m_Name: Western Europe
+  m_Name: Territory1 (24)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16527,7 +16328,7 @@ RectTransform:
   m_GameObject: {fileID: 1148917598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 296653026}
@@ -16535,8 +16336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9550, y: -2583}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -8814.828, y: -2392.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148917600
 MonoBehaviour:
@@ -16555,10 +16356,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1578474272}
   territoryName: {fileID: 296653027}
   neighbours:
-  - {fileID: 1915060234}
-  - {fileID: 48796224}
   - {fileID: 215803103}
-  continent: Europe
+  - {fileID: 0}
 --- !u!114 &1148917601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16572,15 +16371,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 54b324363bd6c60478a707a3b712d6e8, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16654,7 +16453,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 27
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16922,7 +16723,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 32
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17056,7 +16859,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 42
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17170,7 +16975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4893, y: -1532}
+  m_AnchoredPosition: {x: -5052.2515, y: -2507.0635}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190444448
@@ -17292,7 +17097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2908, y: -5857.3833}
+  m_AnchoredPosition: {x: -3883.752, y: -5857.3833}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208088831
@@ -17502,7 +17307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12527, y: -5467}
+  m_AnchoredPosition: {x: -12319.452, y: -6565.3037}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211550376
@@ -17644,7 +17449,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 34
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17734,7 +17541,7 @@ GameObject:
   - component: {fileID: 1215830782}
   - component: {fileID: 1215830781}
   m_Layer: 6
-  m_Name: Irkutsk
+  m_Name: Territory1 (37)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17749,7 +17556,7 @@ RectTransform:
   m_GameObject: {fileID: 1215830779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 465494002}
@@ -17757,8 +17564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5052.2515, y: -1580}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -5052.2515, y: -2507.0635}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215830781
 MonoBehaviour:
@@ -17777,11 +17584,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 573802240}
   territoryName: {fileID: 465494003}
   neighbours:
-  - {fileID: 1702774997}
-  - {fileID: 1588327139}
-  - {fileID: 941441461}
-  - {fileID: 289588885}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1215830782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17795,15 +17599,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e7077da5f1281fd4cba4a96da1c30ce2, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17994,7 +17798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9677.709, y: -1246}
+  m_AnchoredPosition: {x: -9990.252, y: -2156.8633}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227785008
@@ -18116,7 +17920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13252, y: -1406}
+  m_AnchoredPosition: {x: -13785.252, y: -2392.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227866326
@@ -18258,7 +18062,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 16
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18471,127 +18277,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228868269}
   m_CullTransparentMesh: 1
---- !u!1 &1246404501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1246404502}
-  - component: {fileID: 1246404505}
-  - component: {fileID: 1246404504}
-  - component: {fileID: 1246404503}
-  m_Layer: 5
-  m_Name: RollButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1246404502
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246404501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1985505136}
-  m_Father: {fileID: 1535904662}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -560}
-  m_SizeDelta: {x: 899.1836, y: 163.8995}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1246404503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246404501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1246404504}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1246404504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246404501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1246404505
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246404501}
-  m_CullTransparentMesh: 1
 --- !u!1 &1247814139
 GameObject:
   m_ObjectHideFlags: 0
@@ -18626,8 +18311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1731.5, y: -845}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: 1575.7001, y: -845}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247814141
 MonoBehaviour:
@@ -18676,8 +18361,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18848,33 +18533,37 @@ RectTransform:
   - {fileID: 774805498}
   - {fileID: 197525749}
   - {fileID: 586571736}
+  - {fileID: 1094504664}
   - {fileID: 1649578453}
   - {fileID: 571928066}
   - {fileID: 1494366105}
   - {fileID: 930344065}
   - {fileID: 1017918157}
   - {fileID: 144392194}
-  - {fileID: 1094504664}
   - {fileID: 1424132528}
   - {fileID: 395773134}
   - {fileID: 977442101}
   - {fileID: 2009148167}
   - {fileID: 1915060233}
   - {fileID: 48796223}
-  - {fileID: 215803102}
-  - {fileID: 1148917599}
-  - {fileID: 854388128}
-  - {fileID: 537638343}
   - {fileID: 1648993940}
   - {fileID: 816566598}
   - {fileID: 1742500241}
   - {fileID: 626886817}
   - {fileID: 1489253255}
   - {fileID: 1438596682}
+  - {fileID: 215803102}
+  - {fileID: 1148917599}
+  - {fileID: 854388128}
+  - {fileID: 537638343}
   - {fileID: 1439356090}
   - {fileID: 514172406}
   - {fileID: 789982779}
   - {fileID: 4133243}
+  - {fileID: 515848162}
+  - {fileID: 495839888}
+  - {fileID: 372393459}
+  - {fileID: 1964176376}
   - {fileID: 1868690138}
   - {fileID: 1702774996}
   - {fileID: 1215830780}
@@ -18883,10 +18572,6 @@ RectTransform:
   - {fileID: 941441460}
   - {fileID: 1588327138}
   - {fileID: 41652701}
-  - {fileID: 515848162}
-  - {fileID: 495839888}
-  - {fileID: 372393459}
-  - {fileID: 1964176376}
   m_Father: {fileID: 1746150811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -19014,7 +18699,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 39
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19373,7 +19060,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19487,7 +19176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9834, y: -1984}
+  m_AnchoredPosition: {x: -10265.082, y: -3028.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341811706
@@ -19609,7 +19298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13332, y: -2842}
+  m_AnchoredPosition: {x: -12990.252, y: -4276.8633}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363868108
@@ -19731,7 +19420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8784, y: -1270}
+  m_AnchoredPosition: {x: -8923.422, y: -1568.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390314326
@@ -19815,140 +19504,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390314324}
-  m_CullTransparentMesh: 1
---- !u!1 &1393529882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1393529883}
-  - component: {fileID: 1393529885}
-  - component: {fileID: 1393529884}
-  m_Layer: 5
-  m_Name: Player4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1393529883
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393529882}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2082552582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.047, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1393529884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393529882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4279440357
-  m_fontColor: {r: 0.8980392, g: 0.07450981, b: 0.07450981, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1393529885
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393529882}
   m_CullTransparentMesh: 1
 --- !u!1 &1399373425
 GameObject:
@@ -20075,7 +19630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4621, y: -4856}
+  m_AnchoredPosition: {x: -5457.252, y: -5353.0234}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412694549
@@ -20197,7 +19752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12465, y: -3586}
+  m_AnchoredPosition: {x: -12123.252, y: -4900.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416532345
@@ -20282,140 +19837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416532343}
   m_CullTransparentMesh: 1
---- !u!1 &1421431846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1421431847}
-  - component: {fileID: 1421431849}
-  - component: {fileID: 1421431848}
-  m_Layer: 5
-  m_Name: InfoText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1421431847
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421431846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1535904662}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.536, y: 838}
-  m_SizeDelta: {x: 1146.1, y: 360.2439}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1421431848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421431846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Roll to determine starting positions!
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -6.8131714}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1421431849
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421431846}
-  m_CullTransparentMesh: 1
 --- !u!1 &1424132527
 GameObject:
   m_ObjectHideFlags: 0
@@ -20429,7 +19850,7 @@ GameObject:
   - component: {fileID: 1424132530}
   - component: {fileID: 1424132529}
   m_Layer: 6
-  m_Name: Venezuela
+  m_Name: Territory1 (11)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20444,7 +19865,7 @@ RectTransform:
   m_GameObject: {fileID: 1424132527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2080136050}
@@ -20452,8 +19873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12488, y: -3650}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12123.252, y: -4900.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424132529
 MonoBehaviour:
@@ -20472,10 +19893,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1399373427}
   territoryName: {fileID: 2080136051}
   neighbours:
-  - {fileID: 144392195}
-  - {fileID: 977442102}
-  - {fileID: 395773135}
-  continent: South America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1424132530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20489,15 +19908,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f893cf942dbb96429f47ae1ea3a71fa, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -20571,7 +19990,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 14
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20661,7 +20082,7 @@ GameObject:
   - component: {fileID: 1438596684}
   - component: {fileID: 1438596683}
   m_Layer: 6
-  m_Name: Egypt
+  m_Name: Territory1 (22)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20676,7 +20097,7 @@ RectTransform:
   m_GameObject: {fileID: 1438596681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1051647822}
@@ -20684,8 +20105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8366, y: -3676}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -8597.676, y: -4052.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438596683
 MonoBehaviour:
@@ -20704,11 +20125,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 667175200}
   territoryName: {fileID: 1051647823}
   neighbours:
-  - {fileID: 215803103}
-  - {fileID: 1439356091}
-  - {fileID: 1489253256}
-  - {fileID: 1648993941}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1438596684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20722,15 +20140,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69803923, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a9fe237a53889624ea17ff7758a8c2d3, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -20760,7 +20178,7 @@ GameObject:
   - component: {fileID: 1439356092}
   - component: {fileID: 1439356091}
   m_Layer: 6
-  m_Name: Middle East
+  m_Name: Territory1 (27)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20775,7 +20193,7 @@ RectTransform:
   m_GameObject: {fileID: 1439356089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1718833040}
@@ -20783,8 +20201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7439, y: -3459}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -6903.311, y: -4052.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439356091
 MonoBehaviour:
@@ -20803,13 +20221,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1601105557}
   territoryName: {fileID: 1718833041}
   neighbours:
-  - {fileID: 215803103}
-  - {fileID: 537638344}
-  - {fileID: 514172407}
-  - {fileID: 789982780}
-  - {fileID: 1489253256}
-  - {fileID: 1438596683}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1439356092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20823,15 +20236,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3955188, g: 0.8679245, b: 0.3479886, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 211e3f1fde08b8047a26c739a7baf3c4, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -20848,90 +20261,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439356089}
   m_CullTransparentMesh: 1
---- !u!1 &1446199544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1446199546}
-  - component: {fileID: 1446199545}
-  m_Layer: 5
-  m_Name: World Map
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1446199545
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446199544}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76bc726dbb24b5342aea5c93f24df5d4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 28.8, y: 16.199999}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1446199546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446199544}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.011556, y: 0.2972412, z: -39.459335}
-  m_LocalScale: {x: 174.16483, y: 130.33882, z: 0.43843704}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1746150811}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473925498
 GameObject:
   m_ObjectHideFlags: 0
@@ -21103,7 +20432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1918, y: 842}
+  m_AnchoredPosition: {x: -1892.3365, y: 872.07}
   m_SizeDelta: {x: 970.9771, y: 123.3769}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477171335
@@ -21216,7 +20545,7 @@ GameObject:
   - component: {fileID: 1489253257}
   - component: {fileID: 1489253256}
   m_Layer: 6
-  m_Name: East Africa
+  m_Name: Territory1 (21)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21231,7 +20560,7 @@ RectTransform:
   m_GameObject: {fileID: 1489253254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1948583486}
@@ -21239,8 +20568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7828, y: -4536}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -8117.682, y: -4984.783}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1489253256
 MonoBehaviour:
@@ -21259,13 +20588,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 145789776}
   territoryName: {fileID: 1948583487}
   neighbours:
-  - {fileID: 1439356091}
-  - {fileID: 1438596683}
-  - {fileID: 1648993941}
-  - {fileID: 816566599}
-  - {fileID: 1742500242}
-  - {fileID: 626886818}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1489253257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21279,15 +20603,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69803923, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8d2c765469ca02f49a08b128665ea7ef, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21317,7 +20641,7 @@ GameObject:
   - component: {fileID: 1494366107}
   - component: {fileID: 1494366106}
   m_Layer: 6
-  m_Name: Greenland
+  m_Name: Territory1 (7)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21332,7 +20656,7 @@ RectTransform:
   m_GameObject: {fileID: 1494366104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1907217090}
@@ -21340,8 +20664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10646, y: -725}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -11082.252, y: -1685.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494366106
 MonoBehaviour:
@@ -21360,11 +20684,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 616255520}
   territoryName: {fileID: 1907217091}
   neighbours:
-  - {fileID: 571928067}
-  - {fileID: 1649578454}
-  - {fileID: 774805499}
-  - {fileID: 2009148168}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1494366107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21378,15 +20699,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 34f879e21ce47a1448e416ba72a22904, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21536,140 +20857,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505362606}
-  m_CullTransparentMesh: 1
---- !u!1 &1513275122
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1513275123}
-  - component: {fileID: 1513275125}
-  - component: {fileID: 1513275124}
-  m_Layer: 5
-  m_Name: Player6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1513275123
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513275122}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2082552582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.216, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1513275124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513275122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4279440357
-  m_fontColor: {r: 0.8980392, g: 0.07450981, b: 0.07450981, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1513275125
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513275122}
   m_CullTransparentMesh: 1
 --- !u!1 &1517356645
 GameObject:
@@ -21862,7 +21049,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 13
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21996,7 +21185,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 11
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22093,7 +21284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1535904662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22113,8 +21304,6 @@ RectTransform:
   - {fileID: 733498000}
   - {fileID: 506662891}
   - {fileID: 1247814140}
-  - {fileID: 1421431847}
-  - {fileID: 1246404502}
   m_Father: {fileID: 1746150811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -22199,7 +21388,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1535904667
 Canvas:
   m_ObjectHideFlags: 0
@@ -22417,7 +21606,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22531,7 +21722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5052.252, y: -2786}
+  m_AnchoredPosition: {x: -5052.252, y: -3482.9033}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559311662
@@ -22937,7 +22128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7404425, g: 1, b: 0.5226415, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22948,7 +22139,7 @@ MonoBehaviour:
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -22975,7 +22166,7 @@ GameObject:
   - component: {fileID: 1588327140}
   - component: {fileID: 1588327139}
   m_Layer: 6
-  m_Name: Siberia
+  m_Name: Territory1 (41)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22990,7 +22181,7 @@ RectTransform:
   m_GameObject: {fileID: 1588327137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8418909}
@@ -22998,8 +22189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5747, y: -1048}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -5457.252, y: -1568.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588327139
 MonoBehaviour:
@@ -23018,12 +22209,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1720831178}
   territoryName: {fileID: 8418910}
   neighbours:
-  - {fileID: 41652702}
-  - {fileID: 1868690139}
-  - {fileID: 1702774997}
-  - {fileID: 1215830781}
-  - {fileID: 941441461}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1588327140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23037,15 +22224,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c6c968ba5dc20d54580c1bcb307e159b, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23119,7 +22306,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 24
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23321,7 +22510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7714, y: -1639}
+  m_AnchoredPosition: {x: -7564.363, y: -2067.0635}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603596631
@@ -23586,7 +22775,7 @@ GameObject:
   - component: {fileID: 1648993942}
   - component: {fileID: 1648993941}
   m_Layer: 6
-  m_Name: North Africa
+  m_Name: Territory1 (17)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23601,7 +22790,7 @@ RectTransform:
   m_GameObject: {fileID: 1648993939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 201752496}
@@ -23609,8 +22798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9539, y: -4178}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -10132.422, y: -4684.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648993941
 MonoBehaviour:
@@ -23629,12 +22818,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 976205276}
   territoryName: {fileID: 201752497}
   neighbours:
-  - {fileID: 977442102}
-  - {fileID: 1438596683}
-  - {fileID: 1489253256}
-  - {fileID: 816566599}
-  - {fileID: 215803103}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1648993942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23648,15 +22833,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69612426, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e839115826fd3542a427f5c352512ba, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23686,7 +22871,7 @@ GameObject:
   - component: {fileID: 1649578455}
   - component: {fileID: 1649578454}
   m_Layer: 6
-  m_Name: Ontario
+  m_Name: Territory1 (5)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23701,7 +22886,7 @@ RectTransform:
   m_GameObject: {fileID: 1649578452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1998655448}
@@ -23709,8 +22894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12274, y: -1543}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -12723.252, y: -2452.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649578454
 MonoBehaviour:
@@ -23729,13 +22914,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1760624347}
   territoryName: {fileID: 1998655449}
   neighbours:
-  - {fileID: 1017918158}
-  - {fileID: 571928067}
-  - {fileID: 774805499}
-  - {fileID: 197525750}
-  - {fileID: 930344066}
-  - {fileID: 1494366106}
-  continent: North America
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1649578455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23749,15 +22929,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8862745, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db44e78c780c78a469ee366de09f62b4, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23831,7 +23011,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 36
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23996,140 +23178,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1690448691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1690448692}
-  - component: {fileID: 1690448694}
-  - component: {fileID: 1690448693}
-  m_Layer: 5
-  m_Name: Player3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1690448692
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690448691}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00071325165, y: 0.02633184, z: 2.2808292}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2082552582}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1784, y: 0.07}
-  m_SizeDelta: {x: 164.3962, y: 30.96968}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1690448693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690448691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4279440357
-  m_fontColor: {r: 0.8980392, g: 0.07450981, b: 0.07450981, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 7.104637, y: 4.5010815, z: -1.6369781, w: -0.20479016}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1690448694
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690448691}
-  m_CullTransparentMesh: 1
 --- !u!1 &1696932637
 GameObject:
   m_ObjectHideFlags: 0
@@ -24245,16 +23293,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701450841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.00072038407, y: 0.02633184, z: 2.2808292}
+  m_LocalPosition: {x: 0, y: 0, z: 39.45933}
+  m_LocalScale: {x: 0.0014428572, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2082552582}
+  m_Father: {fileID: 103817523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.397, y: 0.13}
-  m_SizeDelta: {x: 293.20465, y: 50}
+  m_AnchoredPosition: {x: 0.07214737, y: 0.17500305}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701450843
 MonoBehaviour:
@@ -24268,6 +23316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d7ddf88a079422db17e42c41cbb1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNameText: {fileID: 1701450844}
   tradedInSets: {fileID: 0}
 --- !u!114 &1701450844
 MonoBehaviour:
@@ -24316,8 +23365,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24352,7 +23401,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.6563148, y: 7.0715675, z: 0.4809189, w: 2.4482079}
+  m_margin: {x: 48.583908, y: 8.184202, z: -175.37697, w: -0.6902695}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -24379,7 +23428,7 @@ GameObject:
   - component: {fileID: 1702774998}
   - component: {fileID: 1702774997}
   m_Layer: 6
-  m_Name: Mongolia
+  m_Name: Territory1 (36)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24394,7 +23443,7 @@ RectTransform:
   m_GameObject: {fileID: 1702774995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1834559554}
@@ -24402,8 +23451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4878, y: -2217}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -4240.451, y: -3100.8633}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702774997
 MonoBehaviour:
@@ -24422,12 +23471,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1098992597}
   territoryName: {fileID: 1834559555}
   neighbours:
-  - {fileID: 1868690139}
-  - {fileID: 1588327139}
-  - {fileID: 1215830781}
-  - {fileID: 848044848}
-  - {fileID: 289588885}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1702774998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24441,15 +23486,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6d678a59cb72584da6c0bf76086166f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -24465,6 +23510,142 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702774995}
+  m_CullTransparentMesh: 1
+--- !u!1 &1709574863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709574864}
+  - component: {fileID: 1709574866}
+  - component: {fileID: 1709574865}
+  m_Layer: 5
+  m_Name: Player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1709574864
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709574863}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 39.45933}
+  m_LocalScale: {x: 0.0014285715, y: 0.025, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103817523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.20787048, y: 0.17500305}
+  m_SizeDelta: {x: 164.3962, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1709574865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709574863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Player 2
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278837759
+  m_fontColor: {r: 1, g: 0.88235295, b: 0.03529412, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 47.356293, y: 11.867338, z: 0.4195289, w: -0.6902695}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1709574866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709574863}
   m_CullTransparentMesh: 1
 --- !u!1 &1718833039
 GameObject:
@@ -24841,7 +24022,7 @@ GameObject:
   - component: {fileID: 1742500243}
   - component: {fileID: 1742500242}
   m_Layer: 6
-  m_Name: South Africa
+  m_Name: Territory1 (19)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24856,7 +24037,7 @@ RectTransform:
   m_GameObject: {fileID: 1742500240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 772666490}
@@ -24865,7 +24046,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -8693.091, y: -6060.9434}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742500242
 MonoBehaviour:
@@ -24884,10 +24065,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 855660915}
   territoryName: {fileID: 772666491}
   neighbours:
-  - {fileID: 816566599}
-  - {fileID: 626886818}
-  - {fileID: 1489253256}
-  continent: Africa
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1742500243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24901,15 +24080,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69803923, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d9167085ba07274c978aba87fd9214f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25029,8 +24208,7 @@ RectTransform:
   - {fileID: 1587446078}
   - {fileID: 1645169076}
   - {fileID: 561012239}
-  - {fileID: 1446199546}
-  - {fileID: 2082552582}
+  - {fileID: 103817523}
   - {fileID: 398952250}
   - {fileID: 25176558}
   m_Father: {fileID: 0}
@@ -25097,7 +24275,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26157,7 +25337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11652, y: -4294}
+  m_AnchoredPosition: {x: -11838.252, y: -5784.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844397635
@@ -26428,7 +25608,7 @@ GameObject:
   - component: {fileID: 1868690140}
   - component: {fileID: 1868690139}
   m_Layer: 6
-  m_Name: China
+  m_Name: Territory1 (35)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26443,7 +25623,7 @@ RectTransform:
   m_GameObject: {fileID: 1868690137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2018379220}
@@ -26451,8 +25631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4878, y: -2933}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -5052.252, y: -3482.9033}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868690139
 MonoBehaviour:
@@ -26471,13 +25651,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1696932639}
   territoryName: {fileID: 2018379221}
   neighbours:
-  - {fileID: 4133244}
-  - {fileID: 789982780}
-  - {fileID: 514172407}
-  - {fileID: 41652702}
-  - {fileID: 1588327139}
-  - {fileID: 1702774997}
-  continent: Asia
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1868690140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26491,15 +25666,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.39607844, g: 0.8666667, b: 0.34901962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 294d0cf627b0a0a4d80a9048a910aabd, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -26628,7 +25803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5833, y: -3438}
+  m_AnchoredPosition: {x: -5922.252, y: -4044.9033}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899421531
@@ -26770,7 +25945,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27129,7 +26306,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27219,7 +26398,7 @@ GameObject:
   - component: {fileID: 1915060235}
   - component: {fileID: 1915060234}
   m_Layer: 6
-  m_Name: Great Britain
+  m_Name: Territory1 (15)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27234,7 +26413,7 @@ RectTransform:
   m_GameObject: {fileID: 1915060232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 874155480}
@@ -27242,8 +26421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9767, y: -2008}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -10265.082, y: -3028.9434}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915060234
 MonoBehaviour:
@@ -27262,11 +26441,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 150490480}
   territoryName: {fileID: 874155481}
   neighbours:
-  - {fileID: 2009148168}
-  - {fileID: 854388129}
-  - {fileID: 1148917600}
-  - {fileID: 48796224}
-  continent: Europe
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1915060235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27280,15 +26456,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12941177, g: 0.49803922, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 43e8d4973e4baba43a26e440dd38c654, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -27362,7 +26538,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27922,7 +27100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6383, y: -1367}
+  m_AnchoredPosition: {x: -6462.252, y: -1685.0233}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963918821
@@ -28044,7 +27222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8542, y: -5000}
+  m_AnchoredPosition: {x: -9319.422, y: -5353.0234}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964046926
@@ -28142,7 +27320,7 @@ GameObject:
   - component: {fileID: 1964176378}
   - component: {fileID: 1964176377}
   m_Layer: 6
-  m_Name: New Guinea
+  m_Name: Territory1 (34)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28157,7 +27335,7 @@ RectTransform:
   m_GameObject: {fileID: 1964176375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 352664757}
@@ -28165,8 +27343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3503, y: -4664}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -3966.252, y: -4809.0234}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964176377
 MonoBehaviour:
@@ -28185,10 +27363,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1208203484}
   territoryName: {fileID: 352664758}
   neighbours:
-  - {fileID: 372393460}
-  - {fileID: 515848163}
-  - {fileID: 495839889}
-  continent: Oceania
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1964176378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28202,15 +27378,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5686275, g: 0.023529412, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31193da4c2728664e8611a9d3b7bfca3, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -28260,7 +27436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3369, y: -0.12613}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1968785935
@@ -28372,7 +27548,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 35
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28486,7 +27664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8511, y: -2707}
+  m_AnchoredPosition: {x: -8358.822, y: -3214.9834}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976397734
@@ -28608,7 +27786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11500, y: -1456}
+  m_AnchoredPosition: {x: -11838.252, y: -2774.9834}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976845699
@@ -28730,7 +27908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3465, y: -2269}
+  m_AnchoredPosition: {x: -2967.252, y: -2696.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979871308
@@ -28814,85 +27992,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979871306}
-  m_CullTransparentMesh: 1
---- !u!1 &1985505135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1985505136}
-  - component: {fileID: 1985505138}
-  - component: {fileID: 1985505137}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1985505136
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985505135}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1246404502}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1985505137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985505135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 200
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Roll the dice!
---- !u!222 &1985505138
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985505135}
   m_CullTransparentMesh: 1
 --- !u!1 &1989948159
 GameObject:
@@ -29295,7 +28394,7 @@ GameObject:
   - component: {fileID: 2009148169}
   - component: {fileID: 2009148168}
   m_Layer: 6
-  m_Name: Iceland
+  m_Name: Territory1 (14)
   m_TagString: Territory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29310,7 +28409,7 @@ RectTransform:
   m_GameObject: {fileID: 2009148166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0, y: 0, z: 2.2808292}
+  m_LocalScale: {x: 3, y: 4, z: 2.2808292}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 691719146}
@@ -29318,8 +28417,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9565, y: -1209}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: -9990.252, y: -2156.8633}
+  m_SizeDelta: {x: 223.61, y: 176.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009148168
 MonoBehaviour:
@@ -29338,10 +28437,8 @@ MonoBehaviour:
   territoryButtonOutline: {fileID: 1968785935}
   territoryName: {fileID: 691719147}
   neighbours:
-  - {fileID: 1915060234}
-  - {fileID: 854388129}
-  - {fileID: 1494366106}
-  continent: Europe
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2009148169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29355,15 +28452,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12922749, g: 0.49702713, b: 0.8301887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bc20f1477fbb8c7489fa9cced7fa3eda, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -29642,7 +28739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9862, y: -2989}
+  m_AnchoredPosition: {x: -8814.828, y: -2392.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018680519
@@ -29952,97 +29049,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080136049}
   m_CullTransparentMesh: 1
---- !u!1 &2082552580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2082552582}
-  - component: {fileID: 2082552581}
-  m_Layer: 0
-  m_Name: GameInfo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &2082552581
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082552580}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &2082552582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082552580}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4003906, y: 983.83276, z: -39.459335}
-  m_LocalScale: {x: 5007.25, y: 142.41315, z: 0.43843704}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 830351280}
-  - {fileID: 734581880}
-  - {fileID: 1690448692}
-  - {fileID: 1393529883}
-  - {fileID: 608535276}
-  - {fileID: 1513275123}
-  - {fileID: 1701450842}
-  m_Father: {fileID: 1746150811}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2089901175
 GameObject:
   m_ObjectHideFlags: 0
@@ -30214,7 +29220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3703, y: -773}
+  m_AnchoredPosition: {x: -3116.0518, y: -1568.9434}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2115587240
@@ -30336,7 +29342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12421, y: -4584}
+  m_AnchoredPosition: {x: -12990.252, y: -5608.8633}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131629086
@@ -30455,8 +29461,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1621, y: -0.000015259}
-  m_SizeDelta: {x: 1414.5, y: 135.4248}
+  m_AnchoredPosition: {x: -1412, y: -0.000015259}
+  m_SizeDelta: {x: 1869.1277, y: 196.7365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2137477036
 MonoBehaviour:
@@ -30505,8 +29511,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30562,6 +29568,6 @@ SceneRoots:
   - {fileID: 1746150811}
   - {fileID: 402088780}
   - {fileID: 519420032}
+  - {fileID: 751464472}
   - {fileID: 1638957622}
   - {fileID: 812709590}
-  - {fileID: 751464472}
