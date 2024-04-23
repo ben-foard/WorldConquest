@@ -191,10 +191,10 @@ public class GameManager : MonoBehaviour
                         List<Card> setToTrade = GetSetToTrade(playerName);
                         bool bonus = tradeInCards(setToTrade);
                         if(!bonus){
-                            AlterTroopsToDeploy(2);
-                            setReceivedBonusTroops(true);
+                            getCurrentPlayer().AlterTroopsToDeploy(2);
+                            getCurrentPlayer().setReceivedBonusTroops(true);
                         }
-                        AlterTroopsToDeploy(GetTradeValue());
+                        getCurrentPlayer().AlterTroopsToDeploy(GetTradeValue());
                     }
                     //DONE: Check amount of (matching) sets player owns
                     //Allowed if 3 matching cards
@@ -541,7 +541,7 @@ public class GameManager : MonoBehaviour
             discardPile.Add(sets[i]);
             getCurrentPlayer().GetPlayerDeck().RemoveCard(sets[i]);
         }
-        return value;
+        return gotBonus;
     }   
 
     //Gets the trade value based on how many have been traded in the game
@@ -635,10 +635,10 @@ public class GameManager : MonoBehaviour
                         List<Card> setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
                         bool bonus = tradeInCards(setToTrade);
                         if(!bonus){
-                            AlterTroopsToDeploy(2);
-                            setReceivedBonusTroops(true);
+                            getCurrentPlayer().AlterTroopsToDeploy(2);
+                            getCurrentPlayer().setReceivedBonusTroops(true);
                         }
-                        AlterTroopsToDeploy(GetTradeValue());
+                        getCurrentPlayer().AlterTroopsToDeploy(GetTradeValue());
                     }
                     
                     

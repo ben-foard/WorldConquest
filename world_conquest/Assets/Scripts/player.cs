@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
     public List<string> GetAllTerritoryNames(){
         List<string> allTerritoryNames = new List<string>();
         foreach(Territory t in ownedTerritories){
-            allTerritoryNames.add(t.GetTerritoryName());
+            allTerritoryNames.Add(t.GetTerritoryName());
         }
         return allTerritoryNames;
     }
