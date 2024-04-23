@@ -27,13 +27,12 @@ public class GameManager : MonoBehaviour
     
     //private variables for managing game state
     Dictionary<Player, int> initialDiceRoll = new Dictionary<Player, int>();
-
     private List<Player> CurrentPlayers = new List<Player>();    
     private Deck mainDeck;
+    List<Card> discardPile = new List<Card>();
     private gamePhases currentGamePhase = gamePhases.Start;
     private int PlayerIndex = 0;
     private Dice gameDice;
-    private int temp = 0;
     private SliderScript slider;
     private ButtonManager buttonManager;
     private Territory previousSelectedTerritory;
@@ -41,6 +40,8 @@ public class GameManager : MonoBehaviour
     private int amountOfAttackDice;
     private int amountOfDefendDice;
     private int amountOfDiceRolled = 0;
+    private int amountOfSetsTraded = 0;
+    private int [] tradeInValues = {4,6,8,10,12,15};
 
     //Enum defining different phases of the game
     enum gamePhases {
@@ -50,10 +51,7 @@ public class GameManager : MonoBehaviour
         Fortify,
         EndGame
     }
-    
-    public int getTemp(){
-        return temp;
-    }
+
     //Awake method called when the script instance is being loaded 
     void Awake() 
     {
@@ -98,7 +96,6 @@ public class GameManager : MonoBehaviour
     //Method to get the player order when the game starts
     private void InitialDiceRoll(int amountOfHumans,int amountOfAI){
 
-        int diceValue;
         diceRollCanvas.enabled = true;
         buttonManager.getRollButton().onClick.AddListener(RollDice);
         diceRollText[0].color = new Color32(0, 255, 0, 255);
@@ -124,6 +121,7 @@ public class GameManager : MonoBehaviour
             diceRollText[amountOfDiceRolled].color  = new Color32(0, 255, 0, 255);
         }
     }
+
     private void FinishDiceRoll(){
         CurrentPlayers.Clear();
         buttonManager.UpdateRollVisibility(false);
@@ -140,6 +138,7 @@ public class GameManager : MonoBehaviour
         //Has a 3 second wait until the screen disappears
         StartCoroutine(UpdateDiceRoll());
     }
+
     //Waits 3 seconds to hide the screen
     IEnumerator UpdateDiceRoll()
     {
@@ -181,15 +180,15 @@ public class GameManager : MonoBehaviour
                     getCurrentPlayer().AlterTroopsToDeploy(3);
                     string playerName = getCurrentPlayer().GetPlayerName();
                     buttonManager.getConfirmButton().onClick.AddListener(DeployTroops);
-                    //bool containsSet = hasSet(playerName);
+                    bool containsSet = hasSet(playerName);
                     
-                    // if (containsSet && getCurrentPlayer().GetPlayerDeck().getSize() <= 4)
-                    // {
-                    //     //TODO: give option to trade in cards 
-                    // }
-                    // else {
-                    //     Deck setToTrade = GetSetToTrade(playerName);
-                    // }
+                    if (containsSet && getCurrentPlayer().GetPlayerDeck().getSize() <= 4)
+                    {
+                         //TODO: give option to trade in cards 
+                    }
+                    else {
+                        List<Card> setToTrade = GetSetToTrade(playerName);
+                    }
                     //TODO: Check amount of (matching) sets player owns
                     //Allowed if 3 matching cards
                     //MUST if amount of cards => 5 must trade in atleast one set
@@ -211,6 +210,7 @@ public class GameManager : MonoBehaviour
         }  
         UpdateUI();
     }
+
     //Method to end the current players's turn 
     private void EndPlayerTurn()
     {
@@ -243,7 +243,7 @@ public class GameManager : MonoBehaviour
         AttackDiceText.text = "";
         DefendDiceText.text = "";
 
-        //Changes the visibilit of the button and slider
+        //Changes the visibility of the button and slider
         slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
         //buttonManager.UpdateConfirmVisibility(false);
@@ -385,10 +385,10 @@ public class GameManager : MonoBehaviour
  
         //DONEISH: REWARD CARD (AT LEAST ONE) 
         //CARD PER TERRITORY??
-       previousSelectedTerritory.RevertHighlight();
-       currentSelectedTerritory.RevertHighlight();
-       buttonManager.UpdateConfirmVisibility(false);
-       previousSelectedTerritory = null;
+        previousSelectedTerritory.RevertHighlight();
+        currentSelectedTerritory.RevertHighlight();
+        buttonManager.UpdateConfirmVisibility(false);
+        previousSelectedTerritory = null;
     }
 
     //Method Checks if all troops have been deployed
@@ -507,52 +507,66 @@ public class GameManager : MonoBehaviour
     }
 
     //UNUSED: Returns a list of cards for the amount of territories captured
-    public List<Card> rewardCards(int capturedAmount, Deck mainDeck){
-      List<Card> rewardedCards = new List<Card>();
-      for(int i = 0; i < capturedAmount; i++){
-            Card drawnCard = mainDeck.DrawCard();
-            rewardedCards.Add(drawnCard);
-      }
-      return rewardedCards;
+    // public List<Card> rewardCards(int capturedAmount, Deck mainDeck){
+    //   List<Card> rewardedCards = new List<Card>();
+    //   for(int i = 0; i < capturedAmount; i++){
+    //         Card drawnCard = mainDeck.DrawCard();
+    //         rewardedCards.Add(drawnCard);
+    //   }
+    //   return rewardedCards;
+    // }
+
+   //Method to trade in 3 cards
+    public void tradeInCards(List<Card> sets){
+
+        for(int i = 0; i < 3; i++){
+            discardPile.Add(sets[i]);
+            getCurrentPlayer().GetPlayerDeck().RemoveCard(sets[i]);
+        }
+
+    }   
+
+    public int GetTradeValue(){
+        int tradesValue=0;
+        if(amountOfSetsTraded<6){
+            tradesValue = tradeInValues[amountOfSetsTraded];
+        }else{
+            tradesValue = tradeInValues[5] + ((amountOfSetsTraded - (tradeInValues.Length - 1))*5);
+        }
+        amountOfSetsTraded++;
+        return tradesValue;
     }
 
-   //UNUSED: method to rtade in cards
-    public int tradeInCards(int setsToExchange, List<Card> discardPile, List<Card> sets){
-      int tradesValue = getTrades(8);
-      int cardCount = setsToExchange * 3;
-      for(int i = 0; i < cardCount; i++) {
-         discardPile.Add(sets[i]);
-      }
-
-      //increase trade count in player 
-      
-      return tradesValue * setsToExchange;
-    }
-
-   //this will be in the player class either be get trade value
-    public int getTrades(int tradesDone){
-      return tradesDone;
-    }
 
     //Checks whether a player has a set
     public bool hasSet(string playerName) {
 
         List<Card> cards = getCurrentPlayer().GetPlayerDeck().getAllCards();
 
-        //Gets the count of all  cards
-        int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
-        int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
-        int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+        if(cards.Count < 3){
+            return false;
+        } else {
+            //Gets the count of all  cards
+            int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
+            int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
+            int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+            int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
 
-        //Returns true if they have 1 or more of each or singly or if they have a wild card
-        //DONT THINK THIS DOES THE CORRECT THING
-        return (infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1) ||
-        (cards.Count(card => card.getCardType() == "Wild Card") >= 1);
+            if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
+                return true;
+            } else if(wildCardCount >= 1){
+                return true;
+            } else if(infantyCount >= 1 & cavalryCount >= 1 & artilleryCount >= 1){
+                return true;
+            }
+            return false;
+        }
+
    
     }
 
     //Gets the set to trade in if player has over 5 cards 
-    public Deck GetSetToTrade(string playerName)
+    public List<Card> GetSetToTrade(string playerName)
     {
 
         List<Card> setToTrade = new List<Card>();
@@ -562,20 +576,20 @@ public class GameManager : MonoBehaviour
         int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
         int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
         int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+        int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
 
-        if (infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1)
-        {
+        if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
+            //TODO
+        } else if(wildCardCount >= 1){
+            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(3));
+
+        } else if(infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1){
             setToTrade.AddRange(cards.Where(card => card.getArmyType() == "Infantry" ||
             card.getArmyType() == "Calvary" || card.getArmyType() == "Artillery").Take(3));
+
         }
-        else if (cards.Count(card => card.getCardType() == "Wild Card") >= 2)
-        {
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(3));
-        }
-        
-        Deck deckToTrade = new Deck();
-        deckToTrade.AddCards(setToTrade);
-        return deckToTrade;
+
+        return setToTrade;
     }
 
     //Method for attacking a territory from this players current territory
@@ -599,7 +613,7 @@ public class GameManager : MonoBehaviour
                 {
                     getCurrentPlayer().GetPlayerDeck().AddCards(currentSelectedTerritory.GetOwner().GetPlayerDeck().RemoveAllCards());
                     while (getCurrentPlayer().GetPlayerDeck().getSize() >= 5) {
-                        Deck setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
+                        List<Card> setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
                     }
                     
                 }
