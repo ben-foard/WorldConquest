@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Deck cards = new Deck();
     private int tradeValue = 0;
     private TextMeshProUGUI playerNameText;
+    private bool receivedBonusTroops = false;
     //Adds a given amount of troops to the players troop count
     public void AddTroops(int amount)
     {
@@ -117,5 +118,19 @@ public class Player : MonoBehaviour
 
     public void SetPlayerText(TextMeshProUGUI text){
         playerNameText = text;
+    }
+
+    public List<string> GetAllTerritoryNames(){
+        List<string> allTerritoryNames = new List<string>();
+        foreach(Territory t in ownedTerritories){
+            allTerritoryNames.add(t.GetTerritoryName());
+        }
+        return allTerritoryNames;
+    }
+    public void setReceivedBonusTroops(bool received){
+        receivedBonusTroops = received;
+    }
+    public bool getReceivedBonusTroops(){
+        return receivedBonusTroops;
     }
 }

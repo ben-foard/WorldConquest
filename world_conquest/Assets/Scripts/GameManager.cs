@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private int amountOfDiceRolled = 0;
     private int amountOfSetsTraded = 0;
     private int [] tradeInValues = {4,6,8,10,12,15};
+    private bool hasCapturedTerritory = false;
 
     //Enum defining different phases of the game
     enum gamePhases {
@@ -188,12 +189,18 @@ public class GameManager : MonoBehaviour
                     }
                     else {
                         List<Card> setToTrade = GetSetToTrade(playerName);
+                        bool bonus = tradeInCards(setToTrade);
+                        if(!bonus){
+                            AlterTroopsToDeploy(2);
+                            setReceivedBonusTroops(true);
+                        }
+                        AlterTroopsToDeploy(GetTradeValue());
                     }
-                    //TODO: Check amount of (matching) sets player owns
+                    //DONE: Check amount of (matching) sets player owns
                     //Allowed if 3 matching cards
                     //MUST if amount of cards => 5 must trade in atleast one set
-                    //TODO: keep track of sets been traded
-                    //TODO: occupied territory matching card sets get 2 extra armies
+                    //DONE: keep track of sets been traded
+                    //DONE: occupied territory matching card sets get 2 extra armies
                                         
                     break;
                 case gamePhases.Attack:
@@ -214,6 +221,11 @@ public class GameManager : MonoBehaviour
     //Method to end the current players's turn 
     private void EndPlayerTurn()
     {
+        if(hasCapturedTerritory){
+            getCurrentPlayer().GetPlayerDeck().AddCard(mainDeck.DrawCard());
+        }
+        getCurrentPlayer().setReceivedBonusTroops(false);
+        hasCapturedTerritory = false;
         PlayerIndex = (PlayerIndex+1)%CurrentPlayers.Count;
         currentGamePhase = gamePhases.Deploy;//2 will take the place of the amount of players in the future so that it only goes through the two indicies 
         UpdateUI();              
@@ -517,15 +529,22 @@ public class GameManager : MonoBehaviour
     // }
 
    //Method to trade in 3 cards
-    public void tradeInCards(List<Card> sets){
+    public bool tradeInCards(List<Card> sets){
 
+        bool gotBonus = true;
         for(int i = 0; i < 3; i++){
+            if(getCurrentPlayer().GetAllTerritoryNames().Contains(sets[i].GetTerritoryName())){
+                if(!getCurrentPlayer().getReceivedBonusTroops()){
+                    gotBonus = false;
+                }
+            }
             discardPile.Add(sets[i]);
             getCurrentPlayer().GetPlayerDeck().RemoveCard(sets[i]);
         }
-
+        return value;
     }   
 
+    //Gets the trade value based on how many have been traded in the game
     public int GetTradeValue(){
         int tradesValue=0;
         if(amountOfSetsTraded<6){
@@ -608,13 +627,20 @@ public class GameManager : MonoBehaviour
                 //TODO: check if owner has any more territories, if 0 current player gets all their cards
                 //TODO: if cards > 6 must trade in to get to a card count of 4 or fewer
                 currentSelectedTerritory.ChangeOwner(getCurrentPlayer());
-
+                hasCapturedTerritory = true;
                 if (currentSelectedTerritory.GetOwner().GetAllTerritories().Count == 0)
                 {
                     getCurrentPlayer().GetPlayerDeck().AddCards(currentSelectedTerritory.GetOwner().GetPlayerDeck().RemoveAllCards());
-                    while (getCurrentPlayer().GetPlayerDeck().getSize() >= 5) {
+                    while (getCurrentPlayer().GetPlayerDeck().getSize() >= 4) {
                         List<Card> setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
+                        bool bonus = tradeInCards(setToTrade);
+                        if(!bonus){
+                            AlterTroopsToDeploy(2);
+                            setReceivedBonusTroops(true);
+                        }
+                        AlterTroopsToDeploy(GetTradeValue());
                     }
+                    
                     
                 }
             }

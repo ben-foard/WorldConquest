@@ -195,6 +195,10 @@ public class Territory : MonoBehaviour
         return this.territoryOwner;
     }
 
+    //Gets the name of territory
+    public string GetTerritoryName(){
+        return territoryName.ToString();
+    }
     //Alters the owner of the current territory to the Player p
     public void ChangeOwner(Player p)
     {
