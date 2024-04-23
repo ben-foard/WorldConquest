@@ -580,7 +580,6 @@ public class GameManager : MonoBehaviour
             }
             return false;
         }
-
    
     }
 
@@ -598,14 +597,25 @@ public class GameManager : MonoBehaviour
         int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
 
         if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
-            //TODO
+            if(infantyCount >= 3){
+                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Infrantry").Take(infantyCount));
+            }
+            else if(cavalryCount >= 3){
+                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Calvary").Take(cavalryCount));
+            }
+            else if(artilleryCount >= 3){
+                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Artillery").Take(artilleryCount));
+            }
+        
         } else if(wildCardCount >= 1){
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(3));
+            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(wildCardCount));
+            setToTrade.AddRange(cards.Take(3-wildCardCount));
+        } 
 
-        } else if(infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1){
-            setToTrade.AddRange(cards.Where(card => card.getArmyType() == "Infantry" ||
-            card.getArmyType() == "Calvary" || card.getArmyType() == "Artillery").Take(3));
-
+        else if(infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1){
+            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Infrantry").Take(1));
+            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Calvary").Take(1));
+            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Artillery").Take(1));
         }
 
         return setToTrade;
@@ -624,8 +634,8 @@ public class GameManager : MonoBehaviour
             //Changes the owner of the territory if the defending territory has only 1 troop left
             if (currentSelectedTerritory.GetTerritoryTroopCount() == 1)
             {
-                //TODO: check if owner has any more territories, if 0 current player gets all their cards
-                //TODO: if cards > 6 must trade in to get to a card count of 4 or fewer
+                //DONE: check if owner has any more territories, if 0 current player gets all their cards
+                //DONE: if cards > 6 must trade in to get to a card count of 4 or fewer
                 currentSelectedTerritory.ChangeOwner(getCurrentPlayer());
                 hasCapturedTerritory = true;
                 if (currentSelectedTerritory.GetOwner().GetAllTerritories().Count == 0)

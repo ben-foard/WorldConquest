@@ -119,8 +119,8 @@ public class MenuController : MonoBehaviour
     {   
         nameConfirmed = true;
         string name = nameInput.text.Trim(' ');
-        if (name.Length > 13 || name.Length < 3) {
-            errorNameText.text = "Your name must be between 3-13 characters!";
+        if (name.Length > 13 || name.Length < 2) {
+            errorNameText.text = "Your name must be between 2-13 characters!";
             nameConfirmed = false;
         }
         if (playerNames.Contains(name))
