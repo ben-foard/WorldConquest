@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 using TMPro;
 using System;
 using System.Linq;
@@ -21,10 +22,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AttackDiceText;
     [SerializeField] private TextMeshProUGUI DefendDiceText;
     [SerializeField] private Canvas diceRollCanvas;
+    [SerializeField] private Canvas attackCanvas;
+    [SerializeField] private List<TextMeshProUGUI> attackCanvasText = new List<TextMeshProUGUI>();
     [SerializeField] private List<TextMeshProUGUI> diceRollText = new List<TextMeshProUGUI>();
     [SerializeField] private TextMeshProUGUI[] playerTextNames = new TextMeshProUGUI[6]; 
+    [SerializeField] private List<Image> attackDice = new List<Image>(); 
+    [SerializeField] private List<Image> dice = new List<Image>(); 
 
-    
     //private variables for managing game state
     Dictionary<Player, int> initialDiceRoll = new Dictionary<Player, int>();
     private List<Player> CurrentPlayers = new List<Player>();    

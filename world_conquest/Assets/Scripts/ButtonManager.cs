@@ -9,7 +9,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button rollButton;
-
+    [SerializeField] private Button cardButton;
     //Updates if you can interact with the button
     public void InteractableUpdater(bool EndGame)
     {      
