@@ -16,10 +16,10 @@ public class Dice : MonoBehaviour
         StartCoroutine(DiceRollAnimation(dice, display));
     }
 
-    private IEnumerator DiceRollAnimation(List<Sprite> dice, Image display)
+    public IEnumerator DiceRollAnimation(List<Sprite> dice, Image display)
     {
         int numberOfImages = dice.Count; 
-        float delayInSeconds = 0.5f; 
+        float delayInSeconds = 0.25f; 
         for (int i = 0; i < 12; i++)
         {
             int value = Random.Range(0,6);

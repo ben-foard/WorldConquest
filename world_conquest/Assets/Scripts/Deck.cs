@@ -11,15 +11,12 @@ using UnityEngine.UI;
 public class Deck : MonoBehaviour
 {   
     
-    private List<Card> deck;
+    private List<Card> deck = new List<Card>();
     private int deckSize = 0;
     public TMP_Text countText;
-    
-
-
+   
     //empty constructor for player decks
     void Awake(){
-        deck = new List<Card>();
         updateText();   
     }
 
@@ -30,21 +27,19 @@ public class Deck : MonoBehaviour
         string[] types = LoadFile("types");
         string[] armyTypes = LoadFile("armyTypes");
 
-        for(int i = 0; i < types.Length;i++){
+        for (int i = 0; i < types.Length; i++) {
             Card newCard;
-            if(types[i] == "Mission"){
-                newCard = new Card("Mission");
-            }
-            else if(types[i] == "Wild Card"){
-                newCard = new Card("Wild Card");
-            }
-            else{
-                newCard = new Card(types[i], armyTypes[i], "Territory");
+            
+            if (types[i] == "Mission" || types[i] == "Wild Card"|| i >= armyTypes.Length) {
+                newCard = new Card(types[i]);  // No army type associated with these card types
+            } else {
+                newCard = new Card(types[i], armyTypes[i], "Territory");  // Use army type only for territory cards
             }
             deck.Add(newCard);
         }
 
         deckSize = deck.Count;
+
         updateText();
     }
 
@@ -76,7 +71,6 @@ public class Deck : MonoBehaviour
             Debug.LogWarning("Deck is empty!");
             return null;
         }
-
         //Draws the card from top
         Card drawnCard = deck[0];
         deck.RemoveAt(0);
@@ -117,6 +111,7 @@ public class Deck : MonoBehaviour
         TextAsset asset = Resources.Load<TextAsset>(fileName);
         if(asset != null){
             return asset.text.Split(',');
+
         }
         else{
             Debug.LogError("Failed to load data from file: " + fileName);

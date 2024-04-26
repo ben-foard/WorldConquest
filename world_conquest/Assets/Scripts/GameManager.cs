@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Sprite> diceImages = new List<Sprite>(); 
     [SerializeField] private List<Image> attackDice = new List<Image>();
     [SerializeField] private List<Image> defendDice = new List<Image>();
+    [SerializeField] private Image InitialDice;
+    [SerializeField] private TextMeshProUGUI deckSize;
+    [SerializeField] private Button cardButton;
 
     //private variables for managing game state
     Dictionary<Player, int> initialDiceRoll = new Dictionary<Player, int>();
@@ -69,15 +72,25 @@ public class GameManager : MonoBehaviour
     //Method to start game called from the menuController
     public void StartGame(int amountOfHumans, int amountOfAI, string[] playerNames, Color32[] playerColours)
     {
+        mainDeck = gameObject.AddComponent<Deck>();
+        mainDeck.PopulateDeck();
+        mainDeck.RemoveAllMissionCards();
+        mainDeck.shuffleCards();
         for(int i = 0; i < amountOfHumans; i++){
             Player nextPlayer = gameObject.AddComponent<Player>();
             nextPlayer.SetPlayerText(playerTextNames[i]);
             nextPlayer.SetPlayerColour(playerColours[i]);
             nextPlayer.SetPlayerName(playerNames[i]);
             CurrentPlayers.Add(nextPlayer);
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
+
         }
 
-        mainDeck = gameObject.AddComponent<Deck>();
         gameDice = gameObject.AddComponent<Dice>();
 
         // Find and initialize slider and button manager       
@@ -90,7 +103,6 @@ public class GameManager : MonoBehaviour
         buttonManager.UpdateConfirmVisibility(false);
 
         //Intial methods that run before game start
-        //mainDeck.PopulateDeck();
         InitialDiceRoll(amountOfHumans, amountOfAI);
         UpdateUI();
 
@@ -104,16 +116,21 @@ public class GameManager : MonoBehaviour
         diceRollText[0].color = new Color32(0, 255, 0, 255);
         for(int i = 0; i < CurrentPlayers.Count; i++){
             diceRollText[i].text = CurrentPlayers[i].GetPlayerName() + " rolled: ";
+            //buttonManager.getRollButton.interactable = true;
         }     
     }    
 
     //Method is ran when the roll button is clicked 
     private void RollDice(){
+        buttonManager.getRollButton().interactable = false;
         //Reverts the highlight
         diceRollText[amountOfDiceRolled].color  = new Color32(255,255,255,255);
         int diceValue = gameDice.getDiceValue();
         initialDiceRoll.Add(CurrentPlayers[amountOfDiceRolled], diceValue);
+        StartCoroutine(gameDice.DiceRollAnimation(diceImages, InitialDice));
+        InitialDice.sprite = diceImages[diceValue - 1];
         diceRollText[amountOfDiceRolled].text += diceValue;
+        buttonManager.getRollButton().interactable = true;
 
         amountOfDiceRolled++;
         if(amountOfDiceRolled >= CurrentPlayers.Count){
@@ -187,9 +204,10 @@ public class GameManager : MonoBehaviour
                     
                     if (containsSet && getCurrentPlayer().GetPlayerDeck().getSize() <= 4)
                     {
-                         //TODO: give option to trade in cards 
+                        cardButton.interactable = true;
+                        cardButton.GetComponent<Image>().color = new Color32(255,255,255,255);                    
                     }
-                    else {
+                    else if(containsSet){
                         List<Card> setToTrade = GetSetToTrade(playerName);
                         bool bonus = tradeInCards(setToTrade);
                         if(!bonus){
@@ -253,6 +271,7 @@ public class GameManager : MonoBehaviour
     // Method updates User Inteface elements
     void UpdateUI()
     {
+
         //Changes the visibility of the button and slider
         slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
@@ -265,6 +284,7 @@ public class GameManager : MonoBehaviour
         } else {GameInfoText.text = "";}
         currentPhaseText.text = currentGamePhase.ToString();
         currentPlayerText.text = "Current Turn: " + getCurrentPlayer().GetPlayerName();
+        deckSize.text = getCurrentPlayer().GetPlayerDeck().getSize().ToString();
     }    
 
     // Method for attacking
@@ -276,8 +296,6 @@ public class GameManager : MonoBehaviour
             //Updates UI elements to select  the territory
             slider.SetSliderActive(true);
             buttonManager.UpdateConfirmVisibility(true);
-            print(previousSelectedTerritory.GetTerritoryName());
-            print(previousSelectedTerritory);
             attackCanvasText[1].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " rolled:";
             attackCanvasText[2].text = defendingCountry.GetOwner().GetPlayerName() + " rolled:";
 
@@ -297,10 +315,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //Once the amount of dice per player selected, the attack is performed
     private void PerformAttack()
     {
-        //Updates UI elements
+        // Update UI elements
         GameInfoText.text = "";
         attackCanvas.enabled = true;
         amountOfDefendDice = slider.GetAmount();
@@ -310,32 +327,39 @@ public class GameManager : MonoBehaviour
         int[] attackValues = new int[amountOfAttackDice];
         int[] defendValues = new int[amountOfDefendDice];
 
+        StartCoroutine(PerformSequentialDiceRolls(attackValues, defendValues));
+    }
 
-        //Puts dice values into the array
-        for(int i = 0; i <amountOfAttackDice; i++){
+    private IEnumerator PerformSequentialDiceRolls(int[] attackValues, int[] defendValues)
+    {
+        // Roll attack dice
+        for(int i = 0; i < amountOfAttackDice; i++)
+        {
             attackValues[i] = gameDice.getDiceValue();
             attackDice[i].enabled = true;
-            gameDice.StartDiceRollAnimation(attackDiceImages, attackDice[i]);
+            yield return StartCoroutine(gameDice.DiceRollAnimation(attackDiceImages, attackDice[i]));
             attackDice[i].sprite = attackDiceImages[attackValues[i] - 1];
         }
 
-        for(int j = 0; j< amountOfDefendDice;j++){
+        // Roll defend dice
+        for(int j = 0; j < amountOfDefendDice; j++)
+        {
             defendValues[j] = gameDice.getDiceValue();
             defendDice[j].enabled = true;
-            gameDice.StartDiceRollAnimation(diceImages, defendDice[j]);
+            yield return StartCoroutine(gameDice.DiceRollAnimation(diceImages, defendDice[j]));
             defendDice[j].sprite = diceImages[defendValues[j] - 1];
         }
 
-        //Sorts the arrays based on highest to lowest
+        // Sort the arrays
         Array.Sort(attackValues, (x, y) => y.CompareTo(x));
         Array.Sort(defendValues, (x, y) => y.CompareTo(x));
 
-        //How many times it needs to compare (3 vs 2 dice is 2 times)
         int numDiceToCompare = Mathf.Min(attackValues.Length, defendValues.Length);
-
-        for(int k = 0; k < numDiceToCompare;k++){
+        for(int k = 0; k < numDiceToCompare; k++)
+        {
             AttackTerritory(attackValues[k], defendValues[k]);
         }
+
         StartCoroutine(pauseDiceRoll());
     }
 
@@ -523,16 +547,6 @@ public class GameManager : MonoBehaviour
         buttonManager.getConfirmButton().onClick.AddListener(PerformAttack);    
     }
 
-    //UNUSED: Returns a list of cards for the amount of territories captured
-    // public List<Card> rewardCards(int capturedAmount, Deck mainDeck){
-    //   List<Card> rewardedCards = new List<Card>();
-    //   for(int i = 0; i < capturedAmount; i++){
-    //         Card drawnCard = mainDeck.DrawCard();
-    //         rewardedCards.Add(drawnCard);
-    //   }
-    //   return rewardedCards;
-    // }
-
    //Method to trade in 3 cards
     public bool tradeInCards(List<Card> sets){
 
@@ -565,24 +579,49 @@ public class GameManager : MonoBehaviour
     //Checks whether a player has a set
     public bool hasSet(string playerName) {
 
+        print(getCurrentPlayer().GetPlayerDeck().getSize());
+        if(getCurrentPlayer().GetPlayerDeck().getSize() == 0){
+            return false;        
+        }
         List<Card> cards = getCurrentPlayer().GetPlayerDeck().getAllCards();
-
+        print(cards[0].getArmyType());
+        print(cards[1].getArmyType());
+        print(cards[2].getArmyType());
+        print(cards[3].getArmyType());
+        print(cards[4].getArmyType());
+        print(cards[5].getArmyType());
         if(cards.Count < 3){
             return false;
         } else {
+            int inf  = 0;
+            int cv = 0;
+            int ar = 0;
             //Gets the count of all  cards
-            int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
-            int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
-            int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+            foreach(Card c in cards){
+                if(c.getArmyType() == "Infantry"){
+                    inf++;
+                }else if(c.getArmyType() == "Cavalry"){
+                    cv++;
+                }else if(c.getArmyType() == "Artillery"){
+                    ar++;
+                }
+            }
+            //int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
+            print(inf);
+            //int cavalryCount = cards.Count(card => card.getArmyType() == "Cavalry");
+            print(cv);
+            //int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
+            print(ar);
+
             int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
 
-            if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
-                return true;
-            } else if(wildCardCount >= 1){
-                return true;
-            } else if(infantyCount >= 1 & cavalryCount >= 1 & artilleryCount >= 1){
-                return true;
-            }
+            // if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
+            //     return true;
+            // } else if(wildCardCount >= 1){
+            //     return true;
+            // } else if(infantyCount >= 1 & cavalryCount >= 1 & artilleryCount >= 1){
+            //     return true;
+            // }
             return false;
         }
    
@@ -626,6 +665,14 @@ public class GameManager : MonoBehaviour
         return setToTrade;
     }
 
+    public void tradeInSetClick(){
+        List<Card> setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
+        tradeInCards(setToTrade);
+        cardButton.interactable = false;
+        cardButton.GetComponent<Image>().color = new Color32(255,255,255,255);
+        deckSize.text = getCurrentPlayer().GetPlayerDeck().getSize().ToString();
+
+    }
     //Method for attacking a territory from this players current territory
     public void AttackTerritory(int attackingValue, int defendingValue)
     {
@@ -672,8 +719,13 @@ public class GameManager : MonoBehaviour
 
     }
     IEnumerator pauseDiceRoll(){
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(3);
         attackCanvas.enabled = false;
+        slider.SetSliderActive(false);
+        for(int i = 0; i < 3; i++){
+            attackDice[i].sprite = null;
+            defendDice[i].sprite = null;
+        }
         RevertHighlight();
         previousSelectedTerritory = null;
     }

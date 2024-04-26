@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private int tradeValue = 0;
     private TextMeshProUGUI playerNameText;
     private bool receivedBonusTroops = false;
+
     //Adds a given amount of troops to the players troop count
     public void AddTroops(int amount)
     {
@@ -131,5 +132,10 @@ public class Player : MonoBehaviour
     }
     public bool getReceivedBonusTroops(){
         return receivedBonusTroops;
+    }
+
+    public int getAmountOfTroopsToDeploy(){
+        int baseTroops = Mathf.Max(this.ownedTerritories.Count / 3, 3);
+
     }
 }
