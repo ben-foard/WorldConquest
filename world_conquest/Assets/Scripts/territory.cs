@@ -40,7 +40,9 @@ public class Territory : MonoBehaviour
 
         switch(phase) {
             case "Start":
-                if(currentTerritory.GetTerritoryTroopCount() != 1 || GameManager.Instance.allTerritoriesOwned()){
+                if(currentTerritory.GetTerritoryTroopCount() == 0){
+                    GameManager.Instance.StartPhaseDeploy(currentTerritory);
+                } else if(GameManager.Instance.allTerritoriesOwned() && currentTerritory.GetOwner() == GameManager.Instance.getCurrentPlayer()){
                     GameManager.Instance.StartPhaseDeploy(currentTerritory);
                 }
                 break;
@@ -197,7 +199,7 @@ public class Territory : MonoBehaviour
 
     //Gets the name of territory
     public string GetTerritoryName(){
-        return territoryName.ToString();
+        return territoryName.text;
     }
     //Alters the owner of the current territory to the Player p
     public void ChangeOwner(Player p)

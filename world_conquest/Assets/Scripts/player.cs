@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     //Field that is serialized from the current scene
     [SerializeField] private TMP_Text tradedInSets;
     
-
     //The properties of the player
     private string playerName;
     private int troopCount = 0;

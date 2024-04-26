@@ -19,15 +19,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentPhaseText;
     [SerializeField] private TextMeshProUGUI currentPlayerText;
     [SerializeField] private TextMeshProUGUI GameInfoText;
-    [SerializeField] private TextMeshProUGUI AttackDiceText;
-    [SerializeField] private TextMeshProUGUI DefendDiceText;
     [SerializeField] private Canvas diceRollCanvas;
     [SerializeField] private Canvas attackCanvas;
     [SerializeField] private List<TextMeshProUGUI> attackCanvasText = new List<TextMeshProUGUI>();
     [SerializeField] private List<TextMeshProUGUI> diceRollText = new List<TextMeshProUGUI>();
     [SerializeField] private TextMeshProUGUI[] playerTextNames = new TextMeshProUGUI[6]; 
-    [SerializeField] private List<Image> attackDice = new List<Image>(); 
-    [SerializeField] private List<Image> dice = new List<Image>(); 
+    [SerializeField] private List<Sprite> attackDiceImages = new List<Sprite>(); 
+    [SerializeField] private List<Sprite> diceImages = new List<Sprite>(); 
+    [SerializeField] private List<Image> attackDice = new List<Image>();
+    [SerializeField] private List<Image> defendDice = new List<Image>();
 
     //private variables for managing game state
     Dictionary<Player, int> initialDiceRoll = new Dictionary<Player, int>();
@@ -69,8 +69,6 @@ public class GameManager : MonoBehaviour
     //Method to start game called from the menuController
     public void StartGame(int amountOfHumans, int amountOfAI, string[] playerNames, Color32[] playerColours)
     {
-        print(playerColours[0]);
-        print(playerColours[1]);
         for(int i = 0; i < amountOfHumans; i++){
             Player nextPlayer = gameObject.AddComponent<Player>();
             nextPlayer.SetPlayerText(playerTextNames[i]);
@@ -255,10 +253,6 @@ public class GameManager : MonoBehaviour
     // Method updates User Inteface elements
     void UpdateUI()
     {
-        //Hides the dice roll text
-        AttackDiceText.text = "";
-        DefendDiceText.text = "";
-
         //Changes the visibility of the button and slider
         slider.SetSliderActive(currentGamePhase == gamePhases.Deploy || currentGamePhase == gamePhases.Fortify);
         buttonManager.InteractableUpdater(currentGamePhase == gamePhases.Attack || currentGamePhase == gamePhases.Fortify);
@@ -282,7 +276,12 @@ public class GameManager : MonoBehaviour
             //Updates UI elements to select  the territory
             slider.SetSliderActive(true);
             buttonManager.UpdateConfirmVisibility(true);
+            print(previousSelectedTerritory.GetTerritoryName());
+            print(previousSelectedTerritory);
+            attackCanvasText[1].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " rolled:";
+            attackCanvasText[2].text = defendingCountry.GetOwner().GetPlayerName() + " rolled:";
 
+            attackCanvasText[0].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " is attacking " + previousSelectedTerritory.GetTerritoryName();
             currentSelectedTerritory=defendingCountry;
             if(previousSelectedTerritory.GetTerritoryTroopCount() > 3){
                 slider.UpdateRange(3);
@@ -303,24 +302,28 @@ public class GameManager : MonoBehaviour
     {
         //Updates UI elements
         GameInfoText.text = "";
+        attackCanvas.enabled = true;
         amountOfDefendDice = slider.GetAmount();
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
         buttonManager.UpdateConfirmVisibility(false);
-        AttackDiceText.text = "Attacker rolled: ";
-        DefendDiceText.text = "Defender rolled:  ";
 
         int[] attackValues = new int[amountOfAttackDice];
         int[] defendValues = new int[amountOfDefendDice];
 
+
         //Puts dice values into the array
         for(int i = 0; i <amountOfAttackDice; i++){
             attackValues[i] = gameDice.getDiceValue();
-            AttackDiceText.text += attackValues[i] + " ";
+            attackDice[i].enabled = true;
+            gameDice.StartDiceRollAnimation(attackDiceImages, attackDice[i]);
+            attackDice[i].sprite = attackDiceImages[attackValues[i] - 1];
         }
 
         for(int j = 0; j< amountOfDefendDice;j++){
             defendValues[j] = gameDice.getDiceValue();
-            DefendDiceText.text += defendValues[j] + " ";
+            defendDice[j].enabled = true;
+            gameDice.StartDiceRollAnimation(diceImages, defendDice[j]);
+            defendDice[j].sprite = diceImages[defendValues[j] - 1];
         }
 
         //Sorts the arrays based on highest to lowest
@@ -333,9 +336,7 @@ public class GameManager : MonoBehaviour
         for(int k = 0; k < numDiceToCompare;k++){
             AttackTerritory(attackValues[k], defendValues[k]);
         }
-
-        RevertHighlight();
-        previousSelectedTerritory = null;
+        StartCoroutine(pauseDiceRoll());
     }
 
     //Method for deploying troops in deploy and starting phase 
@@ -369,9 +370,9 @@ public class GameManager : MonoBehaviour
             currentPlayer.AddTerritory(selectedTerritory);
             selectedTerritory.SetOwner(currentPlayer);
         }
-        
-        selectedTerritory.AddTroops(1);
-        currentPlayer.AddTroops(1);
+
+        selectedTerritory.AddTroops(3);
+        currentPlayer.AddTroops(3);
         currentPlayer.AlterTroopsToDeploy(-1);
 
         //Goes to the next player
@@ -654,8 +655,6 @@ public class GameManager : MonoBehaviour
                         }
                         getCurrentPlayer().AlterTroopsToDeploy(GetTradeValue());
                     }
-                    
-                    
                 }
             }
             //Else will handle the removing of troops from the defending territory
@@ -672,4 +671,11 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    IEnumerator pauseDiceRoll(){
+        yield return new WaitForSeconds(60);
+        attackCanvas.enabled = false;
+        RevertHighlight();
+        previousSelectedTerritory = null;
+    }
+
 }
