@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Image> defendDice = new List<Image>();
     [SerializeField] private Image InitialDice;
     [SerializeField] private Button cardButton;
+    [SerializeField] private List<Image> cardImages;
 
 
     //private variables for managing game state
@@ -233,7 +234,10 @@ public class GameManager : MonoBehaviour
                     if (containsSet && currentPlayer.GetPlayerDeck().getSize() <= 4)
                     {
                         cardButton.interactable = true;
-                        cardButton.GetComponent<Image>().color = new Color32(255,255,0,255);                    
+                        cardButton.GetComponent<Image>().color = new Color32(255,255,0,255);   
+                        foreach(Image im in cardImages){
+                            im.color = new Color32(255,255,0,255);   
+                        }                 
                     }
                     else if(containsSet){
                         List<Card> setToTrade = GetSetToTrade(playerName);
@@ -695,6 +699,9 @@ public class GameManager : MonoBehaviour
         tradeInCards(setToTrade);
         cardButton.interactable = false;
         cardButton.GetComponent<Image>().color = new Color32(255,255,255,255);
+        foreach(Image im in cardImages){
+            im.color = new Color32(255,255,255,255);
+        }
         deckSize.text = getCurrentPlayer().GetPlayerDeck().getSize().ToString();
     }
 

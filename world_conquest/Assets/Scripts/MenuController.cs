@@ -118,7 +118,7 @@ public class MenuController : MonoBehaviour
     private IEnumerator ConfirmNameInput()
     {   
         nameConfirmed = true;
-        string name = nameInput.text.Trim(' ');
+        string name = nameInput.text.Trim(' ').ToLower();
         if (name.Length > 13 || name.Length < 2) {
             errorNameText.text = "Your name must be between 2-13 characters!";
             nameConfirmed = false;
