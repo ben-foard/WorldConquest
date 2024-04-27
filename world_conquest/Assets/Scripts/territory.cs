@@ -12,14 +12,15 @@ public class Territory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI troopText;
     [SerializeField] private Button territoryButton; 
     [SerializeField] private SpriteRenderer territoryButtonOutline;
-    [SerializeField] private TextMeshProUGUI territoryName;
+    [SerializeField] private string territoryName;
     [SerializeField] private List<Territory> neighbours;
 
     //The fields of the territory
     private Color32 territoryColour;
     private int troopCount = 0;
     private Player territoryOwner;
-    public string continent;
+    public Continent continent;
+
     void Awake() 
     {
         territoryColour = territoryButtonOutline.color;
@@ -55,6 +56,7 @@ public class Territory : MonoBehaviour
                     this.HighlightTerritory();
                     GameManager.Instance.SetCurrentSelectedTerritory(this);
                     GameManager.Instance.UpdateConfirmVisbility(true);
+                    
                 } 
                 GameManager.Instance.SetPreviousSelectedTerritory(this);
 
@@ -188,7 +190,10 @@ public class Territory : MonoBehaviour
     //Sets the owner of the territory
     public void SetOwner(Player p)
     {
-        this.territoryOwner = p;
+        this.territoryOwner = p; 
+
+        //Checks if player owns all countries in continent
+        p.PlayerOwnsContinent(this.getContinent());
     }
 
     //Returns the owner of the current territory 
@@ -199,15 +204,19 @@ public class Territory : MonoBehaviour
 
     //Gets the name of territory
     public string GetTerritoryName(){
-        return territoryName.text;
+        return territoryName;
     }
     //Alters the owner of the current territory to the Player p
     public void ChangeOwner(Player p)
     {
         this.territoryOwner.RemoveTerritory(this);
-        this.territoryOwner = p;
+        SetOwner(p);
         this.territoryColour = p.GetPlayerColour();
         SetColour(this.territoryColour);
         p.AddTerritory(this);
+    }
+
+    public Continent getContinent(){
+        return continent;
     }
 }

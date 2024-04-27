@@ -15,22 +15,29 @@ public class GameManager : MonoBehaviour
  
    
     //Fields for inspector accessibilty using [SerializeField]
-    [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private TextMeshProUGUI currentPhaseText;
     [SerializeField] private TextMeshProUGUI currentPlayerText;
-    [SerializeField] private TextMeshProUGUI GameInfoText;
-    [SerializeField] private Canvas diceRollCanvas;
-    [SerializeField] private Canvas attackCanvas;
+    [SerializeField] private TextMeshProUGUI GameInfoText;    
+    [SerializeField] private TextMeshProUGUI deckSize;    
+    [SerializeField] private TextMeshProUGUI nextPlayerText;    
+    [SerializeField] private TextMeshProUGUI[] playerTextNames = new TextMeshProUGUI[6];    
     [SerializeField] private List<TextMeshProUGUI> attackCanvasText = new List<TextMeshProUGUI>();
     [SerializeField] private List<TextMeshProUGUI> diceRollText = new List<TextMeshProUGUI>();
-    [SerializeField] private TextMeshProUGUI[] playerTextNames = new TextMeshProUGUI[6]; 
+    [SerializeField] private List<TextMeshProUGUI> cardTradeText = new List<TextMeshProUGUI>();
+
+    [SerializeField] private Canvas diceRollCanvas;
+    [SerializeField] private Canvas attackCanvas;  
+    [SerializeField] private Canvas nextPlayerCanvas;    
+    [SerializeField] private Canvas cardTradeCanvas;
+
+    [SerializeField] private List<Territory> allTerritories;
     [SerializeField] private List<Sprite> attackDiceImages = new List<Sprite>(); 
     [SerializeField] private List<Sprite> diceImages = new List<Sprite>(); 
     [SerializeField] private List<Image> attackDice = new List<Image>();
     [SerializeField] private List<Image> defendDice = new List<Image>();
     [SerializeField] private Image InitialDice;
-    [SerializeField] private TextMeshProUGUI deckSize;
     [SerializeField] private Button cardButton;
+
 
     //private variables for managing game state
     Dictionary<Player, int> initialDiceRoll = new Dictionary<Player, int>();
@@ -63,7 +70,7 @@ public class GameManager : MonoBehaviour
     //Awake method called when the script instance is being loaded 
     void Awake() 
     {
-        //Initialize singleton instance
+        //Initialize singleton instance        
         Instance = this;
         StartGame(MenuController.Instance.GetHumanPlayers(), MenuController.Instance.GetAIPlayers(), 
         MenuController.Instance.GetPlayerNames(), MenuController.Instance.GetPlayerColours());
@@ -76,12 +83,15 @@ public class GameManager : MonoBehaviour
         mainDeck.PopulateDeck();
         mainDeck.RemoveAllMissionCards();
         mainDeck.shuffleCards();
+
+        int amountOfInitialTroops = 40 - ((amountOfHumans+amountOfAI - 2)*5);
         for(int i = 0; i < amountOfHumans; i++){
             Player nextPlayer = gameObject.AddComponent<Player>();
             nextPlayer.SetPlayerText(playerTextNames[i]);
             nextPlayer.SetPlayerColour(playerColours[i]);
             nextPlayer.SetPlayerName(playerNames[i]);
             CurrentPlayers.Add(nextPlayer);
+            nextPlayer.AlterTroopsToDeploy(amountOfInitialTroops);
             nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
             nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
             nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
@@ -96,7 +106,8 @@ public class GameManager : MonoBehaviour
         // Find and initialize slider and button manager       
         slider = FindObjectOfType<SliderScript>();
         buttonManager = FindObjectOfType<ButtonManager>();
-
+        cardButton.onClick.AddListener(tradeInSetClick);
+        cardButton.interactable = false;
         //Update User inteface and add lister to continue button 
         buttonManager.getContinueButton().onClick.AddListener(AdvancePhase);
         buttonManager.UpdateConfirmVisibility(false);
@@ -127,11 +138,24 @@ public class GameManager : MonoBehaviour
         diceRollText[amountOfDiceRolled].color  = new Color32(255,255,255,255);
         int diceValue = gameDice.getDiceValue();
         initialDiceRoll.Add(CurrentPlayers[amountOfDiceRolled], diceValue);
-        StartCoroutine(gameDice.DiceRollAnimation(diceImages, InitialDice));
-        InitialDice.sprite = diceImages[diceValue - 1];
-        diceRollText[amountOfDiceRolled].text += diceValue;
-        buttonManager.getRollButton().interactable = true;
 
+        if(!gameDice.getIsRolling()){
+            buttonManager.getRollButton().interactable = false;
+            gameDice.StartDiceRollAnimation(diceImages, InitialDice);
+            StartCoroutine(WaitForInitialDiceRoll(diceValue));
+        }
+        InitialDice.sprite = diceImages[diceValue - 1];
+
+    }
+
+    IEnumerator WaitForInitialDiceRoll(int diceValue)
+    {
+        yield return new WaitWhile(() => gameDice.getIsRolling()); // Wait while dice are rolling
+        
+        // Show the button again once rolling stops
+        buttonManager.getRollButton().interactable = true;
+        diceRollText[amountOfDiceRolled].text += diceValue;
+        InitialDice.sprite = diceImages[diceValue - 1];
         amountOfDiceRolled++;
         if(amountOfDiceRolled >= CurrentPlayers.Count){
             FinishDiceRoll();
@@ -140,6 +164,7 @@ public class GameManager : MonoBehaviour
             //highlights the next player
             diceRollText[amountOfDiceRolled].color  = new Color32(0, 255, 0, 255);
         }
+        
     }
 
     private void FinishDiceRoll(){
@@ -156,34 +181,37 @@ public class GameManager : MonoBehaviour
         }
         
         //Has a 3 second wait until the screen disappears
-        StartCoroutine(UpdateDiceRoll());
+        StartCoroutine(UpdateInitialDiceRoll());
     }
 
     //Waits 3 seconds to hide the screen
-    IEnumerator UpdateDiceRoll()
+    IEnumerator UpdateInitialDiceRoll()
     {
         yield return new WaitForSeconds(3);
 
         diceRollCanvas.enabled = false;
     } 
 
+    
     // Method to advance turn to next phasee
     private void AdvancePhase()
     {
         // Advance turn to the next phase unless fortify is current phase
         if(currentGamePhase != gamePhases.Fortify){
             currentGamePhase = (gamePhases)(((int)currentGamePhase + 1) % System.Enum.GetValues(typeof(gamePhases)).Length);
+            GameLoop();
         }
         else{
             EndPlayerTurn();
         }
         
-        GameLoop();
+        
     }
 
     //Main game loop method
     private void GameLoop()
     { 
+        Player currentPlayer = getCurrentPlayer();
         //Check for win condition 
         if(CheckWin())
         {
@@ -197,24 +225,24 @@ public class GameManager : MonoBehaviour
             switch (currentGamePhase)
             {
                 case gamePhases.Deploy:
-                    getCurrentPlayer().AlterTroopsToDeploy(3);
-                    string playerName = getCurrentPlayer().GetPlayerName();
+                    currentPlayer.AlterTroopsToDeploy(currentPlayer.getAmountOfTroopsToDeploy());
+                    string playerName = currentPlayer.GetPlayerName();
                     buttonManager.getConfirmButton().onClick.AddListener(DeployTroops);
                     bool containsSet = hasSet(playerName);
                     
-                    if (containsSet && getCurrentPlayer().GetPlayerDeck().getSize() <= 4)
+                    if (containsSet && currentPlayer.GetPlayerDeck().getSize() <= 4)
                     {
                         cardButton.interactable = true;
-                        cardButton.GetComponent<Image>().color = new Color32(255,255,255,255);                    
+                        cardButton.GetComponent<Image>().color = new Color32(255,255,0,255);                    
                     }
                     else if(containsSet){
                         List<Card> setToTrade = GetSetToTrade(playerName);
                         bool bonus = tradeInCards(setToTrade);
                         if(!bonus){
-                            getCurrentPlayer().AlterTroopsToDeploy(2);
-                            getCurrentPlayer().setReceivedBonusTroops(true);
+                            currentPlayer.AlterTroopsToDeploy(2);
+                            currentPlayer.setReceivedBonusTroops(true);
                         }
-                        getCurrentPlayer().AlterTroopsToDeploy(GetTradeValue());
+                        currentPlayer.AlterTroopsToDeploy(GetTradeValue());
                     }
                     //DONE: Check amount of (matching) sets player owns
                     //Allowed if 3 matching cards
@@ -247,10 +275,18 @@ public class GameManager : MonoBehaviour
         getCurrentPlayer().setReceivedBonusTroops(false);
         hasCapturedTerritory = false;
         PlayerIndex = (PlayerIndex+1)%CurrentPlayers.Count;
-        currentGamePhase = gamePhases.Deploy;//2 will take the place of the amount of players in the future so that it only goes through the two indicies 
-        UpdateUI();              
+        nextPlayerCanvas.enabled = true;
+        nextPlayerText.text = getCurrentPlayer().GetPlayerName() + "'s turn!"; 
+        currentGamePhase = gamePhases.Deploy;
+        StartCoroutine(waitForNextPlayerCanvas());//2 will take the place of the amount of players in the future so that it only goes through the two indicies               
     }
 
+    IEnumerator waitForNextPlayerCanvas(){
+        yield return new WaitForSeconds(3);
+        nextPlayerCanvas.enabled = false;
+        GameLoop();
+        UpdateUI();    
+    }
     //Method to check for win condition
     private bool CheckWin()
     {
@@ -367,7 +403,6 @@ public class GameManager : MonoBehaviour
     public void DeployTroops() {
         Player currentPlayer = getCurrentPlayer();
 
-        //Will run if the current player has the selected territory and hasnt deployed all troops
         int amount = slider.GetAmount();
 
         currentSelectedTerritory.AddTroops(amount);
@@ -382,6 +417,7 @@ public class GameManager : MonoBehaviour
         currentSelectedTerritory.RevertHighlight();
         currentSelectedTerritory = null;
         previousSelectedTerritory = null;
+        UpdateConfirmVisbility(false);
     }
 
     //The start deploy phase 
@@ -395,8 +431,8 @@ public class GameManager : MonoBehaviour
             selectedTerritory.SetOwner(currentPlayer);
         }
 
-        selectedTerritory.AddTroops(3);
-        currentPlayer.AddTroops(3);
+        selectedTerritory.AddTroops(1);
+        currentPlayer.AddTroops(1);
         currentPlayer.AlterTroopsToDeploy(-1);
 
         //Goes to the next player
@@ -421,11 +457,8 @@ public class GameManager : MonoBehaviour
         slider.UpdateRange(previousSelectedTerritory.AvailableTroops());
         currentPlayer.Fortify(previousSelectedTerritory, currentSelectedTerritory, amountToMove);
                 
-        UpdateUI();
-        //currentPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
- 
-        //DONEISH: REWARD CARD (AT LEAST ONE) 
-        //CARD PER TERRITORY??
+        UpdateUI(); 
+
         previousSelectedTerritory.RevertHighlight();
         currentSelectedTerritory.RevertHighlight();
         buttonManager.UpdateConfirmVisibility(false);
@@ -435,7 +468,7 @@ public class GameManager : MonoBehaviour
     //Method Checks if all troops have been deployed
     public bool CheckDeployedAllTroops(Player p)
     {       
-        return (p.GetTroopsToDeploy() == 0);
+        return p.GetTroopsToDeploy() == 0;
     }
 
     //Method checks if all players have been deployed
@@ -551,27 +584,40 @@ public class GameManager : MonoBehaviour
     public bool tradeInCards(List<Card> sets){
 
         bool gotBonus = true;
+        cardTradeCanvas.enabled = true;
         for(int i = 0; i < 3; i++){
             if(getCurrentPlayer().GetAllTerritoryNames().Contains(sets[i].GetTerritoryName())){
                 if(!getCurrentPlayer().getReceivedBonusTroops()){
                     gotBonus = false;
                 }
             }
+            if(sets[i].getCardType().Trim() != "Wild Card"){
+                cardTradeText[i].text = sets[i].GetTerritoryName().Trim() + "\n" + sets[i].getArmyType().Trim();
+            } else{
+                cardTradeText[i].text = sets[i].getCardType().Trim();
+            }
             discardPile.Add(sets[i]);
             getCurrentPlayer().GetPlayerDeck().RemoveCard(sets[i]);
         }
+        amountOfSetsTraded++;
+        cardTradeText[3].text = "Current bonus troops: " + GetTradeValue().ToString();
+        StartCoroutine(waitForCardCanvas());
+        deckSize.text = getCurrentPlayer().GetPlayerDeck().getSize().ToString();
         return gotBonus;
     }   
 
+    IEnumerator waitForCardCanvas(){
+        yield return new WaitForSeconds(5);
+        cardTradeCanvas.enabled = false;
+    }
     //Gets the trade value based on how many have been traded in the game
     public int GetTradeValue(){
-        int tradesValue=0;
-        if(amountOfSetsTraded<6){
+        int tradesValue;
+        if (amountOfSetsTraded<6){
             tradesValue = tradeInValues[amountOfSetsTraded];
         }else{
-            tradesValue = tradeInValues[5] + ((amountOfSetsTraded - (tradeInValues.Length - 1))*5);
+            tradesValue = tradeInValues[5] + ((amountOfSetsTraded - (tradeInValues.Length))*5);
         }
-        amountOfSetsTraded++;
         return tradesValue;
     }
 
@@ -579,49 +625,28 @@ public class GameManager : MonoBehaviour
     //Checks whether a player has a set
     public bool hasSet(string playerName) {
 
-        print(getCurrentPlayer().GetPlayerDeck().getSize());
         if(getCurrentPlayer().GetPlayerDeck().getSize() == 0){
             return false;        
         }
         List<Card> cards = getCurrentPlayer().GetPlayerDeck().getAllCards();
-        print(cards[0].getArmyType());
-        print(cards[1].getArmyType());
-        print(cards[2].getArmyType());
-        print(cards[3].getArmyType());
-        print(cards[4].getArmyType());
-        print(cards[5].getArmyType());
+
         if(cards.Count < 3){
             return false;
         } else {
-            int inf  = 0;
-            int cv = 0;
-            int ar = 0;
-            //Gets the count of all  cards
-            foreach(Card c in cards){
-                if(c.getArmyType() == "Infantry"){
-                    inf++;
-                }else if(c.getArmyType() == "Cavalry"){
-                    cv++;
-                }else if(c.getArmyType() == "Artillery"){
-                    ar++;
-                }
+
+            int infantyCount = cards.Count(card => card.getArmyType().Trim() == "Infantry");
+            int cavalryCount = cards.Count(card => card.getArmyType().Trim() == "Cavalry");
+            int artilleryCount = cards.Count(card => card.getArmyType().Trim() == "Artillery");
+
+            int wildCardCount = cards.Count(card => card.getCardType().Trim() == "Wild Card");
+
+            if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
+                return true;
+            } else if(wildCardCount >= 1){
+                return true;
+            } else if(infantyCount >= 1 & cavalryCount >= 1 & artilleryCount >= 1){
+                return true;
             }
-            //int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
-            print(inf);
-            //int cavalryCount = cards.Count(card => card.getArmyType() == "Cavalry");
-            print(cv);
-            //int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
-            print(ar);
-
-            int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
-
-            // if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
-            //     return true;
-            // } else if(wildCardCount >= 1){
-            //     return true;
-            // } else if(infantyCount >= 1 & cavalryCount >= 1 & artilleryCount >= 1){
-            //     return true;
-            // }
             return false;
         }
    
@@ -635,31 +660,31 @@ public class GameManager : MonoBehaviour
         List<Card> cards = getCurrentPlayer().GetPlayerDeck().getAllCards();
         
         //Counts amount each of the card types
-        int infantyCount = cards.Count(card => card.getArmyType() == "Infantry");
-        int cavalryCount = cards.Count(card => card.getArmyType() == "Calvary");
-        int artilleryCount = cards.Count(card => card.getArmyType() == "Artillery");
-        int wildCardCount = cards.Count(card => card.getCardType() == "Wild Card");
+        int infantyCount = cards.Count(card => card.getArmyType().Trim() == "Infantry");
+        int cavalryCount = cards.Count(card => card.getArmyType().Trim() == "Cavalry");
+        int artilleryCount = cards.Count(card => card.getArmyType().Trim() == "Artillery");
+        int wildCardCount = cards.Count(card => card.getCardType().Trim() == "Wild Card");
 
         if(infantyCount >= 3 || cavalryCount >= 3 || artilleryCount >= 3){
             if(infantyCount >= 3){
-                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Infrantry").Take(infantyCount));
+                setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Infantry").Take(infantyCount));
             }
             else if(cavalryCount >= 3){
-                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Calvary").Take(cavalryCount));
+                setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Cavalry").Take(cavalryCount));
             }
             else if(artilleryCount >= 3){
-                setToTrade.AddRange(cards.Where(card => card.getCardType() == "Artillery").Take(artilleryCount));
+                setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Artillery").Take(artilleryCount));
             }
         
         } else if(wildCardCount >= 1){
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Wild Card").Take(wildCardCount));
+            setToTrade.AddRange(cards.Where(card => card.getCardType().Trim() == "Wild Card").Take(wildCardCount));
             setToTrade.AddRange(cards.Take(3-wildCardCount));
         } 
 
         else if(infantyCount >= 1 && cavalryCount >= 1 && artilleryCount >= 1){
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Infrantry").Take(1));
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Calvary").Take(1));
-            setToTrade.AddRange(cards.Where(card => card.getCardType() == "Artillery").Take(1));
+            setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Infantry").Take(1));
+            setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Cavalry").Take(1));
+            setToTrade.AddRange(cards.Where(card => card.getArmyType().Trim() == "Artillery").Take(1));
         }
 
         return setToTrade;
@@ -671,36 +696,36 @@ public class GameManager : MonoBehaviour
         cardButton.interactable = false;
         cardButton.GetComponent<Image>().color = new Color32(255,255,255,255);
         deckSize.text = getCurrentPlayer().GetPlayerDeck().getSize().ToString();
-
     }
+
     //Method for attacking a territory from this players current territory
     public void AttackTerritory(int attackingValue, int defendingValue)
     {
-        
+        Player currentPlayer = getCurrentPlayer();
         if (attackingValue > defendingValue)
         {    
             //Moves the troops from the defending to the attacking territory 
-            getCurrentPlayer().AddTroops(1);
+            currentPlayer.AddTroops(1);
             currentSelectedTerritory.GetOwner().RemoveTroops(1);
 
             //Changes the owner of the territory if the defending territory has only 1 troop left
             if (currentSelectedTerritory.GetTerritoryTroopCount() == 1)
             {
-                //DONE: check if owner has any more territories, if 0 current player gets all their cards
-                //DONE: if cards > 6 must trade in to get to a card count of 4 or fewer
-                currentSelectedTerritory.ChangeOwner(getCurrentPlayer());
+
+                currentSelectedTerritory.ChangeOwner(currentPlayer);
+
                 hasCapturedTerritory = true;
                 if (currentSelectedTerritory.GetOwner().GetAllTerritories().Count == 0)
                 {
-                    getCurrentPlayer().GetPlayerDeck().AddCards(currentSelectedTerritory.GetOwner().GetPlayerDeck().RemoveAllCards());
-                    while (getCurrentPlayer().GetPlayerDeck().getSize() >= 4) {
-                        List<Card> setToTrade = GetSetToTrade(getCurrentPlayer().GetPlayerName());
+                    currentPlayer.GetPlayerDeck().AddCards(currentSelectedTerritory.GetOwner().GetPlayerDeck().RemoveAllCards());
+                    while (currentPlayer.GetPlayerDeck().getSize() >= 4) {
+                        List<Card> setToTrade = GetSetToTrade(currentPlayer.GetPlayerName());
                         bool bonus = tradeInCards(setToTrade);
                         if(!bonus){
-                            getCurrentPlayer().AlterTroopsToDeploy(2);
-                            getCurrentPlayer().setReceivedBonusTroops(true);
+                            currentPlayer.AlterTroopsToDeploy(2);
+                            currentPlayer.setReceivedBonusTroops(true);
                         }
-                        getCurrentPlayer().AlterTroopsToDeploy(GetTradeValue());
+                        currentPlayer.AlterTroopsToDeploy(GetTradeValue());
                     }
                 }
             }
@@ -713,19 +738,25 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            getCurrentPlayer().RemoveTroops(1);
+            currentPlayer.RemoveTroops(1);
             previousSelectedTerritory.RemoveTroops(1);
         }
 
     }
+
     IEnumerator pauseDiceRoll(){
+
         yield return new WaitForSeconds(3);
         attackCanvas.enabled = false;
         slider.SetSliderActive(false);
+
         for(int i = 0; i < 3; i++){
-            attackDice[i].sprite = null;
-            defendDice[i].sprite = null;
+            attackDice[i].enabled = false;
+            if(i!= 2){
+                defendDice[i].enabled = false;
+            }
         }
+
         RevertHighlight();
         previousSelectedTerritory = null;
     }

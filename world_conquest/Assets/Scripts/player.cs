@@ -13,14 +13,15 @@ public class Player : MonoBehaviour
     
     //The properties of the player
     private string playerName;
-    private int troopCount = 0;
-    private int troopsToDeploy = 5;
+    protected int troopCount = 0;
+    private int troopsToDeploy = 0;
     private List<Territory> ownedTerritories = new List<Territory>();
     private Color32 playerColour;
     private Deck cards = new Deck();
     private int tradeValue = 0;
     private TextMeshProUGUI playerNameText;
     private bool receivedBonusTroops = false;
+    private List<Continent> ownedContinents = new List<Continent>();
 
     //Adds a given amount of troops to the players troop count
     public void AddTroops(int amount)
@@ -135,7 +136,24 @@ public class Player : MonoBehaviour
     }
 
     public int getAmountOfTroopsToDeploy(){
+        //Gets the amount of troops based on how many territories owned (minimum 3)
         int baseTroops = Mathf.Max(this.ownedTerritories.Count / 3, 3);
 
+        //Checks for continent bonuses
+        foreach(Continent c in ownedContinents){
+            baseTroops += c.getBonusTroops();
+        }
+        return baseTroops;
+    }
+
+    //checks if a player owns all countries in a continent
+    public void PlayerOwnsContinent(Continent c)
+    {
+        foreach(Territory t in c.getCountriesInContinent()){
+            if(!ownedTerritories.Contains(t)){
+                return;
+            }
+        }
+        ownedContinents.Add(c);
     }
 }

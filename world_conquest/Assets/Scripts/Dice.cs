@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-
+    private bool isRolling = false;
     //Gets a random dice roll value between 1 and 6 
     public int getDiceValue(){
         return Random.Range(1,7);
@@ -13,12 +13,12 @@ public class Dice : MonoBehaviour
 
     public void StartDiceRollAnimation(List<Sprite> dice, Image display)
     {
+        isRolling = true;
         StartCoroutine(DiceRollAnimation(dice, display));
     }
 
     public IEnumerator DiceRollAnimation(List<Sprite> dice, Image display)
     {
-        int numberOfImages = dice.Count; 
         float delayInSeconds = 0.25f; 
         for (int i = 0; i < 12; i++)
         {
@@ -26,5 +26,10 @@ public class Dice : MonoBehaviour
             display.sprite = dice[value];
             yield return new WaitForSeconds(delayInSeconds);
         }
+        isRolling = false;
+    }
+
+    public bool getIsRolling(){
+        return isRolling;
     }
 }

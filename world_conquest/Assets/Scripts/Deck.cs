@@ -98,6 +98,7 @@ public class Deck : MonoBehaviour
 
     //Returns the size of the deck
     public int getSize(){
+        deckSize = deck.Count;
         return deckSize;
     }
 
@@ -111,7 +112,6 @@ public class Deck : MonoBehaviour
         TextAsset asset = Resources.Load<TextAsset>(fileName);
         if(asset != null){
             return asset.text.Split(',');
-
         }
         else{
             Debug.LogError("Failed to load data from file: " + fileName);

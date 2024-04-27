@@ -20,8 +20,8 @@ public class Card
 
     //Overloaded constructor for mission or wild cards
     public Card(string cardType){
-        this.territory = null;
-        this.armyType = null;
+        this.territory = "empty";
+        this.armyType = "empty";
         this.cardType=cardType;
     }
 
