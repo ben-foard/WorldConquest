@@ -143,8 +143,15 @@ public class MenuController : MonoBehaviour
         StartScreen.SetActive(true);
         startButton.onClick.AddListener(SelectAmountOfPlayer);
         settingsButton.onClick.AddListener(SelectSettings);
+        UnloadGameScene();
     }
 
+    /// <summary>
+    /// Unloads the game scene until the menu scene has finished initialising the game
+    /// </summary>
+    void UnloadGameScene(){
+        UnityEngine.SceneManagement.SceneManager.UnloadScene("GameScene");
+    }
     /// <summary>
     /// Displays settings options and logs the action to the console.
     /// </summary>
@@ -171,6 +178,12 @@ public class MenuController : MonoBehaviour
         amountOfPlayers = GetHumanPlayers() + GetAIPlayers();
         if (amountOfPlayers > 6 || amountOfPlayers < 2) {
             errorPlayerText.text = "ERROR: Please select 2-6 players!";
+            confirmPlayerButton.onClick.RemoveAllListeners();
+            SelectAmountOfPlayer();
+            return;
+        }
+        if (GetAIPlayers()  > 0){
+            errorPlayerText.text = "ERROR: AI players is unavaliable";
             confirmPlayerButton.onClick.RemoveAllListeners();
             SelectAmountOfPlayer();
             return;

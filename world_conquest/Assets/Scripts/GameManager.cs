@@ -220,9 +220,9 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Awake method called when the script instance is being loaded
+    /// Start method called when the script instance is being loaded
     /// </summary>
-    void Awake() 
+    void Start() 
     {
         // Initialize singleton instance
         Instance = this;
@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
 
         // Calculate the initial number of troops each player receives
         int amountOfInitialTroops = 40 - ((amountOfHumans + amountOfAI - 2) * 5);
-        amountOfInitialTroops = 5;
+        
         // Create and initialize human players
         for (int i = 0; i < amountOfHumans; i++)
         {
@@ -652,7 +652,7 @@ public class GameManager : MonoBehaviour
             buttonManager.UpdateConfirmVisibility(true);
             attackCanvasText[1].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " rolled:";
             attackCanvasText[2].text = defendingCountry.GetOwner().GetPlayerName() + " rolled:";
-            attackCanvasText[0].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " is attacking " + previousSelectedTerritory.GetTerritoryName();
+            attackCanvasText[0].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " is attacking " + currentSelectedTerritory.GetTerritoryName();
             currentSelectedTerritory = defendingCountry;
 
             // Adjusts the slider range based on the number of troops available for attacking
@@ -709,7 +709,7 @@ public class GameManager : MonoBehaviour
         buttonManager.getConfirmButton().onClick.RemoveAllListeners();
 
         // Updates slider based on amount of troops it has to defend
-        if(previousSelectedTerritory.GetTerritoryTroopCount() > 1){
+        if(currentSelectedTerritory.GetTerritoryTroopCount() > 1){
                 slider.UpdateRange(2);
         }
         else{
