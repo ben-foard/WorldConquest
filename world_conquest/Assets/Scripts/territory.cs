@@ -40,7 +40,10 @@ public class Territory : MonoBehaviour
 
         switch(phase) {
             case "Start":
-                if(currentTerritory.GetTerritoryTroopCount() != 1 || GameManager.Instance.allTerritoriesOwned()){
+
+                if(currentTerritory.GetTerritoryTroopCount() ==0){
+                    GameManager.Instance.StartPhaseDeploy(currentTerritory);
+                }else if(GameManager.Instance.allTerritoriesOwned() && currentTerritory.GetOwner() == GameManager.Instance.getCurrentPlayer()){
                     GameManager.Instance.StartPhaseDeploy(currentTerritory);
                 }
                 break;

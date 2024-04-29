@@ -84,10 +84,9 @@ public class GameManager : MonoBehaviour
         // Find and initialize slider and button manager       
         slider = FindObjectOfType<SliderScript>();
         buttonManager = FindObjectOfType<ButtonManager>();
-        mainDeck.PopulateDeck();
+        //mainDeck.PopulateDeck();
         for(int i = 0; i < 5; i++){
-            Card card = mainDeck.DrawCard();
-            print(card.GetTerritoryName() + ": " + card.getArmyType());
+            //Card card = mainDeck.DrawCard();
         }
         StartGame();
     }
@@ -164,7 +163,7 @@ public class GameManager : MonoBehaviour
                 case gamePhases.Deploy:
                     string playerName = CurrentPlayers[PlayerIndex].GetPlayerName();
                     bool containsSet = hasSet(playerName);
-                    
+                    buttonManager.getConfirmButton().onClick.AddListener(DeployTroops);
                     if (containsSet && playerCards[playerName].Count <= 4) { 
                         //TODO: give option to trade in cards 
                     }
@@ -178,11 +177,11 @@ public class GameManager : MonoBehaviour
                 case gamePhases.Attack:
                     break;
                 case gamePhases.Fortify:
-                    CurrentPlayers[PlayerIndex].GetPlayerDeck().AddCard(mainDeck.DrawCard());
-                    if (CurrentPlayers[PlayerIndex].GetPlayerDeck().getSize() >= 5) 
-                    { 
+                    //CurrentPlayers[PlayerIndex].GetPlayerDeck().AddCard(mainDeck.DrawCard());
+                    //if (CurrentPlayers[PlayerIndex].GetPlayerDeck().getSize() >= 5) 
+                    //{ 
                         
-                    }
+                    //}
                     break;
             }
             UpdateUI();
@@ -295,13 +294,13 @@ public class GameManager : MonoBehaviour
         previousSelectedTerritory = null;
     }
     //Method for deploying troops in deploy and starting phase 
-    public void DeployTroops(Territory selectedTerritory) {
+    public void DeployTroops() {
         Player currentPlayer = getCurrentPlayer();
 
         //Will run if the current player has the selected territory and hasnt deployed all troops
         int amount = slider.GetAmount();
 
-        selectedTerritory.AddTroops(amount);
+        currentSelectedTerritory.AddTroops(amount);
         currentPlayer.AddTroops(amount);
         currentPlayer.AlterTroopsToDeploy(-amount);
 
@@ -310,7 +309,10 @@ public class GameManager : MonoBehaviour
         }          
 
         UpdateUI();
+        currentSelectedTerritory.RevertHighlight();
+        currentSelectedTerritory = null;
         previousSelectedTerritory = null;
+        UpdateConfirmVisbility(false);
         
     }
     public void StartPhaseDeploy(Territory selectedTerritory){
@@ -330,10 +332,10 @@ public class GameManager : MonoBehaviour
 
         if (AllPlayersDeployed()) {
             for(int i = 0; i < 12;i++){
-                missionCardPile.AddCard(mainDeck.DrawCard());
+                //missionCardPile.AddCard(mainDeck.DrawCard());
             }
-            mainDeck.RemoveAllMissionCards();
-            mainDeck.shuffleCards();
+            //mainDeck.RemoveAllMissionCards();
+            //mainDeck.shuffleCards();
             //DONE: SHUFFLE DECK AND REMOVE MISSION CARDS
             currentGamePhase = gamePhases.Attack;
         }
@@ -540,5 +542,9 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, List<Card>> getPlayerDecks() {
         return playerCards;
+    }
+
+    public void SetCurrentSelectedTerritory(Territory t){
+        currentSelectedTerritory = t;
     }
 }
