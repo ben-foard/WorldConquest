@@ -1,25 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI; 
-using TMPro;
-using System;
-using Unity.VisualScripting;
 
+///<summary>
+/// Represents an AI player in the game.
+///</summary>
 public class playerAI : Player
 {
-    //Generate Randome Integer
-    int ranAction()
+    ///<summary>
+    /// Generates a random integer.
+    ///</summary>
+    ///<returns>The random integer.</returns>
+    int RanAction()
     {
         int i = UnityEngine.Random.Range(1, 6);
         return i;
     }
 
-    //decides based on a d6 probability
-    //  mid 1 [1/6 probability 5/6]
-    //  mid 2 [1/3 probability 2/3]
-    //  mid 3 [1/2 probability 1/2]
-    int midmake()
+    ///<summary>
+    /// Decides based on a d6 probability.
+    ///</summary>
+    ///<returns>The decision based on probability.</returns>
+    int MidMake()
     {
         int mid = 0;
         if(troopCount > 50)
@@ -37,8 +36,13 @@ public class playerAI : Player
         return mid;
     }
 
-    //choiceDet(midmake(), ranAction())
-    bool choiceDet(int mid, int rand)
+    ///<summary>
+    /// Determines the choice based on the given criteria.
+    ///</summary>
+    ///<param name="mid">The mid value.</param>
+    ///<param name="rand">The random value.</param>
+    ///<returns>True if the choice is active, false otherwise.</returns>
+    bool ChoiceDet(int mid, int rand)
     {
         bool inact;
         if(rand >= mid)
@@ -52,50 +56,59 @@ public class playerAI : Player
         return inact;
     }
 
-    void openingAuto()
+    ///<summary>
+    /// Handles the opening move of the AI player.
+    ///</summary>
+    void OpeningAuto()
     {
-        //select randomly from unselected list territory
+        // Select randomly from unselected list territory
     }
 
-    void deployAuto()
+    ///<summary>
+    /// Automatically deploys troops for the AI player.
+    ///</summary>
+    void DeployAuto()
     {
-        //num of troops to deploy
-            //collect cards automatically
-        //select random NPC terriroy
-        //deploy random num of troops (1 to troopToDeloy)
+        // Determine number of troops to deploy
+        // Collect cards automatically
+        // Select random NPC territory
+        // Deploy random number of troops (1 to troopsToDeploy)
     }
-    
 
-    // attackAuto()
-    void attackAuto()
+    ///<summary>
+    /// Automatically handles attacks for the AI player.
+    ///</summary>
+    void AttackAuto()
     {
-        while(choiceDet(midmake(), ranAction()))
+        while(ChoiceDet(MidMake(), RanAction()))
         {
-            //select territory
-                //is terriroy troops > 1
-                //is all territory owned by NPC
-            //create list ofopponent player territory
-            //randomly select from list
-            //attack country
-            //win
-                //add random number of troops to new territory
-                //win card
-            //lose
-            //can u attack? is troops > 1
+            // Select territory
+            // Is territory troops > 1
+            // Is all territory owned by NPC
+            // Create list of opponent player territory
+            // Randomly select from list
+            // Attack country
+            // Win
+            //   Add random number of troops to new territory
+            //   Win card
+            // Lose
+            // Can you attack? Is troops > 1
         }
     }
 
-    // attackAuto()
-    void fortfyAuto()
+    ///<summary>
+    /// Automatically fortifies territories for the AI player.
+    ///</summary>
+    void FortifyAuto()
     {
-        int mid = 6 - midmake();
-        while(choiceDet(mid, ranAction()))
+        int mid = 6 - MidMake();
+        while(ChoiceDet(mid, RanAction()))
         {
-            //select terriroty
-                //is territory troops > 1
-                //is territory around owned by NPC
-            //create a list of NPC neigbours
-            //add troops (range 1 to troopCount - 1)
+            // Select territory
+            // Is territory troops > 1
+            // Is territory around owned by NPC
+            // Create a list of NPC neighbors
+            // Add troops (range 1 to troopCount - 1)
         }
     }
 }

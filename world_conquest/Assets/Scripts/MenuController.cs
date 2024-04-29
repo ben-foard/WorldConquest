@@ -2,49 +2,141 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls all menu interactions and UI transitions in the game.
+/// This class manages player selection, color selection, and game initialization.
+/// </summary>
 public class MenuController : MonoBehaviour
-{   
+{
     public static MenuController Instance;
-    //The 4 screens that are shown in the menu
-    [SerializeField] private GameObject StartScreen;    
+
+    /// <summary>
+    /// Reference to the start screen GameObject.
+    /// </summary>
+    [SerializeField] private GameObject StartScreen;
+
+    /// <summary>
+    /// Reference to the player screen GameObject.
+    /// </summary>
     [SerializeField] private GameObject PlayerScreen;
+
+    /// <summary>
+    /// Reference to the name selection screen GameObject.
+    /// </summary>
     [SerializeField] private GameObject NameSelectScreen;
+
+    /// <summary>
+    /// Reference to the color selection screen GameObject.
+    /// </summary>
     [SerializeField] private GameObject ColourSelectScreen;
 
-    //The UI elements of all the canvas'
+    /// <summary>
+    /// Start button to trigger the selection of the number of players.
+    /// </summary>
     [SerializeField] private Button startButton;
+
+    /// <summary>
+    /// Settings button to open game settings.
+    /// </summary>
     [SerializeField] private Button settingsButton;
+
+    /// <summary>
+    /// Dropdown for selecting the number of human players.
+    /// </summary>
     [SerializeField] private Dropdown HumanDropdown;
+
+    /// <summary>
+    /// Dropdown for selecting the number of AI players.
+    /// </summary>
     [SerializeField] private Dropdown AIDropdown;
+
+    /// <summary>
+    /// Button to confirm the player selection and proceed to the next menu.
+    /// </summary>
     [SerializeField] private Button confirmPlayerButton;
+
+    /// <summary>
+    /// List of buttons for each color selection.
+    /// </summary>
     [SerializeField] private List<Button> colourButtons;
+
+    /// <summary>
+    /// Input field for entering the player's name.
+    /// </summary>
     [SerializeField] private InputField nameInput;
+
+    /// <summary>
+    /// Displays the name selection prompt or error messages.
+    /// </summary>
     [SerializeField] private TextMeshProUGUI nameSelectText;
+
+    /// <summary>
+    /// Displays error messages related to player settings.
+    /// </summary>
     [SerializeField] private TextMeshProUGUI errorPlayerText;
+
+    /// <summary>
+    /// Displays error messages related to name selection.
+    /// </summary>
     [SerializeField] private TextMeshProUGUI errorNameText;
+
+    /// <summary>
+    /// Displays the color selection prompt or error messages.
+    /// </summary>
     [SerializeField] private TextMeshProUGUI colourSelectText;
+
+    /// <summary>
+    /// Button to confirm the name selection and proceed to color selection.
+    /// </summary>
     [SerializeField] private Button confirmNameButton;
 
-    //Private variables used to start the game in the game manager
-    private List<Color32> gameColours = new List<Color32> { 
+    /// <summary>
+    /// A list of available colors that players can choose for the game.
+    /// </summary>
+    private List<Color32> gameColours= new List<Color32> { 
         new Color32(0,199,240,255),
         new Color32(0,7,192,255),  
         new Color32(90,192,0,255),
         new Color32(154,0,141,255), 
         new Color32(255,101,0,255),
         new Color32(190,18,0,255)};
+
+    /// <summary>
+    /// The total number of players, including both human and AI players.
+    /// </summary>
     private int amountOfPlayers;
+
+    /// <summary>
+    /// An array storing the names of all players participating in the game.
+    /// This array is populated during the name selection phase.
+    /// </summary>
     private string[] playerNames;
+
+    /// <summary>
+    /// An array of colors selected by each player corresponding to the playerNames array.
+    /// These colors are chosen during the color selection phase and are used to customize player appearances in the game.
+    /// </summary>
     private Color32[] playerColours;
+
+    /// <summary>
+    /// A flag indicating whether a player's name has been confirmed through the name input process.
+    /// This is set to true once a valid name is entered and confirmed.
+    /// </summary>
     private bool nameConfirmed = false;
+
+    /// <summary>
+    /// A flag indicating whether a player's color selection has been confirmed.
+    /// This is set to true once a player has selected a color and the selection is confirmed.
+    /// </summary>
     private bool colourConfirmed = false;
 
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Initializes the singleton instance, activates the start screen, and sets up button listeners.
+    /// </summary>
     void Start()
     {
         Instance = this;
@@ -53,26 +145,30 @@ public class MenuController : MonoBehaviour
         settingsButton.onClick.AddListener(SelectSettings);
     }
 
-    //temp method to check if settings button works
+    /// <summary>
+    /// Displays settings options and logs the action to the console.
+    /// </summary>
     private void SelectSettings() 
     {
         print("Clicked settings");
     }
 
-    //Method to select amount of players that you want
+    /// <summary>
+    /// Handles player amount selection by displaying the player selection screen and setting up further interactions.
+    /// </summary>    
     private void SelectAmountOfPlayer()
     {
         StartScreen.SetActive(false);
         PlayerScreen.SetActive(true);
-
         confirmPlayerButton.onClick.AddListener(EnterPlayerName);
     }
 
-    //Method to show the enter player name screen
+    /// <summary>
+    /// Processes the amount of players selected, validates it, and transitions to the name selection screen.
+    /// </summary>
     private void EnterPlayerName()
     {   
-        //Error checking for the amont of players
-        amountOfPlayers = (GetHumanPlayers()) + GetAIPlayers();
+        amountOfPlayers = GetHumanPlayers() + GetAIPlayers();
         if (amountOfPlayers > 6 || amountOfPlayers < 2) {
             errorPlayerText.text = "ERROR: Please select 2-6 players!";
             confirmPlayerButton.onClick.RemoveAllListeners();
@@ -88,7 +184,11 @@ public class MenuController : MonoBehaviour
         StartCoroutine(EnterPlayerNamesCoroutine(GetHumanPlayers()));
     }
 
-    //A routine to go through the amount of human players and set their name
+    /// <summary>
+    /// Collects and validates player names sequentially through a coroutine.
+    /// </summary>
+    /// <param name="numPlayers">The number of human players to process.</param>
+    /// <returns>Returns an IEnumerator for coroutine management.</returns>
     private IEnumerator EnterPlayerNamesCoroutine(int numPlayers)
     {
         for (int i = 0; i < numPlayers; i++)
@@ -100,25 +200,30 @@ public class MenuController : MonoBehaviour
             nameInput.text = "";
         }
 
-        //Goes to the select colour screen once finished
         StartCoroutine(SelectColour());
     }
 
-    //Wits until the the confirm button is pressed to go to next player
+    /// <summary>
+    /// Waits for the confirm name button to be pressed, triggering the validation of the input name.
+    /// </summary>
+    /// <returns>Returns an IEnumerator for coroutine management.</returns>
     private IEnumerator WaitForNameInput()
     {
-       confirmNameButton.onClick.AddListener(() => {StartCoroutine(ConfirmNameInput());});
-       while (!nameConfirmed){
+        confirmNameButton.onClick.AddListener(() => { StartCoroutine(ConfirmNameInput()); });
+        while (!nameConfirmed){
             yield return null;
-       }
-       nameConfirmed = false;
+        }
+        nameConfirmed = false;
     }
 
-    //Checks if the name is valid, and returns true if so
+    /// <summary>
+    /// Validates the entered name for length and uniqueness.
+    /// </summary>
+    /// <returns>Returns an IEnumerator for coroutine management.</returns>
     private IEnumerator ConfirmNameInput()
     {   
         nameConfirmed = true;
-        string name = nameInput.text.Trim(' ');
+        string name = nameInput.text.Trim();
         if (name.Length > 13 || name.Length < 2) {
             errorNameText.text = "Your name must be between 2-13 characters!";
             nameConfirmed = false;
@@ -131,13 +236,15 @@ public class MenuController : MonoBehaviour
         yield return new WaitForEndOfFrame();
     }
 
-    //Method to show the select colour screen
+    /// <summary>
+    /// Starts the color selection process through a coroutine.
+    /// </summary>
+    /// <returns>Returns an IEnumerator for coroutine management.</returns>
     private IEnumerator SelectColour()
     {
         NameSelectScreen.SetActive(false);
         ColourSelectScreen.SetActive(true);
         playerColours = new Color32[amountOfPlayers];
-        //Goes through all the human players
         for (int i = 0; i < GetHumanPlayers(); i++)
         {
             colourSelectText.text = playerNames[i] + " select your game colour!";  
@@ -146,18 +253,19 @@ public class MenuController : MonoBehaviour
         LoadGameScene();
     }
 
-    //Wais until the player has selected a colour
+    /// <summary>
+    /// Waits until a player has selected a colour.
+    /// </summary>
+    /// <param name="playerIndex">The index of the player selecting the colour.</param>
+    /// <returns>Returns an IEnumerator for coroutine management.</returns>
     private IEnumerator WaitForColourSelection(int playerIndex)
     {
-
         for (int i = 0; i < colourButtons.Count; i++)
         {
             int index = i;
             colourButtons[i].onClick.RemoveAllListeners();
             colourButtons[i].onClick.AddListener(() => { SetColour(playerIndex, index); });
-                
         }
-        //goes through the loop until a colour is selected
         while (!colourConfirmed)
         {
             yield return null;
@@ -165,31 +273,59 @@ public class MenuController : MonoBehaviour
         colourConfirmed = false;
     }
 
-    //Adds the colour to each of the players colour value 
+    /// <summary>
+    /// Sets the selected colour for a player and disables the corresponding button to prevent re-selection.
+    /// </summary>
+    /// <param name="playerIndex">The player's index in the colour array.</param>
+    /// <param name="colourIndex">The index of the selected colour.</param>
     private void SetColour(int playerIndex, int colourIndex)
     {
         playerColours[playerIndex] = gameColours[colourIndex];
-        //Disables the colour button if its already been selected
         colourButtons[colourIndex].gameObject.SetActive(false);
         colourConfirmed = true;
     }
-    //Methods for returning the values to the GameManager
-    public int GetHumanPlayers(){
+
+    /// <summary>
+    /// Returns the number of human players based on the dropdown selection.
+    /// </summary>
+    /// <returns>The number of human players.</returns>
+    public int GetHumanPlayers()
+    {
         return HumanDropdown.value + 1;
     }
-    public int GetAIPlayers(){
+
+    /// <summary>
+    /// Returns the number of AI players based on the dropdown selection.
+    /// </summary>
+    /// <returns>The number of AI players.</returns>
+    public int GetAIPlayers()
+    {
         return AIDropdown.value;
     }
-    public string[] GetPlayerNames(){
+
+    /// <summary>
+    /// Retrieves the array of player names.
+    /// </summary>
+    /// <returns>An array of player names.</returns>
+    public string[] GetPlayerNames()
+    {
         return playerNames;
     }
-    public Color32[] GetPlayerColours(){
+
+    /// <summary>
+    /// Retrieves the array of player colors.
+    /// </summary>
+    /// <returns>An array of Color32 representing player colors.</returns>
+    public Color32[] GetPlayerColours()
+    {
         return playerColours;
     }
 
-    //Final method to start the game 
+    /// <summary>
+    /// Loads the game scene, finalizing the setup process.
+    /// </summary>
     private void LoadGameScene()
-    {        
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 }
