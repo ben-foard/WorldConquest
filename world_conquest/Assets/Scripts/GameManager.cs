@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         mainDeck.shuffleCards();
 
         int amountOfInitialTroops = 40 - ((amountOfHumans+amountOfAI - 2)*5);
+        
         for(int i = 0; i < amountOfHumans; i++){
             Player nextPlayer = gameObject.AddComponent<Player>();
             nextPlayer.SetPlayerText(playerTextNames[i]);
@@ -93,13 +94,6 @@ public class GameManager : MonoBehaviour
             nextPlayer.SetPlayerName(playerNames[i]);
             CurrentPlayers.Add(nextPlayer);
             nextPlayer.AlterTroopsToDeploy(amountOfInitialTroops);
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-            nextPlayer.GetPlayerDeck().AddCard(mainDeck.DrawCard());
-
         }
 
         gameDice = gameObject.AddComponent<Dice>();
