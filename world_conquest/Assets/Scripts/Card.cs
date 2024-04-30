@@ -1,45 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
-using UnityEngine;
-
+///<summary>
+/// Represents a card used in a game.
+///</summary>
 public class Card
 {
+    ///<summary>
+    /// The name of the territory associated with the card.
+    ///</summary>
     private string territory;
+
+    ///<summary>
+    /// The type of army associated with the card.
+    ///</summary>
     private string armyType;
+
+    ///<summary>
+    /// The type of the card.
+    ///</summary>
     private string cardType;
 
-    //Constructor for territory cards
-    public Card(string territory, string armyType, string cardType){
+    ///<summary>
+    /// Constructor for creating territory cards.
+    ///</summary>
+    ///<param name="territory">The name of the territory.</param>
+    ///<param name="armyType">The type of army associated with the territory.</param>
+    ///<param name="cardType">The type of the card.</param>
+    public Card(string territory, string armyType, string cardType)
+    {
         this.territory = territory;
         this.armyType = armyType;
         this.cardType = cardType;
     }
 
-    //Overloaded constructor for mission or wild cards
-    public Card(string cardType){
+    ///<summary>
+    /// Overloaded constructor for creating mission or wild cards.
+    ///</summary>
+    ///<param name="cardType">The type of the card.</param>
+    public Card(string cardType)
+    {
         this.territory = "empty";
         this.armyType = "empty";
-        this.cardType=cardType;
+        this.cardType = cardType;
     }
 
-    //Returns territory name
-    public string GetTerritoryName(){
+    ///<summary>
+    /// Returns the name of the territory associated with the card.
+    ///</summary>
+    ///<returns>The name of the territory.</returns>
+    public string GetTerritoryName()
+    {
         return this.territory;
     }
 
-    //Returns the army type
-    public string getArmyType(){
+    ///<summary>
+    /// Returns the type of army associated with the card.
+    ///</summary>
+    ///<returns>The type of army.</returns>
+    public string GetArmyType()
+    {
         return this.armyType;
     }
 
-    //Returns the card type
-    public string getCardType(){
+    ///<summary>
+    /// Returns the type of the card.
+    ///</summary>
+    ///<returns>The type of the card.</returns>
+    public string GetCardType()
+    {
         return this.cardType;
     }
-
 }
-
-
