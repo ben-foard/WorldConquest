@@ -652,7 +652,7 @@ public class GameManager : MonoBehaviour
             buttonManager.UpdateConfirmVisibility(true);
             attackCanvasText[1].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " rolled:";
             attackCanvasText[2].text = defendingCountry.GetOwner().GetPlayerName() + " rolled:";
-            attackCanvasText[0].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " is attacking " + currentSelectedTerritory.GetTerritoryName();
+            attackCanvasText[0].text = previousSelectedTerritory.GetOwner().GetPlayerName() + " is attacking " + defendingCountry.GetTerritoryName();
             currentSelectedTerritory = defendingCountry;
 
             // Adjusts the slider range based on the number of troops available for attacking
